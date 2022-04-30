@@ -83,7 +83,7 @@
 	] at #1 {\tiny\color{white}€};
 }
 
-\input{flat-blue-theme.inc}
+\input{../flat-blue-theme.inc}
 
 \setbeamercovered{invisible}
 \beamertemplatenavigationsymbolsempty
@@ -93,14 +93,20 @@
 \date{\today}
 
 \begin{document}
-	\begin{frame}
-		\includegraphics[width=\paperwidth,trim=2cm 2cm -1.9cm 3.35cm]{images/tax-government}
-	\end{frame}
+	{
+		\setbeamertemplate{footline}{}
+		\begin{frame}
+			\includegraphics[width=\paperwidth,trim=2cm 2cm -1.9cm 3.35cm]{images/tax-government}
+		\end{frame}
+		\addtocounter{page}{-1}
+	}
 
 	{
+		\setbeamertemplate{footline}{}
 		\setbeamertemplate{headline}{}
 %		\setbeamertemplate{background}{\includegraphics[width=\paperwidth,trim=0 0 0 3.5cm]{images/tax-government}}
 		\maketitle
+		\addtocounter{page}{-1}
 	}
 	
 	\begin{frame}{Disclaimer}
