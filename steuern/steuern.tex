@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage{xifthen}
 \usepackage{multicol}
+\usepackage{cleveref}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
@@ -31,9 +32,10 @@
 	\oldfootnote
 	{
 		\tiny
-		\textcolor{gray}{#1}
+		\textcolor{gray}{\ #1}
 	}%
 }
+\renewcommand{\footref}[1]{\textsuperscript{\ref{#1}}}
 \newcommand{\citewiki}[2][]
 {%
 	\footnote
@@ -49,7 +51,7 @@
 }
 \newcommand{\citeurl}[2]
 {%
-	\footnote{\ Quelle: \href{#1}{#2}}
+	\footnote{Quelle: \href{#1}{#2}}
 }
 \newcommand{\money}[1]{
 	\node
@@ -80,6 +82,11 @@
 
 \setbeamercovered{invisible}
 \beamertemplatenavigationsymbolsempty
+
+% Reduce spacing between TOC elements by replacing "1.5em" with "0.75em"
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.75em}{}{}
+\makeatother
 
 \author[Hauke Stieler]{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
 \title{Steuern}
@@ -116,19 +123,19 @@
 		\end{center}
 	\end{frame}
 
-	\begin{frame}
+	\begin{frame}[t]{Inhalt}
 		\tableofcontents[hidesubsections]
 	\end{frame}
 	
 	\section{Basics}
 	
-		\begin{frame}
-			\tableofcontents[currentsection,hideallsubsections]
+		\begin{frame}[t]{Inhalt}
+			\tableofcontents[currentsection,hideothersubsections]
 		\end{frame}
 	
 		\subsection{Wieso? Weshalb? Warum?}
 	
-			\begin{frame}{Was sind Steuern?}
+			\begin{frame}{Was sind Steuern?\citewiki{Steuer}}
 				\begin{itemize}
 					\item Zahlungen an Staat/Land/Gemeinde
 					\item Kein Anspruch auf Gegenleistung
@@ -139,7 +146,7 @@
 				\end{itemize}
 			\end{frame}
 		
-			\begin{frame}{Warum eigentlich Steuern?}
+			\begin{frame}{Warum eigentlich Steuern?\citewiki{Steuer\#Der\_Zweck\_der\_Steuererhebung}}
 				\textbf{Staatshaushalt} decken.
 				\begin{itemize}
 					\item \href{https://www.bundeshaushalt.de/DE/Bundeshaushalt-digital/bundeshaushalt-digital.html}{bundeshaushalt.de}
@@ -163,7 +170,7 @@
 		
 		\subsection{Grundsätze}
 	
-			\begin{frame}{Maxime im Aufbau von Steuern}
+			\begin{frame}{Maxime im Aufbau von Steuern\citewiki{Steuer\#Die\_Grundsätze\_der\_Besteuerung}}
 				\begin{description}[labelwidth=0cm]
 					\item[Gerechtigkeit] Nur wirtschaftliche Faktoren wichtig (nicht z.B. Hautfarbe)
 					\item[Gleichmäßigkeit] Kein Spielraum/Willkür
@@ -177,7 +184,7 @@
 	\subsection{Steuersatz}
 	
 		\begin{frame}
-			Der Steuersatz (prozentualer Wert) kann sich wie folgt entwickeln:\n
+			Steuer (in Prozent), die man zahlen muss. Kann sich wie folgt entwickeln\citewiki{Steuertarif}:\n
 			\begin{description}
 				\item[Proportional] Immer gleicher Prozentwert (z.B. 19\% Umsatzsteuer)
 				\item[Progressiv] Prozentwert steigt mit Bemessungsgrundlage (z.B. Lohnsteuer)
@@ -189,7 +196,7 @@
 	
 	\section{Glossar}
 	
-		\begin{frame}
+		\begin{frame}[t]{Inhalt}
 			\tableofcontents[currentsection,hideallsubsections]
 		\end{frame}
 		
@@ -209,7 +216,7 @@
 	
 	\section{Steuerarten}
 	
-		\begin{frame}
+		\begin{frame}[t]{Inhalt}
 			\tableofcontents[currentsection,hideothersubsections]
 		\end{frame}
 	
@@ -258,7 +265,7 @@
 		
 			\begin{frame}
 				\begin{tabularx}{\linewidth}{X|X}
-					\multicolumn{1}{c|}{\textbf{Pauschalsteuer}} &
+					\multicolumn{1}{c|}{\textbf{Pauschalsteuer}\citewiki{Flat\_Tax}} &
 					\multicolumn{1}{c}{\textbf{Individualsteuer}} \\[0.25cm]
 					Steuersatz (Prozent-Zahl) immer gleich. & Steuersatz individuell von persönlichen Verhältnissen.\\
 					\vspace{0.25cm} Beispiel Umsatzsteuer:\newline
@@ -270,8 +277,8 @@
 	
 	\section{Einkommen und Steuern}
 	
-		\begin{frame}
-			\tableofcontents[currentsection,hideallsubsections]
+		\begin{frame}[t]{Inhalt}
+			\tableofcontents[currentsection,hideothersubsections]
 		\end{frame}
 	
 		\subsection{Muss ich Steuern zahlen?}
@@ -292,7 +299,7 @@
 		
 			\begin{frame}{Arbeit und Steuer}
 				\begin{tabularx}{\linewidth}{X|X}
-					\multicolumn{1}{c|}{\textbf{Selbständig}} &
+					\multicolumn{1}{c|}{\textbf{Selbständig}\citewiki{Selbständigkeit\_(beruflich)\#Steuerrecht}} &
 					\multicolumn{1}{c}{\textbf{Angestellt}} \\[0.25cm]
 					\begin{itemize}
 						\item Schreibt Rechnungen
@@ -318,20 +325,20 @@
 			\begin{frame}{Steuersätze}
 				\begin{itemize}
 					\item Einnahmen $\neq$ Einkünfte $\neq$ Einkommen $\neq$ zu versteuerndes Einkommen {\tiny (Trivial!)}
-					\item Wie viel Steuern muss ich jetzt zahlen? ... well
+					\item Wie viel Steuern muss ich jetzt zahlen?\pause\ ... well\pause
 					\begin{itemize}
 						\item Steuersatz nach Zonen (je nach Einkommen)
 						\item Grenzsteuersatz: Steuersatz auf den \textit{nächsten} Euro
-						\item Durchschnitssteuersatz: Steuersatz bezogen auf den gesamten Betrag
+						\item Durchschnittssteuersatz: Steuersatz bezogen auf den gesamten Betrag
 					\end{itemize}
 				\end{itemize}
-				Ja aber wie viel ist das jetzt? Hä, na so viel\citewiki[Einkommenssteuer]{Einkommensteuer_(Deutschland)\#Tarif_2020}:
+				Ja aber wie viel ist das jetzt?\pause\ Hä, na so viel, ist doch klar\citewiki[Einkommenssteuer]{Einkommensteuer_(Deutschland)\#Tarif_2020}:
 				\begin{center}
-					\only<1>{
+					\only<0-4>{
 						\includegraphics[width=\textwidth]{images/tarifzonen-formel}
 						\hfill
 					}
-					\only<2>{
+					\only<5>{
 						\includegraphics[width=\textwidth]{images/tarifzonen-formel-trivial}
 						\hfill
 					}
@@ -343,6 +350,15 @@
 					\vspace{-0.5cm}
 					\begin{figure}
 						\includegraphics[width=0.9\linewidth]{images/tarifzonen-diagramm}\citeurl{https://commons.wikimedia.org/wiki/File:ESt_D_Tarif_2014_Splitting_120kEUR.svg}{Wikipedia (CC BY-SA 3.0)}
+					\end{figure}
+				\end{center}
+			\end{frame}
+		
+			\begin{frame}{Steuersätze}
+				\begin{center}
+					\vspace{-0.5cm}
+					\begin{figure}
+						\includegraphics[width=0.8\linewidth]{images/steuerrechner}\citeurl{https://www.finanzfluss.de/rechner/einkommensteuer/}{Finanzfluss -- Einkommensteuer berechnen}
 					\end{figure}
 				\end{center}
 			\end{frame}
@@ -387,7 +403,7 @@
 						\item Steuerberater, Lektüre über Steuern, ...
 					\end{itemize}
 					\item Solche Ausgaben reduzieren das \textit{zu versteuernde Einkommen}
-				\end{itemize}\n
+				\end{itemize}\n\pause
 				
 				\textbf{Fun fact:} Für das Finanzamt sind Ausbildungskosten = beruflich motivierte Kosten.
 			\end{frame}
@@ -403,7 +419,7 @@
 			\begin{frame}
 				\begin{itemize}
 					\item Kapitalerträge = Zinsen, Dividenden, Kursgewinne, ...
-					\item Kapitalerträge $\neq$ Einkommen \textrightarrow\ Kapitalertragssteuer
+					\item Kapitalerträge $\neq$ Einkommen \textrightarrow\ Kapitalertragssteuer\pause
 					\item Kapitalertragssteuer = Quellensteuer = nice!
 					\item Kapitalertragssteuer = 25\% + Soli + ggf. Kirchensteuer
 					\begin{itemize}
@@ -415,7 +431,7 @@
 								\text{25\% + Soli + ggf. Kirchensteuer}, & \text{sonst}
 							\end{cases}
 						\]
-					\end{itemize}
+					\end{itemize}\pause
 					\item Freibetrag (Sparerpauschbetrag): 801€
 					\begin{itemize}
 						\item Bei Bank/Broker als "`Freistellungsauftrag"' festlegen
@@ -426,16 +442,16 @@
 		
 	\section{Studieren und Steuern}
 	
-		\begin{frame}
-			\tableofcontents[currentsection,hideallsubsections]
+		\begin{frame}[t]{Inhalt}
+			\tableofcontents[currentsection,hideothersubsections]
 		\end{frame}
 	
 		\begin{frame}{Bachelor / Erstausbildung}
 			\begin{itemize}
-				\item Bachelor = Erstausbildung?
+				\item Bachelor ?= Erstausbildung
 				\begin{itemize}
 					\item Meistens ja
-					\item Vorher anderes Studium/betriebliche Ausbildung? Dann nein
+					\item Zuvor \textbf{abgeschlossene/s} Studium/betriebliche Ausbildung? Dann nein
 				\end{itemize}
 				\item Absetzen nur als Sonderausgaben (nicht als Werbungskosten)
 				\item Max. 6000€ pro Jahr
@@ -459,10 +475,10 @@
 				\item Semestergebühren, Kursgebühren, Exkursionen
 				\item Kosten für Bücher, Literatur, Leihgebühren, ...
 				\item Fahrtkosten + Unterkunft
-				\item Spenden (ggf. Mitgliedsbeiträge bei Vereinen)
 				\item Arbeitsmittel, Druck-/Bindekosten
 				\item Telefon, Internet
 				\item Master only (?\footnote{Soweit ich einen Absatz im ELSTER-FAQ richtig verstehe}): Mehraufwendungen für Verpflegung
+				\item Spenden (ggf. Mitgliedsbeiträge bei Vereinen)
 			\end{itemize}\n
 			Siehe auch \href{https://www.elster.de/eportal/helpGlobal?themaGlobal=help_est_ufa_10_2020}{ELSTER-FAQ}.
 		\end{frame}
@@ -477,8 +493,13 @@
 	
 	\section{Steuererklärung}
 	
-		\begin{frame}
-			\tableofcontents[currentsection,hideallsubsections]
+		\begin{frame}[t]{Inhalt}
+			\tableofcontents[currentsection,hideothersubsections]
+		\end{frame}
+	
+		\begin{frame}{Disclaimer}
+			Im Folgenden \textbf{Fokus auf nicht-selbstständige Arbeit} (= Angestellte \& Werkstudenten) \textrightarrow\ Einkommenssteuer\n\pause\footnotesize
+			Freiberufler \& Selbstständige \textrightarrow\ Umsatzsteuer (wird hier nicht betrachtet, man kann aber fast das gleiche absetzen, muss es nur woanders eintragen)
 		\end{frame}
 	
 		{
@@ -561,17 +582,17 @@
 			\end{frame}
 		
 			\begin{frame}{Pauschalen}
-				Ohne weitere Nachweise möglich sind:
+				Ohne weitere Nachweise möglich sind\citeurl{https://www.finanzfluss.de/podcast/folge-165/}{Finanzfluss -- Podcast \#165}:
 				\begin{itemize}
 					\item Werbungskosten: 1000€
 					\item Kontoführung: 16€
 					\item Sparerpauschbetrag: max. 801€ auf Kapitalerträge
 					\item Home-Office Pauschale: max. 600€
-					\item Telefon- \& Internet: max. 20\%\footnote{Mehr ist möglich, dann aber Einzelnachweise nötig} \& max. 20€ pro Monat
+					\item Telefon- \& Internet: max. 20\%\footnote{\label{mehr-moeglich}Mehr ist möglich, dann aber Nachweise nötig} \& max. 20€ pro Monat
 					\item Umzug (sofern beruflich motiviert): Uff, also da geht einiges ;)
 					\item Entfernungspauschale (s.u.)
 					\item Verpflegungspauschale (s.u.)
-					\item Arbeitsmittel: 110€\footnote{Mehr ist möglich, dann aber einzeln aufführen} (s.u.)
+					\item Arbeitsmittel: 110€\footref{mehr-moeglich} (s.u.)
 				\end{itemize}
 			\end{frame}
 		
@@ -632,7 +653,7 @@
 					\item Kilometer werden immer \textbf{ab}gerundet (z.B. 2,9km \textrightarrow\ 2km)
 					\item Verkehrsmittel egal: Auto, Fahrrad, Fuß, Fahrgemeinschaft
 					\item Zweck muss beruflich sein: Zum Job, zur Uni, zur Lerngruppe (auch bei jemandem Zuhause), zur OE, ...
-				\end{itemize}\n
+				\end{itemize}\n\pause
 				
 				\textbf{Achtung:} Semesterticket wird woanders eingetragen!
 			\end{frame}
@@ -643,7 +664,7 @@
 				
 				\textbf{Zweitausbildung:}\\
 				Als Werbungskosten (z.B. unter "`Fortbildungskosten"' oder "`Weitere Werbungskosten"').\n
-				\hfill\\
+				\hfill\\\pause
 				\textbf{Hinweis:} Entfernungspauschale für Auto, Rad, Fuß geht trotzdem. Steuern sparen durch Rad fahren :D
 			\end{frame}
 		
@@ -697,9 +718,9 @@
 		
 			\begin{frame}{Verpflegungsmehraufwand}
 				\textbf{Beispiel 1:}\\
-				8h in Uni zur Lerngruppe/Vorlesung/... = \textbf{kein} Verpflegungsmehraufwand absetzbar\n
+				8h in Uni zur Lerngruppe/Vorlesung/... = \textbf{kein} Verpflegungsmehraufwand absetzbar\n\pause
 				\textbf{Beispiel 2:}\\
-				8h beim Kumpel zum Lernen = Verpflegungsmehraufwand möglich\n
+				8h beim Kumpel zum Lernen = Verpflegungsmehraufwand möglich\n\pause
 				\textbf{Beispiel 3:}\\
 				8h in Bibliothek der UHH die außerhalb des Campus-Teils (z.B. Ikum) ist, in dem man normalerweise studiert und die somit räumlich vom Rest der ersten Tätigkeitsstätte getrennt ist \textrightarrow\ ... keine Ahnung, aber ein Versuch ists wert
 			\end{frame}
@@ -715,16 +736,16 @@
 					\begin{itemize}
 						\item Gilt nicht mehr für Computer und Software, die ab 2021 angeschafft wurden!
 					\end{itemize}
-				\end{itemize}\n
+				\end{itemize}\n\pause
 			
 				\textbf{Hinweis:} Unbedingt Rechnungen aufheben! Mindestens bis Erhalt des Steuerbescheids, besser ein paar Jahre länger.
 			\end{frame}
 		
 			\begin{frame}{Arbeitsmittel}
 				\textbf{Beispiel 1:}\\
-				Ich kaufe für 100€ ein Regal und 75\% der Bücher darin sind Fachliteratur \textrightarrow\ 75€ absetzbar.\n
+				Ich kaufe für 100€ ein Regal und 75\% der Bücher darin sind Fachliteratur \textrightarrow\ 75€ absetzbar.\n\pause
 				\textbf{Beispiel 2:}\\
-				Ich kaufe eine Tastatur, die ich nur beruflich nutze \textrightarrow\ komplette Kosten kann ich absetzen.\n
+				Ich kaufe eine Tastatur, die ich nur beruflich nutze \textrightarrow\ komplette Kosten kann ich absetzen.\n\pause
 				\textbf{Beispiel 3:}\\
 				Ich habe nur 90€ für Arbeitsmittel ausgegeben :( \textrightarrow\ Einfach die 110€ Pauschale angeben :)
 			\end{frame}
@@ -739,16 +760,16 @@
 					\end{itemize}
 					\item Bis 300€: Kein Nachweis nötig
 					\item Über 300€: Spendenquittung wird ggf. nachgefordert
-				\end{itemize}\n
+				\end{itemize}\n\pause
 				Mitgliedsbeiträge:
 				\begin{itemize}
 					\item Ähnliche Regel wie oben
 					\item Nicht absetzbar für Sportvereine, Heimatvereine, etc.
-				\end{itemize}\n
+				\end{itemize}\n\pause
 				\textbf{Wo angeben?} \textrightarrow\ Sonderausgaben
 			\end{frame}
 		
-			\begin{frame}{Aber ich hab gar keinen Job :( \textrightarrow\ Verlustvortrag}
+			\begin{frame}{Aber ich hab gar keinen Job :(}
 				Du hast Kein Job? / Verdienst sehr wenig?\\\pause
 				Du machst deine Zweitausbildung?\\\pause
 				Trotzdem eine Steuererklärung machen!\n\pause
@@ -756,7 +777,8 @@
 					\item Werbungskosten als Verlust ansammeln (letzte 7 Jahre)
 					\item Geht nur für Zweitausbildung
 					\item In Folgejahren (wenn man Steuern zahlt) anrechnen und dann sparen
-				\end{itemize}
+				\end{itemize}\n
+				\textrightarrow\ Verlustvortrag
 			\end{frame}
 		
 			\begin{frame}{Falsche Angaben}
@@ -776,17 +798,17 @@
 			\begin{frame}
 				\begin{itemize}
 					\item Angestellt/Werkstudent? \textrightarrow\ freiwillige Steuererklärung\\
-					Selbstständig/Freiberufler? \textrightarrow\ Pflicht zur Steuererklärung
-					\item Steuererklärung ohne großen Aufwand online machen
+					Selbstständig/Freiberufler? \textrightarrow\ Pflicht zur Steuererklärung\pause
+					\item Steuererklärung ohne großen Aufwand online machen\pause
 					\item Berufliche/Universitäre Ausgaben können Steuerlast senken
 					\begin{itemize}
 						\item Auch ohne Job \textrightarrow\ Verlustvortrag
 					\end{itemize}
 					\item Pauschalen nutzen
-					\item Dokumente, Rechnungen, Quittungen, etc. aufheben
+					\item Dokumente, Rechnungen, Quittungen, etc. aufheben\pause
 					\item Erstausbildung? \textrightarrow\ Sonderausgaben\\
-					Zweitausbildung? \textrightarrow\ Werbungskosten\vspace{-0.1cm}\\
-					{\tiny (Spenden/Mitgliedsbeiträge sind immer Sonderausgaben)}
+					Zweitausbildung? \textrightarrow\ Werbungskosten\vspace{-0.1cm}\\\pause
+					\item Spenden/Mitgliedsbeiträge sind immer Sonderausgaben
 				\end{itemize}
 			\end{frame}
 		
