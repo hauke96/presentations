@@ -1,11 +1,10 @@
-\documentclass[draft]{beamer}
+\documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{lastpage}
 \usepackage{tikz}
 \usepackage{lmodern}
-%\usepackage{libertine}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage{xifthen}
@@ -161,10 +160,10 @@
 			\begin{frame}{Von wem an wen werden Steuern gezahlt?}
 				Steuerzahler zahlt Steuern an Bund/Land/Gemeinde:\n
 				
-				\begin{description}
-					\item[An Bund] Einkommenssteuer, Lohnsteuer, Umsatzsteuer
-					\item[An Land] Erbschaftssteuer, Lotteriesteuer, Biersteuer
-					\item[An Gemeinde] Grundsteuer, Hundesteuer
+				\begin{description}[An Gemeinde]
+					\item[An Bund] Einkommenssteuer, Lohnsteuer, Umsatzsteuer, ...
+					\item[An Land] Erbschaftssteuer, Lotteriesteuer, Biersteuer, ...
+					\item[An Gemeinde] Grundsteuer, Hundesteuer, ...
 				\end{description}
 			\end{frame}
 		
@@ -203,7 +202,7 @@
 		\subsection{Glossar}
 		
 			\begin{frame}
-				\begin{description}[labelwidth=0cm]
+				\begin{description}[Steuerfestsetzung]
 					\item[Steuerschuldner] Gesetzlich verpflichtet Steuern zu zahlen
 					\item[Steuerträger] Wirtschaftlich belastet\citewiki{Direkte\_und\_indirekte\_Steuer}
 					\item[Steuerzahler] Person, die tatsächlich das Geld überweist\citewiki{Steuerzahler}
@@ -332,7 +331,7 @@
 						\item Durchschnittssteuersatz: Steuersatz bezogen auf den gesamten Betrag
 					\end{itemize}
 				\end{itemize}
-				Ja aber wie viel ist das jetzt?\pause\ Hä, na so viel, ist doch klar\citewiki[Einkommenssteuer]{Einkommensteuer_(Deutschland)\#Tarif_2020}:
+				Ja aber wie viel ist das jetzt?!\pause\ Na so viel, ist doch klar\citewiki[Einkommenssteuer]{Einkommensteuer_(Deutschland)\#Tarif_2020}:
 				\begin{center}
 					\only<0-4>{
 						\includegraphics[width=\textwidth]{images/tarifzonen-formel}
@@ -423,18 +422,11 @@
 					\item Kapitalertragssteuer = Quellensteuer = nice!
 					\item Kapitalertragssteuer = 25\% + Soli + ggf. Kirchensteuer
 					\begin{itemize}
-						\item Genauer:
-						\[
-							S_\text{Kap} =
-							\begin{cases}
-								S_\text{Est}, & S_{\text{Est}} < 25\%\\
-								\text{25\% + Soli + ggf. Kirchensteuer}, & \text{sonst}
-							\end{cases}
-						\]
+						\item Grenzsteuersatz $<$ 25\%? \textrightarrow\ Günstigerprüfung
 					\end{itemize}\pause
 					\item Freibetrag (Sparerpauschbetrag): 801€
 					\begin{itemize}
-						\item Bei Bank/Broker als "`Freistellungsauftrag"' festlegen
+						\item Bei Bank/Broker "`Freistellungsauftrag"' festlegen
 					\end{itemize}
 					\item Steuererklärung: Anlage KAP
 				\end{itemize}
@@ -461,7 +453,7 @@
 	
 		\begin{frame}{Master / Zweitausbildung}
 			\begin{itemize}
-				\item Master = Zweitausbildung!
+				\item Master = Zweitausbildung
 				\item Absetzen als Werbungskosten
 				\item Unbegrenzt viel
 				\item Verlust/Ausgaben übertragbar auf spätere Jahre
@@ -538,8 +530,8 @@
 					\item Immer im Folgejahr: Steuererklärung \textbf{für} 2020 macht man also 2021.
 				\end{itemize}\n
 				\textbf{Fristen:}\\
-				\textbf{Angestellt}? \textrightarrow\ freiwillige Abgabe \textrightarrow\ vier Jahre Zeit\\
-				\textbf{Selbstständig}/Freiberufler? \textrightarrow\ Pflicht \textrightarrow\ Bis 31. Juli\footnote{Coronabedingt ggf. länger}
+				Angestellt? \textrightarrow\ freiwillige Abgabe \textrightarrow\ vier Jahre Zeit\\
+				Selbstständig/Freiberufler? \textrightarrow\ Pflicht \textrightarrow\ Bis 31. Juli\footnote{Coronabedingt ggf. länger}
 			\end{frame}
 
 			\begin{frame}{Wo mache ich meine Steuererklärung?}
@@ -564,7 +556,7 @@
 			\begin{frame}{Wie läuft das ab?}
 				\begin{itemize}
 					\item Jahr endet \& Erhalt Lohnsteuerbescheid
-					\item Daten aus Lohnsteuerbescheid in Steuerprogramm eintragen / ggf. automatisch vorausgefüllt
+					\item Daten aus Lohnsteuerbescheinigung in Steuerprogramm eintragen / ggf. automatisch vorausgefüllt
 					\item Ausgaben eintragen
 					\begin{itemize}
 						\item Beruflich/Uni motivierte Kosten
@@ -573,12 +565,26 @@
 					\end{itemize}
 					\item Abschicken
 					\item Ggf. Dokumente (z.B. Rechnungen) nachreichen
-					\item Erhalt Steuerbescheid
+					\item Erhalt Einkommensteuerbescheid
 					\begin{itemize}
 						\item Prüfen \& nachvollziehen
 						\item Enthält ggf. Erklärungen und Begründungen
 					\end{itemize}
 				\end{itemize}
+			\end{frame}
+		
+			\begin{frame}{Lohnsteuerbescheinigung}
+				\begin{center}
+					\includegraphics[width=0.65\linewidth]{images/lohnsteuerbescheinigung}
+					\citeurl{https://www.smartsteuer.de/online/wp-content/uploads/2021/11/Elektronische-Lohnsteuerbescheinigung-2021.png}{smartsteuer.de}
+				\end{center}
+			\end{frame}
+		
+			\begin{frame}{Einkommensteuerbescheid}
+				\begin{center}
+					\includegraphics[width=0.55\linewidth]{images/einkommensteuerbescheid_2019}
+					\citeurl{https://de.wikipedia.org/wiki/Datei:Einkommensteuerbescheid_2019.pdf}{commons.wikimedia.org}
+				\end{center}
 			\end{frame}
 		
 			\begin{frame}{Pauschalen}
@@ -809,8 +815,18 @@
 					\item Pauschalen nutzen
 					\item Dokumente, Rechnungen, Quittungen, etc. aufheben\pause
 					\item Erstausbildung? \textrightarrow\ Sonderausgaben\\
-					Zweitausbildung? \textrightarrow\ Werbungskosten\vspace{-0.1cm}\\\pause
-					\item Spenden/Mitgliedsbeiträge sind immer Sonderausgaben
+					Zweitausbildung? \textrightarrow\ Werbungskosten\vspace{-0.1cm}
+				\end{itemize}
+			\end{frame}
+		
+			\begin{frame}
+				\begin{itemize}
+					\item Home-Office Pauschale: Bis 600€, in Werbungskostenpauschale schon drin
+					\item Weg zur Arbeit: 30ct / km (einfache Strecke; abgerundet)
+					\item Semesterbeitrag: Sonderausgaben bzw. Fortbildungskosten
+					\item Verpflegungsmehraufwand: Wenn $>$8h auswärts tätig 14€ bzw. 28€
+					\item Arbeitsmittel: 110€ Pauschale, bei hohen Ausgaben ggf. über Jahre verteilen
+					\item Spenden/Mitgliedsbeiträge: Gemeinnützig, mildtätig, kirchlich \textrightarrow\ Sonderausgaben
 				\end{itemize}
 			\end{frame}
 		
