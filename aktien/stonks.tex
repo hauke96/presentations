@@ -83,6 +83,8 @@
 	] at #1 {\tiny\color{white}€};
 }
 
+\newcommand{\wkn}[1]{\href{https://www.finanzen.net/anleihen/#1}{#1}}
+
 \input{flat-blue-theme.inc}
 
 \setbeamercovered{invisible}
@@ -132,7 +134,7 @@
 				\item[Rendite] Gewinn relativ zum Einsatz (in Prozent)\pause
 				\item[Kapital] = Mittel = Geld (meistens)\pause
 				\item[Anleger] Auch \textit{Investor}, nimmt am Finanzmarkt teil, z.B. durch Investitionen\pause
-				\item[Risiko] Wahrscheinlichkeit des Eintretens eines (meist negativen) Ereignisses\pause
+				\item[Risiko] Wahrscheinlichkeit des Eintretens eines negativen Ereignisses\pause
 				\item[Portfolio] Sammlung an Wertpapieren
 			\end{description}
 		\end{frame}
@@ -142,16 +144,17 @@
 			\begin{frame}
 				\begin{definition}
 					Einsatz von Kapital für einen bestimmten Verwendungszweck.\citewiki{Investition}
-				\end{definition}\hfill
-			
-				Beispiele:
+				\end{definition}
+				\begin{itemize}
+					\item Motivation: Glaube an die Qualität des Unternehmens
+					\item Horizont: Langfristig (Jahre/Jahrzehnte)
+				\end{itemize}\n
+				\textbf{Beispiele:}
 				\begin{itemize}
 					\item Kauf von Aktien zum Vermögensaufbau.
 					\item Kauf eines Buches zum lernen für eine Uni-Veranstaltung.
 					\item Sport treiben zum Erhalt der körperlichen Gesundheit.
-				\end{itemize}\hfill
-			
-				Horizont: Langfristig
+				\end{itemize}
 			\end{frame}
 		
 		\subsection{Spekulieren}
@@ -159,15 +162,19 @@
 			\begin{frame}
 				\begin{definition}
 					Risikoreiches Ausnutzen von Preisschwankungen zur Gewinnmitnahme.\citewiki{Spekulation\_(Wirtschaft)}
-				\end{definition}\hfill
-			
-				Beispiele:
+				\end{definition}
 				\begin{itemize}
-					\item Kauf einer Aktie, Verkauf am Folgetag: Spekulation auf steigende Kurse.
-					\item Mit 100km/h auf eine rote Ampel zufahren: Spekulation, dass Ampel gleich grün wird.
-				\end{itemize}\hfill
-				
-				Horizont: Kurzfristig
+					\item Motivation: Externe Faktoren zur Gewinnerzeugung nutzen
+					\begin{itemize}
+						\item Böse formuliert: Sich an Fehlentscheidungen/""Hoffnungen/Unwissen/... anderer bereichern
+					\end{itemize}
+					\item Horizont: Kurzfristig (Sekunden bis Monate)
+				\end{itemize}\n
+				\textbf{Beispiele:}
+				\begin{itemize}
+					\item Kauf einer Aktie, Verkauf am Folgetag.
+					\item Bunkern von Getreide: Hoffnung auf Kriege und Wirtschaftskrisen.
+				\end{itemize}
 			\end{frame}
 		
 		\subsection{Sparen}
@@ -177,7 +184,7 @@
 					Verzicht auf Verbrauch von Kapital zur späteren Verwendung.\citewiki{Sparen}
 				\end{definition}\hfill
 				
-				Beispiele:
+				\textbf{Beispiele:}
 				\begin{itemize}
 					\item Monatlich 300€ nicht ausgeben
 					\item Einmalig 10.000€ auf ein Festgeldkonto
@@ -198,7 +205,7 @@
 				\begin{definition}
 					Zinsen sind das Entgeld für zeitweise überlassenes Kapital (z.B. ein Kredit) vom Schuldner zum Gläubiger.\citewiki{Zins}
 				\end{definition}
-				Beispiele:
+				\textbf{Beispiele:}
 				\begin{multicols}{2}
 					\begin{itemize}
 						\item Sparbuch:\\
@@ -223,31 +230,30 @@
 			\end{frame}
 		
 			\begin{frame}{Zinsen}
-				Die Höhe von Zinsen:
 				\begin{itemize}
-					\item Hängt ab von
+					\item Höhe der Zinsen hängt ab von:
 					\begin{itemize}
 						\item Bonität des Schuldners
 						\item Leitzins
 						\item Allgemeiner wirtschaftlicher Lage
 					\end{itemize}
 					\item Daumenregel: Hohe Zinsen \textrightarrow\ hohes Risiko!
-					\item Zinsen = Schmerzensgeld / Belohnung für eingegangenes Risiko
+					\item Zinsen $\approx$ Schmerzensgeld / Belohnung für eingegangenes Risiko
 				\end{itemize}
 			\end{frame}
 		
-			\begin{frame}{Der Zinseszins-Effekt}
+			\begin{frame}{Zinsen: Der Zinseszins-Effekt}
 				\begin{definition}
 					Zinsen, die auf Kapital mit zuvor hinzugefügten Zinsen gezahlt werden.\citewiki{Zinseszins}
 				\end{definition}
+				\textbf{Einfach gesagt:}\\
+				Zinsen auf Zinsen \textrightarrow\ exponentielles Wachstum\n
 				
-				Oder: Zinsen auf Zinsen \textrightarrow\ exponentielles Wachstum\\\hfill
-				
-				Beispiel Sparbuch mit 10\% Zinsen:
+				\textbf{Beispiel Sparbuch} mit 10\% Zinsen:
 				\begin{itemize}
 					\item 2021: 100,00€ \textrightarrow\ 10,00€ Zinsen \textrightarrow\ 110,00€ am Jahresende
 					\item 2022: 110,00€ \textrightarrow\ 11,00€ Zinsen \textrightarrow\ 121,00€
-					\item 2022: 121,00€ \textrightarrow\ 12,10€ Zinsen \textrightarrow\ 133,10€
+					\item 2023: 121,00€ \textrightarrow\ 12,10€ Zinsen \textrightarrow\ 133,10€
 				\end{itemize}
 			\end{frame}
 	
@@ -259,8 +265,10 @@
 	
 		\begin{frame}{Begrifflichkeiten}
 			\begin{description}[labelwidth=0cm]
-				\item[Wertpapier] Urkunde, die Rechte gegenüber einem Schuldner verbrieft\citewiki{Wertpapier}
-				\item[Volatilität] Größe der Schwankungen im Kursverlauf eines Wertpapiers\citewiki[Volatilität]{Volatilit\%C3\%A4t}
+				\item[Wertpapier] Urkunde, die Rechte gegenüber einem Schuldner verbrieft\citewiki{Wertpapier}(Beispiel: Aktie)
+				\item[Volatilität] Größe der Schwankungen im Kursverlauf eines Wertpapiers\citewiki[Volatilität]{Volatilit\%C3\%A4t}(aka Varianz/""Standardabweichung)
+				\item[WKN] \textbf{W}ertpapier\textbf{k}enn\textbf{n}ummer (z.B. A1R1BN)
+				\item[ISIN] \textbf{I}nternational \textbf{S}ecurities \textbf{I}dentification \textbf{N}umber (z.B. XS0913868369)
 			\end{description}
 		\end{frame}
 	
@@ -276,15 +284,19 @@
 			\begin{frame}
 				\begin{itemize}
 					\item Erste Aktie 1288\citewiki{Aktie}
-					\item Verbrieft Anteil an Unternehmen
+					\item Verbrieft einen Anteil an Unternehmen
 					\begin{itemize}
-						\item Mitbesitzer des Unternehmens
-						\item Aktionär
+						\item Mitbesitzer des Unternehmens \textrightarrow\ Aktionär
 					\end{itemize}
 					\item Rechte
 					\begin{itemize}
 						\item Stimmrecht
 						\item Dividendenanspruch
+					\end{itemize}
+					\item Pflichten
+					\begin{itemize}
+						\item Aktie bezahlen (Einlage in Grundkapital)
+						\item Treuepflicht: Im Interesse des Unternehmens \& anderer Anleger handeln
 					\end{itemize}
 					\item Jährliche Hauptversammlung
 				\end{itemize}
@@ -296,9 +308,9 @@
 				\end{definition}
 				\hfill\\
 				\begin{itemize}
-					\item Optional (s. Alphabet Inc.)
+					\item Optional (s. "`Alphabet Inc."' aka Google)
 					\item Höhe wird von Aktionären auf Hauptversammlung bestimmt
-					\item Ausschüttungen meist allgemein als Dividende bezeichnet
+					\item Dividenden sind eine Art der Ausschüttung von \textbf{Gewinnen}
 				\end{itemize}
 			\end{frame}
 				
@@ -325,12 +337,12 @@
 				\begin{definition}
 					Verzinsliches Wertpapier mit Recht auf Rückzahlung und Zinsen.\citewiki{Anleihe}
 				\end{definition}
-				Name ist Programm: An\textbf{leihe} \textrightarrow\ Rückzahlung mit Zinsen
+				Name ist Programm: An\textbf{leihe} \textrightarrow\ Rückzahlung + Zinsen
 				\begin{itemize}
 					\item Auch: Rentenpapier, Schuldverschreibung, Bond
 					\item Feste Laufzeit
-					\item Zinssatz (fest oder variabel)
-					\item Handelbar
+					\item Zinssatz (fest oder variabel), jährlich gezahlt
+					\item Ggf. handelbar
 					\item Staatsanleihen/Unternehmensanleihen
 				\end{itemize}
 			\end{frame}
@@ -339,10 +351,10 @@
 				Anleihen \href{https://www.finanzen.net/anleihen/a1r1bn-basf-se-anleihe}{A1R1BN} und \href{https://www.finanzen.net/anleihen/a11qc7-basf-se-anleihe}{A11QC7}:
 				\begin{center}
 					\begin{tabularx}{8cm}{l|l|l|l}
-						Anleihe	& Von			& Bis			& Zins		\\
+						WKN				& Von			& Bis					& Zins		\\
 						\hline
-						\href{https://www.finanzen.net/anleihen/a1r1bn-basf-se-anleihe}{A1R1BN}	& 04.02.2014	& 03.02.2021	& 1,875\%	\\
-						\href{https://www.finanzen.net/anleihen/a11qc7-basf-se-anleihe}{A11QC7}	& 12.02.2014	& 11.02.2043	& 3,250\%	\\
+						\wkn{A1R1BN}	& 04.02.2014	& 03.02.20\textbf{21}	& 1,875\%	\\
+						\wkn{A11QC7}	& 12.02.2014	& 11.02.20\textbf{43}	& 3,250\%	\\
 					\end{tabularx}
 				\end{center}
 			\end{frame}
@@ -388,7 +400,8 @@
 			\begin{frame}{Beispiel (DAX)}
 				\begin{itemize}
 					\item DAX = \textbf{D}eutscher \textbf{A}ktieninde\textbf{x}\citewiki{DAX}
-					\item Familie: MDAX, SDAX, TecDAX, DivDAX, ...
+					\item Quasi TOP 40 der deutschen Unternehmen
+					\item Geschwister: MDAX, SDAX, TecDAX, DivDAX, ...
 					\item Aufnahmekriterium \& Gewichtung: Streubesitz-Marktkapitalisierung
 					\item Maximales Gewicht: 10\%
 					\item Simple Formel:\pause
@@ -400,10 +413,8 @@
 						{
 							\sum_{i=1}^{n} p_{i0} \cdot q_{i0}
 						}\hspace{1cm}
-					\]\pause
+					\]
 				\end{itemize}
-				\vspace{-0.25cm}
-				tl;dr \textrightarrow\ TOP 40 der deutschen Unternehmen
 			\end{frame}
 		
 		\subsection{Fonds}
@@ -411,8 +422,10 @@
 			\begin{frame}
 				\begin{definition}
 					Verwaltetes Sondervermögen, welches in festgelegte Finanzprodukte investiert wird.\citewiki{Investmentfonds}
-				\end{definition}
-				Oder: Sammlung an Aktien, Anleihen, etc. in die man investieren kann.
+				\end{definition}\hfill
+			
+				\textbf{Einfacher gesagt:}\\
+				Sammlung an Aktien, Anleihen, etc. in die man investieren kann.
 			\end{frame}
 		
 			\begin{frame}
@@ -510,9 +523,9 @@
 				\begin{definition}
 					Investmentfonds, die man an der Börse handeln kann.\citewiki[Börsengehandelter\_Fonds]{B\%C3\%B6rsengehandelter\_Fonds}
 				\end{definition}
-				Meist synonym für \textit{Indexfonds}\pause:
+				Meist synonym für \textit{Indexfonds}:\pause
 				\begin{definition}
-					Investmentfonds, deren Zusammensetzung sich möglichst exakt an der eines Index orientiert.\citewiki{Indexfonds}
+					Indexfonds sind Investmentfonds, deren Zusammensetzung sich möglichst exakt an der eines Index orientiert.\citewiki{Indexfonds}
 				\end{definition}
 				Orientieren = Nachbilden = Abbilden = Replikation
 			\end{frame}
@@ -523,13 +536,13 @@
 					\item Passiver Fond
 					\item Auswahl Aktien wie im Index
 				\end{itemize}\vspace{0.25cm}
-				Beispiel DAX:\vspace{0.25cm}
+				\textbf{Beispiel DAX:}\vspace{0.25cm}
 				\begin{tabularx}{\linewidth}{X|p{3cm}|X|X}
-					Unternehmen & DAX-Gewichtung & iShares\footnote{\href{https://de.extraetf.com/etf-profile/DE0005933931}{iShares Core DAX UCITS ETF (ISIN: DE0005933931)}} & Xtrackers\footnote{\href{https://de.extraetf.com/etf-profile/LU0274211480}{Xtrackers DAX UCITS ETF (ISIN: LU0274211480)}}\\
+					Unternehmen & DAX-Gewichtung & iShares\footnote{\href{https://de.extraetf.com/etf-profile/DE0005933931?tab=components}{iShares Core DAX UCITS ETF (ISIN: DE0005933931)}} & Xtrackers\footnote{\href{https://de.extraetf.com/etf-profile/LU0274211480?tab=components}{Xtrackers DAX UCITS ETF (ISIN: LU0274211480)}}\\
 					\hline
-					Linde PLC & 9,26\% & 10,71\% & 10,72\% \\
-					SAP & 8,20\% & 8,72\% & 8,73\%\\
-					Siemens & 7,60\% & 7,85\% & 7,85\%
+					Linde PLC & 10,10\% & 10,82\% & 10,89\% \\
+					SAP & 8,50\% & 7,88\% & 7,86\%\\
+					Siemens & 8,30\% & 7,37\% & 7,41\%
 				\end{tabularx}
 			\end{frame}
 		
@@ -544,28 +557,29 @@
 			\begin{frame}
 				\begin{definition}
 					Von normalen Finanzprodukten abgeleitetes Finanzprodukt mit fester Laufzeit.\citewiki{Derivat (Wirtschaft)}
-				\end{definition}
-				Arten:
-				\begin{itemize}
-					\item \textbf{Swaps}: Tausch von Basiswerten (z.B. Zinsen) zur Absicherung.
-					\item \textbf{Futures}: Recht \& Pflicht auf festen Preis in der Zukunft.
-					\item \textbf{Optionen}: Future aber ohne Pflicht (\textrightarrow\ höhere Gebühren).
-					\item \textbf{Forwards}: Quasi Futures aber außerbörslich.
-				\end{itemize}
+				\end{definition}\hfill
+			
+				\textbf{Arten:}
+				\begin{description}
+					\item[Swaps] Tausch von Basiswerten (z.B. Zinsen) zur Absicherung.
+					\item[Futures] Recht \& Pflicht auf festen Preis in der Zukunft.
+					\item[Optionen] Future aber ohne Pflicht (\textrightarrow\ höhere Gebühren).
+					\item[Forwards] Quasi Futures aber außerbörslich.
+				\end{description}
 			\end{frame}
 		
 		\subsection{Konservative Finanzprodukte}
 		
 			\begin{frame}
-				\begin{itemize}
-					\item \textbf{Kopfkissen}: Kein (negativ) Zins, keine Kosten, volle Inflation, keine Absicherung\pause
-					\item \textbf{Girokonto}: Keine Zinsen, Gebühren, Einlagensicherung\pause
-					\item \textbf{Tagesgeld}: Geringe Zinsen, keine Gebühren, Einlagensicherung, Überweisung nur von/an Referenzkonto\pause
-					\item \textbf{Festgeld}: Mäßige Zinsen, keine Gebühren, Einlagensicherung, feste Laufzeit\pause
-					\item \textbf{Sparbuch}: Kaum/keine Zinsen, keine Gebühren, Einlagensicherung, begrenztes abheben, lange Kündigungsfristen\pause
-					\item \textbf{Lebensversicherung}: Kaum Zinsen, Gebühren, Einlagensicherung\pause
-					\item \textbf{Gold/Edelmetalle}: Recht volatil, geringe Rendite
-				\end{itemize}
+				\begin{description}
+					\item[Kopfkissen] Kein (negativ) Zins, keine Kosten, volle Inflation, keine Absicherung\pause
+					\item[Girokonto] Keine Zinsen, Gebühren, Einlagensicherung\pause
+					\item[Tagesgeld] Geringe Zinsen, keine Gebühren, Einlagensicherung, Überweisung nur von/an Referenzkonto\pause
+					\item[Festgeld] Mäßige Zinsen, keine Gebühren, Einlagensicherung, feste Laufzeit\pause
+					\item[Sparbuch] Kaum/keine Zinsen, keine Gebühren, Einlagensicherung, begrenztes abheben, lange Kündigungsfristen\pause
+					\item[Lebensversicherung] Kaum Zinsen, Gebühren, Einlagensicherung\pause
+					\item[Rohstoffe (z.B. Gold)] Recht volatil, Gewinn nur über Kurs, ethisch tlw. fragwürdig
+				\end{description}
 			\end{frame}
 		
 		\subsection{Kryptowährung}
@@ -576,9 +590,9 @@
 				\end{definition}
 			
 				\begin{itemize}
-					\item Nicht reguliert
+					\item Derzeit nicht reguliert
 					\item Reines Spekulationsobjekt
-					\item Ein Träumchen für Kriminelle (Steuerhinterziehung, Betrug)
+					\item Ein Träumchen für Kriminelle (Steuerhinterziehung, illegale Geschäfte, Scam)
 					\item Steuerlich: Uff
 					\begin{itemize}
 						\item Privates Veräußerungsgeschäft (\textrightarrow\ Einkommenssteuer)
@@ -606,7 +620,7 @@
 					\begin{itemize}
 						\item Kurse von Börse zu Börse leicht unterschiedlich
 					\end{itemize}
-					\item Überwacht durch z.B. BaFin
+					\item Überwacht durch z.B. BaFin oder SEC (Securities and Exchange Commission)
 				\end{itemize}
 			\end{frame}
 		
@@ -711,9 +725,9 @@
 				\begin{definition}
 					Viele Anleger investieren über das Internet kleine Beträge in Unternehmen (meist  Start-ups).\citewiki{Crowdinvesting}
 				\end{definition}
-				Oder: Wie Crowdfunding nur mit Rendite.\\
-				\hfill\\
-				Aber:
+				\textbf{Einfach gesagt:}\\
+				Wie Crowdfunding nur mit Rendite.\n
+				\textbf{Aber:}
 				\begin{itemize}
 					\item Hohe Rendite \textrightarrow\ hohes Risiko!
 					\item Kaum gesetzliche Grundlagen \textrightarrow\ "`grauer Kapitalmarkt"'
@@ -729,6 +743,7 @@
 		\subsection{Depot, Bank, Broker}
 		
 			\begin{frame}{Bank}
+				Reguliertes Kreditinstitut mit folgenden Geschäftsfeldern:
 				\begin{itemize}
 					\item Einlagen-, Kredit-, Wertpapiergeschäft
 					\item Wertpapierverwahrung
@@ -737,31 +752,74 @@
 			\end{frame}
 		
 			\begin{frame}{Depot}
+				Verwahrstelle von Wertpapieren (Konto).
 				\begin{itemize}
-					\item Konto für Wertpapiere
 					\item Ggf. Depotführungsgebühren
 					\item Angeboten von: Banken, Fondsgesellschaften, Broker
 				\end{itemize}
 			\end{frame}
 		
 			\begin{frame}{Broker}
+				Finanzdienstleister zum Handel mit Wertpapieren.
 				\begin{itemize}
 					\item Engl. für Börsenmakler
-					\item Finanzdienstleister (meist Banken)
+					\item Meist sind Banken auch Broker
 					\item Fokus reiner Broker: spekulative Privatanleger
 				\end{itemize}
 			\end{frame}
 		
-		\subsection{Best practices + Tipps}
+		\subsection{Investieren: Best practices + Tipps}
 		
 			\begin{frame}
 				\begin{description}[labelwidth=0cm]
 					\item[Diversifikation] Streuung von Anlagen zur Risikominimierung
-					\item[Strategie] Einen Plan konsequent verfolgen (z.B. Core-Satellite-Strategie)
-					\item[Geduld] Mehrere Jahre, alles andere wäre Spekulation
+					\item[Strategie] Einen Plan konsequent verfolgen (z.B. Core-Satellite-Strategie) \textrightarrow\  "`hin und her macht Taschen leer"'
+					\item[Geduld] Verkauf erst in mehreren Jahren, sonst wäre es Spekulation
 					\item[Gebühren] Depot- \& Ordergebühren, TER, Börsenplatzentgelte, Ausgabeaufschlag
-					\item[Nachdenken] Clickbaits, Werbung, "`Beratung"' und "`Gruppen"'\footnote{PORSCHE CAYMAN S JUNGS! JAWOLL, JAAA! GEIL MAN!} warten an jeder Ecke
+					\item[Nachdenken] Clickbaits, Werbung, "`Beratung"' und "`Gruppen"'\footnote{\href{https://www.youtube.com/watch?v=dM-8-KuKprA}{PORSCHE CAYMAN S JUNGS! JAWOLL, JAAA! GEIL MAN!}} warten an jeder Ecke
+					\item[Bildung] Wissen ist Macht, eigene Entscheidungen treffen
 				\end{description}
+			\end{frame}
+		
+			\begin{frame}{Welche Aktie/ETF/... kaufen?}
+				DAS beste Finanzprodukt gibt es nicht!\pause
+				\begin{itemize}
+					\item Anlageziel klären
+					\begin{itemize}
+						\item Geld "`parken"'?
+						\item Vermögensaufbau?
+						\item Rente aufbessern?
+						\item Etwas bewirken? (\textrightarrow\ impact investing)
+					\end{itemize}\pause
+					\item Risikobereitschaft klären
+					\begin{itemize}
+						\item Wie viel Geld bin ich bereit zu verlieren?
+						\item Was ist mein worst-case Szenario? (Totalverlust? Verlust von $x$ \% Einsatz? ...)
+					\end{itemize}\pause
+					\item Art des Handels
+					\begin{itemize}
+						\item Einmaliger Kauf
+						\item Aktives handeln (\textrightarrow\ trading $\neq$ investing)
+						\item kontinuierliches investieren (\textrightarrow\ Sparplan)
+					\end{itemize}
+				\end{itemize}
+			\end{frame}
+		
+			\begin{frame}{Welche Aktie/ETF/... kaufen?}
+				\begin{itemize}
+					\item Selbsteinschätzung
+					\begin{itemize}
+						\item Womit kenne ich mich aus? (z.B. Anleihen)
+						\item Wo sind meine Interessen? (z.B. trading)
+						\item Was traue ich mir zu?
+						\item Wo habe ich Wissenslücken?
+					\end{itemize}\pause
+					\item Welche Produkte kommen \textit{nicht} in Frage? \pause
+					\item Möchte ich einen Anlageberater? \pause
+				\end{itemize}\n
+				\textbf{Danach} konkretes klären:\\
+				Welche Bank? Welches Depot? Welches exakte Finanzprodukt? Welche genaue Strategie? ...\n
+				\textrightarrow\ Artikel der BaFin bzgl. Geldanlage: \href{https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Fachartikel/2015/fa_bj_1506_geldanlage.html}{bafin.de}
 			\end{frame}
 	
 	\section{Steuern}
