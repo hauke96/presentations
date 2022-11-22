@@ -1,18 +1,22 @@
 \documentclass{beamer}
+\input{flat-blue-theme.inc}
+
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{lastpage}
 \usepackage{tikz}
-\usepackage{lmodern}
-%\usepackage{libertine}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage{xifthen}
 \usepackage{multicol}
+
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
+
+\usepackage{lmodern}
+%\usepackage{libertine}
 
 \newcommand{\n}{\hfill\\\vspace{0.25cm}}
 
@@ -58,34 +62,35 @@
 		}
 	}
 }
-\newcommand{\money}[1]{
+\newcommand{\money}[2][green!45!gray]{
 	\node
 	[
-		fill=green!45!gray,
+		fill=#1,
 		minimum height=0.4cm,
 		minimum width=0.9cm,
 		inner sep=0pt,
 		rounded corners=0.1cm,
-		draw=green!50!black,
+		draw=#1!80!black,
 		thick
-	] at #1 {\scriptsize\color{white}€};
+	] at #2 {\scriptsize\color{white}€};
 }
-\newcommand{\smallmoney}[1]{
+\newcommand{\moneyLight}[1]{
+	\money[green!33!lightgray!75!white]{#1}
+}
+\newcommand{\smallmoney}[2][green!45!gray]{
 	\node
 	[
-		fill=green!45!gray,
+		fill=#1,
 		minimum height=0.3cm,
 		minimum width=0.675cm,
 		inner sep=0pt,
 		rounded corners=0.075cm,
 		draw=green!50!black,
 		semithick
-	] at #1 {\tiny\color{white}€};
+	] at #2 {\tiny\color{white}€};
 }
 
 \newcommand{\wkn}[1]{\href{https://www.finanzen.net/anleihen/#1}{#1}}
-
-\input{flat-blue-theme.inc}
 
 \setbeamercovered{invisible}
 
@@ -172,8 +177,8 @@
 				\end{itemize}\n
 				\textbf{Beispiele:}
 				\begin{itemize}
-					\item Kauf einer Aktie, Verkauf am Folgetag.
-					\item Bunkern von Getreide: Hoffnung auf Kriege und Wirtschaftskrisen.
+					\item Kauf (irgend)einer Aktie, Verkauf am Folgetag.
+					\item Bunkern von Getreide in Hoffnung auf Kriege und Wirtschaftskrisen.
 				\end{itemize}
 			\end{frame}
 		
@@ -210,7 +215,7 @@
 					\begin{itemize}
 						\item Sparbuch:\\
 						\begin{tikzpicture}[->,>=stealth']
-							\node (i) at (0,0) {Ich};
+							\node (i) at (0,0) {Du};
 							\node (b) at (3,0) {Bank};
 							
 							\draw (i) to [bend left=10] node[above,font=\tiny] {Sparbetrag} (b);
@@ -220,21 +225,23 @@
 						\item Kredit:\\
 						\begin{tikzpicture}[->,>=stealth']
 							\node (b) at (0,0) {Bank};
-							\node (i) at (3,0) {Ich};
+							\node (i) at (3,0) {Du};
 							
 							\draw (b) to [bend left=10] node[above,font=\tiny] {Kredit} (i);
 							\draw (i) to [bend left=10] node[below,align=center,font=\tiny] {Kredit\\+ Zinsen} (b);
 						\end{tikzpicture}
 					\end{itemize}
 				\end{multicols}
+				\vspace{-0.25cm}
+				{\tiny Reale Welt sieht anders aus, Stichwort \href{https://de.wikipedia.org/wiki/Leitzins}{Leitzins} und \href{https://de.wikipedia.org/wiki/Buchgeld}{Giralgeld}.}
 			\end{frame}
 		
 			\begin{frame}{Zinsen}
 				\begin{itemize}
 					\item Höhe der Zinsen hängt ab von:
 					\begin{itemize}
-						\item Bonität des Schuldners
 						\item Leitzins
+						\item Bonität des Schuldners
 						\item Allgemeiner wirtschaftlicher Lage
 					\end{itemize}
 					\item Daumenregel: Hohe Zinsen \textrightarrow\ hohes Risiko!
@@ -253,7 +260,7 @@
 				\begin{itemize}
 					\item 2021: 100,00€ \textrightarrow\ 10,00€ Zinsen \textrightarrow\ 110,00€ am Jahresende
 					\item 2022: 110,00€ \textrightarrow\ 11,00€ Zinsen \textrightarrow\ 121,00€
-					\item 2023: 121,00€ \textrightarrow\ 12,10€ Zinsen \textrightarrow\ 133,10€
+					\item 2023: 121,00€ \textrightarrow\ 12,\textbf{10}€ Zinsen \textrightarrow\ 133,10€
 				\end{itemize}
 			\end{frame}
 	
@@ -298,7 +305,7 @@
 						\item Aktie bezahlen (Einlage in Grundkapital)
 						\item Treuepflicht: Im Interesse des Unternehmens \& anderer Anleger handeln
 					\end{itemize}
-					\item Jährliche Hauptversammlung
+					\item Jährliche Hauptversammlung besuchen
 				\end{itemize}
 			\end{frame}
 		
@@ -317,19 +324,22 @@
 			\begin{frame}{Dividende (Beispiel)}
 				Beispiel BASF:\citeurl{https://www.finanzen.net/bilanz_guv/basf}{finanzen.net}\\
 				\hfill\\
-				\begin{tabularx}{\linewidth}{X|X|X}
-					Daten & 2018 & 2019\\
+				\begin{tabularx}{\linewidth}{l|X|X|X|X}
+					Daten & 2018 & 2019 & 2020 & 2021\\
 					\hline\hline
-					Gewinn (mio. €)		& 4.707	& 2.737 \\
-					Dividende (mio. €)	& 2.847	& 2.939 \\
-					Dividende pro Aktie	& 3,20	& 3,30 \\
-					Dividendenrendite	& 5,3\%	& 4,9\%
+					Gewinn (mio. €)		& 4.707 & 2.737 & -1.418 & 5.523 \\
+					Dividende (mio. €) \footnote{An Aktionäre, weitere Dividenden ggf. an anderen Gesellschafter}
+										& 2.847 & 2.939 &  3.031 & 3.031 \\
+					Dividende pro Aktie	& 3,20  & 3,30  &  3,30  & 3,40  
+					\uncover<2->{\\Dividendenrendite	& 5,3\% & 4,9\% &  5,1\% & 5,5\%}
 				\end{tabularx}\\
 				\hfill\\
-				\hfill\\\pause
-				Dividendenrendite = $\frac{\text{Dividende}}{\text{Aktienkurs}}$\\
-				{\tiny (Wie viel Dividende bekäme ich für $x$ € an Investition?)}
-			\end{frame}
+				\hfill\\
+				\uncover<2->{
+					Dividendenrendite = $\frac{\text{Dividende}}{\text{Aktienkurs}}$\\
+					{\tiny (Wie viel Dividende bekäme ich für $x$ € an Investition?)}
+				}
+\			\end{frame}
 		
 		\subsection{Anleihen}
 		
@@ -368,7 +378,7 @@
 			
 				\begin{itemize}
 					\item Beitrag zum Stammkapital (GmbH) oder Geschäftsguthabens (Genossenschaft)
-					\item Dividende (z.B. GLS: 1-3\%)
+					\item Dividende/Ausschüttung (z.B. GLS: 1-3\%)
 					\item In der Regel: Kunde / Mitarbeiter sein
 				\end{itemize}
 			\end{frame}
@@ -442,71 +452,90 @@
 					\begin{itemize}
 						\item Keine Anpassungen durch Fondmanager
 						\item Meist Abbildung eines Index (s. \nameref{subsec:etfs})
-						\item Niedrige Kosten (ca. 0,04\footnote{z.B. \href{https://de.extraetf.com/etf-profile/LU1781541096}{Lyxor Core Morningstar UK UCITS (ISIN: LU1781541096)}}-0,7\%\footnote{z.B. \href{https://de.extraetf.com/etf-profile/IE00BYPLS672}{L\&G Cyber Security UCITS (ISIN: IE00BYPLS672)}})
+						\item Niedrige Kosten (ca. 0,02\footnote{z.B. \href{https://de.extraetf.com/etf-profile/LU1781541096}{Lyxor Core Morningstar UK UCITS (ISIN: LU1781541096)}}-0,87\%\footnote{z.B. \href{https://de.extraetf.com/etf-profile/IE00BYPLS672}{L\&G Cyber Security UCITS (ISIN: IE00BYPLS672)}})
 					\end{itemize}\pause
 					\item Kein direkter Besitz der Aktien!
 				\end{itemize}
 			\end{frame}
 		
 			\begin{frame}
+				\hspace*{-0.75cm}
 				\begin{tikzpicture}[->,>=stealth']
 					\node (s) at (0,0) {\includegraphics[width=1.25cm,trim=0 0 0 -1.35cm]{images/stonks-guy}};
 					
-					\node (i) at (4.5,0) {\includegraphics[width=1.25cm]{images/bank}};
+					\node (i) at (3.5,0) {\includegraphics[width=1.25cm]{images/bank}};
 					\node[below=0cm of i,align=center] {\small Investment-\\gesellschaft};
 					
-					\node (b) at (9,0) {\includegraphics[width=1.25cm]{images/stockmarket}};
+					\node (b) at (7,0) {\includegraphics[width=1.25cm]{images/stockmarket}};
 					\node[below of=b] {\small Börse};
+					
+					\node[xscale=-1] (s2) at (10.5,0) {\includegraphics[width=1.25cm,trim=0 0 0 -1.35cm]{images/stonks-guy}};
 					
 					\onslide<2>
 					{
-						\money{(2,1)}
-						\money{(2.1,0.9)}
-						\money{(2.2,0.8)}
+						\money{(1.5,1)}
+						\money{(1.6,0.9)}
+						\money{(1.7,0.8)}
 						\draw[thick] (s) to [bend left=10] (i);
 					}
 				
-					\onslide<3-4>
+					\onslide<3-5>
 					{
-						\money{(4.5,1)}
+						\moneyLight{(3.5,1)}
 						\draw[thick,gray!50!white] (s) to [bend left=10] (i);
 					}
 				
 					\onslide<3>
 					{
-						\money{(6.7,0.9)}
-						\money{(6.8,0.8)}
+						\money{(5.25,1)}
+						\money{(5.35,0.9)}
 						\draw[thick] (i) to [bend left=10] (b);
 					}
 				
 					\onslide<4->
 					{
+						\moneyLight{(7,1)}
 						\draw[thick,gray!50!white] (i) to [bend left=10] (b);
 					}
 				
 					\onslide<4>
 					{
+						\money{(8.75,1)}
+						\draw[thick] (b) to [bend left=10] (s2);
+						\draw[thick] (s2) to [bend left=10] (b);
+						\node at (8.75,-1) {\includegraphics[width=0.75cm]{images/stock}};
+					}
+					
+					\onslide<5>
+					{
 						\draw[thick] (b) to [bend left=10] (i);
-						\node at (6.7,-1) {\includegraphics[width=0.75cm]{images/stock}};
-						\node at (6.85,-1.1) {\includegraphics[width=0.75cm]{images/stock}};
+						\node at (5.4,-1) {\includegraphics[width=0.75cm]{images/stock}};
+						\node at (5.55,-1.1) {\includegraphics[width=0.75cm]{images/stock}};
 					}
 				
 					\onslide<5->
 					{
-						\money{(4,1)}
-						\node at (5,1) {\includegraphics[width=0.75cm]{images/stock}};
-						\node at (5.15,0.9) {\includegraphics[width=0.75cm]{images/stock}};
+						\moneyLight{(10.5,1)}
+						\draw[thick,gray!50!white] (b) to [bend left=10] (s2);
+						\draw[thick,gray!50!white] (s2) to [bend left=10] (b);
+					}
+				
+					\onslide<6->
+					{
+						\moneyLight{(3,1)}
+						\node at (4,1) {\includegraphics[width=0.75cm]{images/stock}};
+						\node at (4.15,0.9) {\includegraphics[width=0.75cm]{images/stock}};
 						\draw[thick,gray!50!white] (s) to [bend left=10] (i);
 						\draw[thick,gray!50!white] (b) to [bend left=10] (i);
 					}
 				
-					\onslide<5>
+					\onslide<6>
 					{
 						\draw[thick] (i) to [bend left=10] (s);
-						\node at (2.25,-1) {\includegraphics[width=0.75cm]{images/fond-share}};
+						\node at (1.75,-1) {\includegraphics[width=0.75cm]{images/fond-share}};
 					}
 				
-					\onslide<6>
+					\onslide<7>
 					{
 						\draw[thick,gray!50!white] (i) to [bend left=10] (s);
 						\node at (0,1) {\includegraphics[width=0.75cm]{images/fond-share}};
@@ -557,14 +586,14 @@
 			\begin{frame}
 				\begin{definition}
 					Von normalen Finanzprodukten abgeleitetes Finanzprodukt mit fester Laufzeit.\citewiki{Derivat (Wirtschaft)}
-				\end{definition}\hfill
-			
+				\end{definition}
 				\textbf{Arten:}
 				\begin{description}
 					\item[Swaps] Tausch von Basiswerten (z.B. Zinsen) zur Absicherung.
 					\item[Futures] Recht \& Pflicht auf festen Preis in der Zukunft.
 					\item[Optionen] Future aber ohne Pflicht (\textrightarrow\ höhere Gebühren).
 					\item[Forwards] Quasi Futures aber außerbörslich.
+					\item[Zertifikat] Ähnlich zu Futures \& Optionen, aber in weird
 				\end{description}
 			\end{frame}
 		
