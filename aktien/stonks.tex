@@ -1,5 +1,5 @@
 \documentclass{beamer}
-\input{flat-blue-theme.inc}
+\input{../flat-blue-theme.inc}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
@@ -141,10 +141,11 @@
 				\item[Anleger] Auch \textit{Investor}, nimmt am Finanzmarkt teil, z.B. durch Investitionen\pause
 				\item[Risiko] Wahrscheinlichkeit des Eintretens eines negativen Ereignisses\pause
 				\item[Portfolio] Sammlung an Wertpapieren
+				\item[Wertpapier] Z.B. Aktien, Anleihen, ETFs, ...
 			\end{description}
 		\end{frame}
 		
-		\subsection{Investieren}
+		\subsection{Investieren (Geld anlegen)}
 		
 			\begin{frame}
 				\begin{definition}
@@ -162,7 +163,7 @@
 				\end{itemize}
 			\end{frame}
 		
-		\subsection{Spekulieren}
+		\subsection{Spekulieren (Trading)}
 		
 			\begin{frame}
 				\begin{definition}
@@ -244,8 +245,11 @@
 						\item Bonität des Schuldners
 						\item Allgemeiner wirtschaftlicher Lage
 					\end{itemize}
-					\item Daumenregel: Hohe Zinsen \textrightarrow\ hohes Risiko!
-					\item Zinsen $\approx$ Schmerzensgeld / Belohnung für eingegangenes Risiko
+					\item Daumenregel beim Investieren
+					\begin{itemize}
+						\item Hohe Zinsen \textrightarrow\ hohes Risiko!
+						\item Zinsen $\approx$ Schmerzensgeld / Belohnung für eingegangenes Risiko
+					\end{itemize}
 				\end{itemize}
 			\end{frame}
 		
@@ -577,7 +581,7 @@
 		
 			\begin{frame}{Indexfonds}
 				\begin{center}
-					\includegraphics[height=0.8\textheight,trim=0 0 0 0.5cm]{images/dax-etf-benchmark}\footnote{Stand 03.12.2021; Quelle: \href{https://charts.comdirect.de/charts/benchmark_underlying.chart?HEIGHT=128&HEIGHT=600&ID_BENCH1=20735&ID_BENCH2=12221463&ID_NOTATION=28520649&TIME_SPAN=5Y&WIDTH=800}{comdirect}}
+					\includegraphics[height=0.75\textheight,trim=0 0 0 0.5cm]{images/dax-etf-benchmark}\footnote{Stand 04.12.2022; Quelle: \href{https://charts.comdirect.de/charts/benchmark_underlying.chart?HEIGHT=600&WIDTH=800&ID_BENCH1=20735&ID_BENCH2=12221463&ID_NOTATION=17138767&TIME_SPAN=5Y}{comdirect} / Grün: MSCI World; Schwarz: \href{https://www.comdirect.de/inf/etfs/LU0252633754}{Lyxor DAX UCITS ETF EUR ACC}; Blau: Dax Index}\\
 				\end{center}
 			\end{frame}
 		
@@ -745,6 +749,10 @@
 						\node at (5, -2.6) {\includegraphics[width=0.5cm]{images/stock}};
 						\draw (i2) to [bend right=-7] (i);
 					}
+					\onslide<8> {
+						\node at (0, 0.8) {\includegraphics[width=0.5cm]{images/stock}};
+						\smallmoney{(10, 0.8)}
+					}
 				\end{tikzpicture}
 			\end{frame}
 		
@@ -774,7 +782,7 @@
 			\begin{frame}{Bank}
 				Reguliertes Kreditinstitut mit folgenden Geschäftsfeldern:
 				\begin{itemize}
-					\item Einlagen-, Kredit-, Wertpapiergeschäft
+					\item Einlagen-, Kredit- und meistens Wertpapiergeschäft
 					\item Wertpapierverwahrung
 					\item Depotgeschäft
 				\end{itemize}
@@ -867,7 +875,7 @@
 		\begin{frame}{Steuern}
 			\begin{description}[labelwidth=0cm, align=right]
 				\item[Kapitalertragssteuer] 25\% auf Kapitalerträge (+Soli +Kirchensteuer)
-				\item[Sparerpauschbetrag] = Freibetrag: 801€ pro Person pro Jahr
+				\item[Sparerpauschbetrag] Freibetrag von 801€ pro Person pro Jahr
 				\item[Vorabpauschale] Wird ggf. bei Fonds (z.B. ETFs) fällig
 			\end{description}
 		\end{frame}
