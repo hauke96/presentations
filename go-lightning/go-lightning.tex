@@ -5,31 +5,25 @@
 \usepackage{minted}
 \usepackage{textcomp}
 
+\input{../flat-blue-theme.inc}
+
 \setminted{bgcolor=verydarkgray,linenos,tabsize=4,breaklines,fontsize=\small}
 %\setminted[bash]{bgcolor=verydarkgray,linenos=false,tabsize=4,breaklines}
 
 % LIGHT
 \definecolor{verydarkgray}{RGB}{235,235,235}
-\usemintedstyle{manni}
+%\usemintedstyle{manni}
 %\usetheme{metropolis}
 %\usecolortheme[snowy]{owl}
 \newcommand{\inv}{}
 
 % DARK
-%\definecolor{verydarkgray}{RGB}{15,15,15}
+\definecolor{verydarkgray}{RGB}{15,15,15}
 %\usemintedstyle{manni}
 %\usetheme{metropolis}
 %\usecolortheme{owl}
 %\newcommand{\inv}{-inv}
 
-\usetheme[compress]{Berlin}
-\setbeamerfont{headline}{size=\large}
-\setbeamerfont*{section in head/foot}{size=\tiny}
-\setbeamertemplate{toc}{circle}
-\setbeamertemplate{itemize subitem}[triangle] % if you want a triangle
-\setbeamercovered{transparent}
-\definecolor{myBlue}{rgb}{0,0.55,0.8}
-\usecolortheme[named=myBlue]{structure}
 
 \title{Die Sprache Go}
 \subtitle{In fünf Minuten}

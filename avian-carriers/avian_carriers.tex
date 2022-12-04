@@ -15,47 +15,8 @@
 \usetikzlibrary{positioning, shapes}
 \usetikzlibrary{arrows}
 
-%Für [Seite]/[Anzahl-Seiten] in der unteren rechten ecke
-\newcommand*\oldmacro{}%
-\let\oldmacro\insertshorttitle%
-\renewcommand*\insertshorttitle
-{
-	\oldmacro\hfill%
-	\thepage\,/\,\pageref{LastPage}
-}
-\makeatletter
-\newcommand*{\currentname}{\TR@currentTitle}
-\makeatother
-
-\definecolor{light-light-gray}{gray}{0.85}
-
-\usetheme[compress]{Berlin}
-\setbeamerfont{headline}{size=\large}
-\setbeamerfont*{section in head/foot}{size=\tiny}
-\setbeamertemplate{toc}{circle}
-\setbeamertemplate{itemize subitem}[triangle] % if you want a triangle
-\setbeamercovered{transparent}
-%%\usetheme[compress]{Berlin}
-%\usetheme[compress]{Dresden}
-%%\usetheme{Hamburg}
-%\setbeamerfont{headline}{size=\large}
-%\setbeamerfont*{section in head/foot}{size=\tiny}
-%\setbeamercovered{transparent}
-%\setbeamertemplate{bibliography item}[text]
-%\setbeamertemplate{itemize items}[square]
-%\setbeamertemplate{itemize subitem}[triangle]
-%\setbeamertemplate{section in toc}[square]
-%\setbeamertemplate{subsection in toc}[square]
-%\setbeamertemplate{caption}[numbered]
-%\setbeamercolor*{title}{use=structure,fg=white,bg=structure.fg}
-%\setbeamertemplate{title page}[default][colsep=-2bp]
-%\setbeamercolor{block title}{bg=darkred2!100,fg=white}
-%\setbeamercolor{block body}{bg=darkred3!25,fg=black}
-
-\definecolor{myBlue}{rgb}{0,0.55,0.8}
-%\definecolor{darkred2}{rgb}{0,0.41,0.6}
-%\definecolor{darkred3}{rgb}{0.2,0.4,0.6}
-\usecolortheme[named=myBlue]{structure}
+\input{../flat-blue-theme.inc}
+\setbeamercovered{invisible}
 
 \title{IP over Avian Carriers (IPoAC)}
 \subtitle{\small Rettet die Bäume}%Und was es mit dem Fällen von Bäumen zu tun hat.}
