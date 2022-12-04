@@ -1,0 +1,26 @@
+* "We smell sausage" rückwärts klingt wie "Jesus loves you"
+* Wenn man lächelt drücke ein Muskel auf einen Nerv zwischen Wange und Auge, der einen glücklich macht
+* Es gab 1962 in Tansania eine Lachepidemie, die dazu führte, dass Schulen geschlossen wurden. Rund 1000 Menschen waren über lange Zeit betroffen.
+* Der Maintainer von "less" (dem GNU-Tool) heißt Mark Nudelman
+* Bei grep muss man manchmal sein Hirn einschalten, deswegen gibts die Parameterfolge -Hirn um angenehm in Dateien zu suchen
+* Die Lateinische Bezeichnung des Vogels "Wachtelkönig" ist "Crex Crex". Crex ist kein lateinisches Wort.
+* "Spermin" gibt dem menschlichen Sperma Geschmack und Geruch, ist eigentlich fest und wird in Anti-Aging Produkten eingesetzt
+* Verschiedene Inhaltsstoffe von Sperma (u.A. diverse Hormone darunter Testosteron, Östrogen) können Antidepressiv wirken
+* Nach GNU, Stallman, Linux, Torvalds und Berners-Lee wurden Asteroiden benannt (9965, 9882, 9885, 9793 und 13926). Unter anderem zu Ehren Torvalds sogar ein ganzer Mond ((22) Kalliope I Linus).
+* Der dritte Apple-Gründer (Ronald Wayne) hat nach 12 Tagen den Glauben an Apple verloren und seine 10% Unternehmensanteile verkauft (heutiger Wert: über 230 Mrd. $)
+* Clownsfische sind durch eine Schleimschicht vor den Nesselzellen der Anemonen geschützt. Den Schleim stellen sie nicht selbst her, sondern eine Anemone sondern den Schleim ab und schützt so ihre Clownsfische <3 Anemone und Clownsfisch lernen sich also erst kennen und wenn sie sich mögen, schützt die Anemone den Fisch mit Schleim.
+* Das Tupanvirus sieht aus wie Raumschiff Enterprise
+* Manche Spinnen bestehen zu 80% aus Gehirn, was bis in die Beine reicht. Damit können selbst kleinste Spinnen komplexe Netze bauen.
+* Manche spinnen fliegen indem sie dünne Fäden produzieren (ca. 320nm dick). Das klappt auch bei Windstille dank Termik oder sogar minimaler elektrostatische Felder in der Luft. Einige Spinnen erreichen merhere Kilometer Höhe und lassen sich mehrere hundert Kilometer seit tragen. Schon Darwin beobachtete dieses Phänomen, weil mitten auf dem Atlantik Spinnen auf seinem Schiff landeten.
+* Um den Juptermond "Europa" nicht mit irdischen Mikroorganismen zu kontamenieren, lies man die Raumsonde "Galileo" nicht auf Europa abstürzen, sondern in der Kupiteratmosphäre verglühen.
+* Es gibt eine Tiefseequalle mit dem Namen "flying spaghetti monster" oder auch "Bathyphysa conifera", weil es sehr ans FSM erinnert. Es wurde während Wartungsarbeiten an einer Ölplatform entdeckt und bekam von den Mitarbeitern diesen Spitznamen.
+* Der Parasit Ophiocordyceps sinensis ist ein Pilz, der Raupen befällt, von innen nach außen frisst und dann einen Fruchtkörper aus dem Kopf der Raupe wachsen lässt. In Tibet ist er seit mind. 1000 Jahren als Heilpilz so beliebt, dass er als Zahlungsmittel benutzt wird. Ein kilo des Pilzes kostet zwischen 21.000 und 43.000 Euro. Damit ist er der wertvollste Pilz der Welt. Auf Grund der Nachfrage ist dieser Parasit leicht gefährdet und eventuell in einigen Jahren vom Aussterben bedroht.
+* Spongebobs Hausschnecke Gary heißt mit bürgerlichem Namen Garold Wilson Jr. und ist der Cousin von Patrick
+* Bananen strahlen Antimaterie aus (ca. alle 75 Minuten ein Positron durch Kalium-40 Zerfall)
+
+
+
+\begin{fakt}{}
+	\rating{}
+	\source{}
+\end{fakt}

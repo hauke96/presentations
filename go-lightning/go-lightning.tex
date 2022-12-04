@@ -1,0 +1,235 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{minted}
+\usepackage{textcomp}
+
+\setminted{bgcolor=verydarkgray,linenos,tabsize=4,breaklines,fontsize=\small}
+%\setminted[bash]{bgcolor=verydarkgray,linenos=false,tabsize=4,breaklines}
+
+% LIGHT
+\definecolor{verydarkgray}{RGB}{235,235,235}
+\usemintedstyle{manni}
+%\usetheme{metropolis}
+%\usecolortheme[snowy]{owl}
+\newcommand{\inv}{}
+
+% DARK
+%\definecolor{verydarkgray}{RGB}{15,15,15}
+%\usemintedstyle{manni}
+%\usetheme{metropolis}
+%\usecolortheme{owl}
+%\newcommand{\inv}{-inv}
+
+\usetheme[compress]{Berlin}
+\setbeamerfont{headline}{size=\large}
+\setbeamerfont*{section in head/foot}{size=\tiny}
+\setbeamertemplate{toc}{circle}
+\setbeamertemplate{itemize subitem}[triangle] % if you want a triangle
+\setbeamercovered{transparent}
+\definecolor{myBlue}{rgb}{0,0.55,0.8}
+\usecolortheme[named=myBlue]{structure}
+
+\title{Die Sprache Go}
+\subtitle{In fünf Minuten}
+\author{by \href{http://hauke-stieler.de/}{Hauke Stieler}}
+
+\begin{document}
+	\maketitle
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+	\begin{frame}
+		\begin{itemize}
+			\item Robert Griesemer {\scriptsize\textit{(JavaScript engine V8)}}
+			\item Rob Pike {\scriptsize\textit{(Plan 9, Inferno, Limbo, UTF-8)}}
+			\item Ken Thompson {\scriptsize\textit{(UNIX, shell)}}
+		\end{itemize}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\begin{itemize}
+			\item wird kompiliert
+			\item imperativ
+			\item objektorientiert
+			\item stark \& statisch typisiert
+			\item garbage Collection
+			\item gute Unterstützung für Nebenläufigkeit
+		\end{itemize}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\begin{itemize}
+			\item \texttt{go build [file]}
+			\item \texttt{go run file}
+			\item \texttt{go test [file]}
+			\item \texttt{go get [url]}
+		\end{itemize}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}[fragile]
+		\inputminted{go}{code/01_hello.go}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
+		\begin{center}
+			Keywords:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+break       default     func        interface   select
+case        defer       go          map         struct
+chan        else        goto        package     switch
+const       fallthrough if          range       type
+continue    for         import      return      var
+		\end{minted}
+		\begin{center}
+			Constants:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+true        false       nil         iota
+		\end{minted}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
+		\begin{center}
+			Functions:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+new        len          complex     panic
+make       cap          real        recover
+close      append       imag
+copy 
+delete
+		\end{minted}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
+		\begin{center}
+			Basic types:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+int    int8    int16    int32    int64
+uint   uint8   uint16   uint32   uint64   uintptr
+
+float32     float64
+complex64   complex128
+
+bool   byte    rune     string   error
+		\end{minted}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+	\begin{center}
+		Operators:
+	\end{center}
+	\begin{minted}[linenos=false]{go}
+*   /   %   &   &^  <<  >>
++   -   ^   |
+==  !=  <   <=  >   >=
+&&
+||
+	\end{minted}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
+		\begin{center}
+			Variablen:
+		\end{center}
+		\begin{minted}{go}
+var x int = 0
+var x int
+var x = 0
+
+// for local variables only
+x := 0
+		\end{minted}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
+		\begin{center}
+			Slice:
+		\end{center}
+		\begin{minted}{go}
+s := make([]string, 0)
+fmt.Println(cap(s)) // 0
+s = append(s, "hello")
+fmt.Println(cap(s)) // 1
+s = append(s, "hello")
+fmt.Println(cap(s)) // 2
+s = append(s, "hello")
+fmt.Println(cap(s)) // 4
+s = append(s, "hello")
+s = append(s, "hello")
+fmt.Println(cap(s)) // 8
+//...
+		\end{minted}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
+		\begin{center}
+			Schleifen:
+		\end{center}
+		\begin{minted}{go}
+for i := 0; i < 10; i++ {
+	fmt.Println(i)
+}
+
+// or:
+
+i := 0
+condition := true
+for condition {
+	fmt.Println(i)
+	i++
+	if i == 10 {
+		condition = false
+	}
+}
+		\end{minted}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
+		\begin{center}
+			Synchronisation von Threads:
+		\end{center}
+		\begin{minted}{go}
+done := make(chan bool)
+
+go func(from string) {
+	for i := 0; i < 3; i++ {
+		fmt.Println(from, ":", i)
+		time.Sleep(time.Second)
+	}
+	
+	done <- true
+}("value")
+
+<-done
+
+fmt.Println("done")
+		\end{minted}
+\end{frame}
+\end{document}

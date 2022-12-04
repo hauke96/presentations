@@ -1,0 +1,3 @@
+https://tools.ietf.org/html/rfc2549
+https://tools.ietf.org/html/rfc1149
+http://www.mpipks-dresden.mpg.de/~mueller/docs/suse10.0/suselinux-manual_de/manual/cha.basicnet.html
