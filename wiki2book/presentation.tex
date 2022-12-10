@@ -1,0 +1,255 @@
+\documentclass{beamer}
+\input{../flat-blue-theme.inc}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{fancyvrb}
+
+\setbeamercovered{invisible}
+
+\author[Hauke Stieler]{
+	Hauke Stieler\n
+	\href{https://github.com/hauke96}{\footnotesize\textcolor{gray}{\faicon{github} hauke96}}
+}
+\title{wiki2book}
+\subtitle{Aus Wikipedia eigene Bücher bauen}
+\date{\today}
+
+\begin{document}
+	{
+		\setbeamertemplate{headline}{}
+%		\setbeamertemplate{background}{\includegraphics[width=\paperwidth,trim=0 0 0 3.5cm]{images/title}}
+		\maketitle
+	}
+
+	% Kurze Infos zu mir?
+
+	% Motivation
+	% - Abstieg in immer tiefere Wikipedia Artikel
+	% - Warum nicht tool XY?
+	\section{Motivation}	
+	
+	\subsection{Wikipedia hole}
+	
+	\begin{frame}
+		\begin{center}
+			Kennt ihr das?
+		\end{center}
+	\end{frame}
+
+	\begin{frame}
+		\begin{center}
+			\begin{tikzpicture}
+				\visible<1->{\node at (0,0)			{\includegraphics[height=0.75\textheight]{images/wikipedia-screenshot-0.jpg}};}
+				\visible<2->{\node at (0.25, -0.25)	{\includegraphics[height=0.75\textheight]{images/wikipedia-screenshot-1.jpg}};}
+				\visible<3->{\node at (0.5, -0.5)	{\includegraphics[height=0.75\textheight]{images/wikipedia-screenshot-2.jpg}};}
+				\visible<4->{\node at (0.75, -0.75)	{\includegraphics[height=0.75\textheight]{images/wikipedia-screenshot-3.jpg}};}
+				\visible<5->{\node at (1, -1)		{\includegraphics[height=0.75\textheight]{images/wikipedia-screenshot-4.jpg}};}
+				\visible<6->{\node at (1.25, -1.25)	{\includegraphics[height=0.75\textheight]{images/wikipedia-screenshot-5.jpg}};}
+			\end{tikzpicture}
+		\end{center}
+	\end{frame}
+
+	\begin{frame}
+		\textit{"`Going on to Wikipedia to look something up, then unexpectedly being sucked into a seemingly \textbf{endless series of link clicking} to end up in a completely different part of wikipedia than you ever meant to go to."'}
+		\n\hfill{\small--- \href{https://www.urbandictionary.com/define.php?term=Wikipedia\%20Hole}{Urban Dictionary}}
+	\end{frame}
+
+	\begin{frame}
+		\begin{center}
+			\only<1>{\includegraphics[height=0.75\textheight]{images/meme-spongebob-gary-0.png}}
+			\only<2>{\includegraphics[height=0.75\textheight]{images/meme-spongebob-gary-1.png}}
+		\end{center}
+	\end{frame}
+
+	\subsection{Existierende Tools}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item \texttt{pandoc}
+			\item \texttt{mediawiki2latex} / \texttt{wb2pdf}
+			\item \texttt{epub-press}
+			\item \texttt{w2eb}
+			\item \texttt{percollate}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Warum gehen die nicht?}
+		Inhaltliche \& visuelle Gründe:
+		\begin{itemize}
+			\item Formatierung, Schriftgrößen, etc. stimmt nicht
+			\item Templates werden nicht/uneingeschränkt evaluiert
+			\item LaTeX/Math wird nicht in Bild gerendert
+			\item Tabellen funktionieren nicht
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Warum gehen die nicht?}
+		Technische Gründe:
+		\begin{itemize}
+			\item Kann nicht mehrere Artikel gleichzeitig
+			\item Bilder werden nicht heruntergeladen
+			\item Wird nicht mehr maintained
+			\item Ist in JavaScript
+			\item Ist in einer Programmiersprache, die ich nicht kann / mag
+			\item Ergebnis ist kein EPUB
+			\item Ergebnis lief nicht auf meinem Tolino
+		\end{itemize}
+	\end{frame}
+	
+	% Was will ich haben? Was soll das Resultat sein?
+	\subsection{Was will ich haben?}
+	\begin{frame}
+		\begin{center}
+			\textbf{Generierte und gekaufte eBooks sollen sich qualitativ nicht unterscheiden.}
+		\end{center}\pause
+		Allgemeine Anforderungen:
+		\begin{itemize}
+			\item Formatierung stimmig
+			\item Korrekte Übersetzung/Einbindung von Tabellen, Bilder, Listen, Quellenangaben, etc.
+			\item Wikipedia-spezifische Templates \& Kategorien ignorieren
+		\end{itemize}\pause\n
+		Persönliche Anforderungen:
+		\begin{itemize}
+			\item Soll auf meinem Tolino eBook-Reader laufen
+			\item Go als Programmiersprache
+			\item Caching aller heruntergeladenen Daten (zum Coden im Zug)
+		\end{itemize}
+	\end{frame}
+
+	\section{Wikipedia}	
+	
+	% Mediawiki Sprache
+	\subsection{Wikitext -- Die Sprache der Wikipedia}
+	
+	\begin{frame}[fragile]{Formatierung}
+		\begin{verbatim}
+Wikitext ''kann'' auch '''Formattierung'''.
+
+Und  '''sogar ''alles''' durcheinander'' geht.
+		\end{verbatim}
+		\hrule\n
+		\includegraphics[scale=0.35]{images/wikitext-example-0-formatting.png}
+	\end{frame}
+	
+	\begin{frame}[fragile]{Links}
+		\begin{verbatim}
+Interne [[Hyperlink|Links]] gehen.
+
+Auch ins Internetz [https://externe-links], sogar mit
+[https://foo.bar Namen].
+		\end{verbatim}
+		\hrule\n
+		\includegraphics[scale=0.35]{images/wikitext-example-1-links.png}
+	\end{frame}
+	
+	\begin{frame}[fragile]{Referenzen \& Templates}
+		\begin{verbatim}
+Hi<ref name="foo">{{Internetquelle|url=http://bar.de
+|abruf=2022-10-12|titel=Ref mit Template}}</ref>!
+
+Die selbe Ref. nochmal!<ref name="foo" />
+		\end{verbatim}
+		\hrule\n
+		\includegraphics[scale=0.35]{images/wikitext-example-2-refs.png}
+	\end{frame}
+	
+	\begin{frame}[fragile]{Überschriften}
+		\begin{verbatim}
+= Level 1 =
+Wird nicht aktiv benutzt, da Titel der Seite h1 ist.
+
+==== Level 4 ====
+Die hier wird benutzt.
+		\end{verbatim}
+		\hrule\n
+		\includegraphics[scale=0.35]{images/wikitext-example-3-headings.png}
+	\end{frame}
+
+	\begin{frame}[fragile]{Listen}
+		\begin{verbatim}
+* Listen
+** gibt
+es
+# auch
+## noch
+		\end{verbatim}
+		\hrule\n
+		\includegraphics[scale=0.35]{images/wikitext-example-4-lists.png}
+	\end{frame}
+
+	\begin{frame}[fragile]{Tabellen}
+		\footnotesize
+		\begin{verbatim}
+{| class="wikitable"
+|-
+! Spalte 1 !! Spalte 2
+|-
+| Hier
+| könnte
+|-
+| ihre || Werbung stehen
+|}
+		\end{verbatim}
+		\hrule\n
+		\includegraphics[scale=0.35]{images/wikitext-example-5-table.png}
+	\end{frame}
+
+	\begin{frame}[fragile]{Bilder}
+		\begin{verbatim}
+Hier ein Bild:
+
+[[Datei:Full moon partially obscured by atmosphere.jpg
+|mini|Mit Unterschrift.]]
+		\end{verbatim}
+		\hrule\n
+		\includegraphics[scale=0.35]{images/wikitext-example-6-image.png}
+	\end{frame}
+	
+	\begin{frame}{Und vieles mehr}
+		\begin{itemize}
+			\item Description list
+			\item Zitate
+			\item Einrückungen
+			\item Code
+			\item LaTeX-Mathe-Zeug
+			\item Musiknoten
+			\item Gallerien
+			\item Inline Bilder
+			\item Diverse Parameter an allen möglichen Dingen
+		\end{itemize}
+	\end{frame}
+	
+	% Wie funktioniert Wikipedia?
+	% - Aufbau (einzelne Instanzen, Wikimedia)
+	% - Benötigte APIs und wie diese funktionieren
+		
+	% Technische Strategie
+	% - Umwandlung mediawiki -> HTML (weil EPUB HTML enthält) -> EPUB
+	% - mediawiki -> HTML = Quasi Transpiler
+	% - Wie funktioniert ein Compiler/Transpiler
+	
+	% Aufbau von wiki2book
+	% - Einzelne Schritte:
+	%  1. Clean
+	%  2. Templates evaluieren
+	%  3. Allerlei Dinge (Links, Bilder, Tabellen, Listen, ...)
+	%  Solange zu 1 zurück springen bis alles fertig ist
+	
+	% Einzelheiten
+	% - Parsen von Listen
+	% - Parsen von Tabellen
+	
+	% Probleme, die aufgetreten sind
+	
+	% Infos (Repo, Bauen, CLI, ...)
+	
+	% Hands-on
+\end{document}
