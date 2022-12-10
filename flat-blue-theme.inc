@@ -37,4 +37,6 @@
 \definecolor{light_blue}{rgb}{0.2,0.4,0.6}
 \usecolortheme[named=blue]{structure}
 
+\newcommand{\n}{\hfill\\\vspace{0.25cm}}
+
 \mode<all>
