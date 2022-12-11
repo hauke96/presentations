@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[9pt]{beamer}
 \input{../flat-blue-theme.inc}
 
 \usepackage[utf8]{inputenc}
@@ -86,7 +86,7 @@
 		\begin{itemize}
 			\item Formatierung, Schriftgrößen, etc. stimmt nicht
 			\item Templates werden nicht/uneingeschränkt evaluiert
-			\item LaTeX/Math wird nicht in Bild gerendert
+			\item \LaTeX/Math wird nicht in Bild gerendert
 			\item Tabellen funktionieren nicht
 		\end{itemize}
 	\end{frame}
@@ -219,7 +219,7 @@ Hier ein Bild:
 			\item Zitate
 			\item Einrückungen
 			\item Code
-			\item LaTeX-Mathe-Zeug
+			\item \LaTeX-Mathe-Zeug
 			\item Musiknoten
 			\item Gallerien
 			\item Inline Bilder
@@ -230,6 +230,110 @@ Hier ein Bild:
 	% Wie funktioniert Wikipedia?
 	% - Aufbau (einzelne Instanzen, Wikimedia)
 	% - Benötigte APIs und wie diese funktionieren
+	\subsection{Instanzen \& APIs}
+	
+	\begin{frame}{Instanzen -- Artikel}
+		\begin{itemize}
+			\item Instanz pro Land/Sprache \textrightarrow\ z.B. [en\textbar de\textbar nds].wikipedia.org
+			\item Verlinkungen ggf. zu anderen Instanzen möglich
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Instanzen -- Bilder}
+		\begin{itemize}
+			\item Wikimedia commons (\href{https://commons.wikimedia.org}{commons.wikimedia.org})
+			\item Normal:\newline \href{https://upload.wikimedia.org/wikipedia/commons/0/06/Foo.jpg}{upload.wikimedia.org/wikipedia/commons/0/06/Foo.jpg}
+			\item Aber auch:\newline \href{https://upload.wikimedia.org/wikipedia/de/2/26/Son-3.jpg}{upload.wikimedia.org/wikipedia/\textbf{de}/2/26/Son-3.jpg}
+			\pause
+			
+			\item Redirects möglich
+			\begin{itemize}
+				\item Beispiel: \href{https://commons.wikimedia.org/w/index.php?title=File:MET00506.jpg&action=edit}{\texttt{File:MET00506.jpg}}
+				\item Ggf. ist Dateiname im Artikel $\neq$ Dateiname bei Wikimedia commons
+				\item Nach Bild-Artikel suchen
+				\item \texttt{redirects=true} Parameter nicht vergessen
+			\end{itemize}
+			\pause
+			
+			\item In Deutschen Artikeln wird natürlich \texttt{\textbf{Datei}:Sol-3.jpg} benutzt
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}[fragile]{APIs -- Artikel abfragen}
+		\textbf{Anfrage:}\\
+		Puren Wikitext in JSON Antwort verpackt:\\
+		\begin{verbatim}
+GET  de.wikipedia.org/w/api.php
+       ?action=parse
+       &format=json
+       &prop=wikitext
+       &page={article name}
+		\end{verbatim}\n
+		\textbf{Antwort:}
+		\begin{verbatim}
+{
+    "parse": {
+        "title": "Erde",
+        "wikitext": {
+            "*": "..."
+        }
+    }
+}
+		\end{verbatim}
+	\end{frame}
+
+	\begin{frame}[fragile]{APIs -- Templates evaluieren}
+		\textbf{Anfrage:}\\
+		Wie bei Artikeln nur andere Parameter.\\
+		\begin{verbatim}
+GET  de.wikipedia.org/w/api.php
+        ?action=expandtemplates
+        &format=json
+        &prop=wikitext
+        &text={{mein tolles template}}
+		\end{verbatim}\n
+		\textbf{Antwort:}
+		\begin{verbatim}
+{
+    "expandtemplates": {
+        "wikitext": "..."
+    }
+}
+		\end{verbatim}
+	\end{frame}
+
+	\begin{frame}{APIs -- Bilder}
+		\textbf{Aufbau:}\\
+		\texttt{upload.wikimedia.org/wikipedia/\{instance\}/}
+		\texttt{\{MD5[0]\}/\{MD5[0]MD5[1]\}/\{filename\}}
+		\n
+		\textbf{MD5:}\\
+		\texttt{MD5[i]} = Das \texttt{i}-te Zeichen des MD5-Hashes von \texttt{filename}
+	\end{frame}
+
+	\begin{frame}{APIs -- \LaTeX-Mathe in Bild umwandeln}
+		\begin{enumerate}
+			\item Math-check API für Resource location anfragen
+			\item Eigentliches Bild abfragen
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}[fragile]{\LaTeX zu Bild: 1. Resource location bekommen}
+		\textbf{Anfrage:}\\
+		URL: \texttt{POST https://wikimedia.org/api/rest\_v1/media/math/check/tex}\\
+		Body: URL encoded form Element \texttt{q} mit dem \LaTeX-Code:\n
+		\verb+q:\sqrt{x}+
+		\n
+		\textbf{Antwort:}\\
+		Header \texttt{x-resource-location} auslesen:\n
+		\texttt{x-resource-location: 73b85c4ec364802ad746381712d10a43f073d50a}
+	\end{frame}
+
+	\begin{frame}[fragile]{\LaTeX zu Bild: 2. Bild abfragen}
+		\textbf{Anfrage:}\\
+		Einfaches \texttt{GET} mit Hash an\n
+		\href{https://wikimedia.org/api/rest_v1/media/math/render/svg/73b85c4ec364802ad746381712d10a43f073d50a}{\texttt{wikimedia.org/api/rest\_v1/media/math/render/\{svg\textbar png\}/73b85c4...}}
+	\end{frame}
 		
 	% Technische Strategie
 	% - Umwandlung mediawiki -> HTML (weil EPUB HTML enthält) -> EPUB
