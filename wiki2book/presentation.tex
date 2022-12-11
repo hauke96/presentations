@@ -8,9 +8,12 @@
 \usepackage{xcolor}
 \usepackage{fontawesome}
 \usepackage{lmodern}
-\usepackage{tikz}
 \usepackage{tabularx}
 \usepackage{fancyvrb}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
 
 \setbeamercovered{invisible}
 
@@ -339,6 +342,82 @@ GET  de.wikipedia.org/w/api.php
 	% - Umwandlung mediawiki -> HTML (weil EPUB HTML enthält) -> EPUB
 	% - mediawiki -> HTML = Quasi Transpiler
 	% - Wie funktioniert ein Compiler/Transpiler
+	\section{Technischer Aufbau}
+	
+	\subsection{Technischer Aufbau}
+	
+	\begin{frame}{Idee \& Annahmen}
+		Annahmen:
+		\begin{itemize}
+			\item Heruntergeladener wikitext ist korrekt \textrightarrow\ Keine Syntaxprüfung nötig.
+			\item Formatierung vom HTML (Einrückung, Leerzeilen, etc.) ist egal
+		\end{itemize}\pause
+		Idee:
+		\begin{itemize}
+			\item Elemente im wikitext rekursiv durch Token ersetzen
+			\item Token in Map speichern: \texttt{[token]} \textrightarrow\ \texttt{[token-content]}
+			\item Token-Content kann weitere Token enthalten
+			\item Token sollen einfach zu HTML ersetzt/relaxiert werden können
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Meine "`Compiler"' "`Pipeline"'}
+		\begin{tikzpicture}[node distance=3cm]
+			\visible<1->
+			{
+				\node (wikitext) at (0,0) {\texttt{wikitext}};
+				\node[align=left,font=\scriptsize\ttfamily,anchor=north] (wikitext-example) [below=1cm of wikitext.center]
+					{Die '''Erde''' ist\\ein [[Planet]] ...};
+			}
+			
+			\visible<2->
+			{
+				\node (parser) [right of=wikitext] {Token/AST};
+				\node[align=left,font=\scriptsize\ttfamily,anchor=north] (parser-example) [below=1cm of parser.center]
+					{Die \$\$TOK\_BOLD\_1\$\$ ist\\ein \$\$TOK\_LINK\_2\$\$ ...\\~\\~\\{\normalfont Token Map:}\\\$\$TOK\_BOLD\_1\$\$ \textrightarrow\ Erde\\\$\$TOK\_LINK\_2\$\$ \textrightarrow\ Planet};
+				\draw[->,->=stealth'] (wikitext) -- (parser);
+			}
+			
+			\visible<3->
+			{
+				\node (html) [right of=parser] {\texttt{HTML}};
+				\node[align=left,font=\scriptsize\ttfamily,anchor=north] (html-example) [below=1cm of html.center]
+				{buch.html\\~\\Die <b>Erde</b>\\ist ein <a href=\\\dq...\dq>Planet</a>\\...};
+				\draw[->,->=stealth'] (parser) -- (html);
+			}
+			
+			\visible<4-5>
+			{
+				\node (epub) [right of=html] {\texttt{EPUB}};
+				\draw[->,->=stealth'] (html) -- (epub);
+				\node[align=left,font=\scriptsize\ttfamily,anchor=north] (epub-example) [below=1cm of epub.center]
+				{erde.epub};
+			}
+		
+			\visible<6->
+			{
+				\node (html2) [right=0.75cm of html] {\texttt{HTML}};
+				\node (epub) [right of=html] {\texttt{EPUB}};
+				\draw[->,->=stealth'] (html) -- (html2);
+				\draw[->,->=stealth'] (html2) -- (epub);
+				\node[align=center,font=\scriptsize,anchor=north] (html2-example) [below=1cm of html2.center]
+				{what\\the\\...};
+				\node[align=left,font=\scriptsize\ttfamily,anchor=north] (epub-example) [below=1cm of epub.center]
+				{buch.epub};
+			}
+			
+			\visible<5->
+			{
+				\draw (wikitext.west)++(0,0.5) -- ++(0,0.5) -- node[above] {wiki2book} ([xshift=-0.05cm]html |- 0,1) -- ++(0,-0.5);
+				\draw ([xshift=0.05cm]html |- 0,1)++(0,-0.5) -- ++(0,0.5) -- node[above] {pandoc} (epub.east |- 0,1) -- ++(0,-0.5);
+			}
+		
+			\visible<7->
+			{
+				\node[yshift=-0.75cm] at (html2) {\includegraphics[width=4.5cm]{images/meme-spongebob-pandoc-html-fire.png}};
+			}
+		\end{tikzpicture}
+	\end{frame}
 	
 	% Aufbau von wiki2book
 	% - Einzelne Schritte:
