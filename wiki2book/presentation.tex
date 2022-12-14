@@ -14,6 +14,7 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
+\usetikzlibrary{fit}
 
 \setbeamercovered{invisible}
 
@@ -253,13 +254,22 @@ Hier ein Bild:
 			\begin{itemize}
 				\item Beispiel: \href{https://commons.wikimedia.org/w/index.php?title=File:MET00506.jpg&action=edit}{\texttt{File:MET00506.jpg}}
 				\item Ggf. ist Dateiname im Artikel $\neq$ Dateiname bei Wikimedia commons
-				\item Nach Bild-Artikel suchen
-				\item \texttt{redirects=true} Parameter nicht vergessen
+				\item Nach Bild-Artikel abfragen
+				\item \texttt{redirects=true} Parameter hilft
 			\end{itemize}
 			\pause
 			
 			\item In Deutschen Artikeln wird natürlich \texttt{\textbf{Datei}:Sol-3.jpg} benutzt
 		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{APIs -- Bilder}
+		\textbf{Aufbau:}\\
+		\texttt{upload.wikimedia.org/wikipedia/\{instance\}/}
+		\texttt{\{MD5[0]\}/\{MD5[0]MD5[1]\}/\{filename\}}
+		\n
+		\textbf{MD5:}\\
+		\texttt{MD5[i]} = Das \texttt{i}-te Zeichen des MD5-Hashes von \texttt{filename}
 	\end{frame}
 
 	\begin{frame}[fragile]{APIs -- Artikel abfragen}
@@ -303,15 +313,6 @@ GET  de.wikipedia.org/w/api.php
     }
 }
 		\end{verbatim}
-	\end{frame}
-
-	\begin{frame}{APIs -- Bilder}
-		\textbf{Aufbau:}\\
-		\texttt{upload.wikimedia.org/wikipedia/\{instance\}/}
-		\texttt{\{MD5[0]\}/\{MD5[0]MD5[1]\}/\{filename\}}
-		\n
-		\textbf{MD5:}\\
-		\texttt{MD5[i]} = Das \texttt{i}-te Zeichen des MD5-Hashes von \texttt{filename}
 	\end{frame}
 
 	\begin{frame}{APIs -- \LaTeX-Mathe in Bild umwandeln}
@@ -425,10 +426,158 @@ GET  de.wikipedia.org/w/api.php
 	%  2. Templates evaluieren
 	%  3. Allerlei Dinge (Links, Bilder, Tabellen, Listen, ...)
 	%  Solange zu 1 zurück springen bis alles fertig ist
+	\section{Interner Aufbau}
 	
-	% Einzelheiten
-	% - Parsen von Listen
-	% - Parsen von Tabellen
+	\begin{frame}{Ablauf}
+		\begin{center}
+			\vspace{-0.65cm}
+			\begin{tikzpicture}[node distance=1.15cm]
+				\node (load) at (0,0) {1. Load wikitext};
+				
+				\visible<2->
+				{
+					\node (clean) [below of=load] {2. Clean data};
+					\draw[->,->=stealth'] (load) -- (clean);
+				}
+				
+				\visible<3->
+				{
+					\node (evaluate) [below of=clean] {3. Evaluate templates};
+					\draw[->,->=stealth'] (clean) -- (evaluate);
+				}
+				
+				\visible<4->
+				{
+					\node (parse) [below of=evaluate] {4. Parse data};
+					\draw[->,->=stealth'] (evaluate) -- (parse);
+				}
+				
+				\visible<5->
+				{
+					\draw[->,->=stealth'] (parse) to [out=0,in=0,looseness=1.75] node (if-no-new-token) [right] {\textit{if new token created}} (clean);
+				}
+				
+				\visible<6->
+				{
+					\node (generate) [below of=parse] {5. Generate HTML};
+					\draw[->,->=stealth'] (parse) -- node [right] {\textit{if \textbf{no} new token created}} (generate);
+					\node[draw,label=90:wiki2book,fit=(load) (clean) (evaluate) (parse) (generate) (if-no-new-token)] {};
+				}
+				
+				\visible<7->
+				{
+					\node (pandoc) [below right=0.75cm and 0.25cm of generate] {pandoc};
+					\draw[->,->=stealth'] (generate) to [out=270,in=180] (pandoc);
+				}
+				
+				\visible<8->
+				{
+					\node (ebook) [right=1.25cm of pandoc] {\texttt{book.epub}};
+					\draw[->,->=stealth'] (pandoc) -- (ebook);
+				}
+			\end{tikzpicture}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{1. Artikel laden}
+		Via CLI über drei mögliche Wege:
+		\begin{itemize}
+			\item Aus Datei (\texttt{standalone <file>})
+			\item Einzelnen Artikel (\texttt{article <name>})
+			\item Projekt-Datei (\texttt{project <project-file>})
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{2. Cleanup}
+		\begin{itemize}
+			\item Entfernt Kategorien
+			\item Entfernt unerwünschte Templates
+			\item Entfernt HTML (\texttt{div} und \texttt{span} Elemente)
+			\item Entfernt leere Abschnitte
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{2. Cleanup -- Irgendwas mit Performance oder so}
+		\begin{center}
+			\includegraphics[width=\linewidth]{images/code-cleanup.png}
+		\end{center}
+	\end{frame}
+
+	\begin{frame}{3. Templates evaluieren}
+		\begin{itemize}
+			\item Finde templates
+			\item Bitte Wikipedia-API diese zu wikitext zu konvertieren
+			\item String-Replace
+		\end{itemize}
+		~\\
+		\pause
+		\begin{center}
+			\includegraphics[height=0.5\textheight]{images/meme-spongebob-duh.png}
+		\end{center}
+	\end{frame}
+
+	\begin{frame}[fragile]{4. Parsen}
+		\textit{Kann man nicht einfach mit Regexes lösen?}\\\pause
+		Haha.\pause\ Nein.\pause..\ Manchmal.
+	\end{frame}
+
+	\begin{frame}[fragile]{4. Parsen -- Beispiel: Referenzen}
+		Wikitext:\\
+		~~~~\verb+Foo.<ref name="foo">...</ref> Bar.<ref name="foo"/>+\n\pause
+		Regex für ref-Definition:\\
+		~~~~\verb+<ref[^>]*?name="?([^"^>]*)"?([^>]*?=[^>]*?)* ?>((.|\n)*?)</ref>+\n
+		Regex für ref-Nutzung:\\
+		~~~~\verb+<ref name="(.*?)"\s?/>+
+	\end{frame}
+
+	\begin{frame}[fragile]{4. Parsen -- Beispiel: \textbf{bold} und \textit{italic}}
+		Wikitext:\\
+		~~~~\verb+''foo'' '''bar'''+ \textrightarrow\ \textit{foo} \textbf{bar}\\\pause
+		~~~~\verb+''''foo+\pause\verb+'''+\pause \textrightarrow\ '\textbf{foo}\n\pause
+		Kein Regex möglich, da \textit{kontextsensitive} Grammatik\footnote{... glaube ich} nötig wäre.\n
+		Entscheidbarkeit bei kontextsensitiven Grammatiken in $\mathcal{O}(2^n)$.\pause\ Laufzeit meines Algorithmus: $\mathcal{O}(2^n)$.\pause.. Yeii...
+	\end{frame}
+
+	\begin{frame}[t,fragile]{4. Parsen -- Beispiel: Tabellen}
+		Wikitext (vor Preprocessing):\\
+		\begin{verbatim}
+{| class="wikitable"
+|+ Text der Überschrift
+|-
+! Überschrift 1 !! Überschrift 2
+|-
+|style="text-align:center"|Foo || Bar
+|}
+
+		\end{verbatim}
+		\textrightarrow\ Preprocessing kann Dinge vereinfachen
+	\end{frame}
+
+	\begin{frame}[t,fragile]{4. Parsen -- Beispiel: Tabellen}
+		Wikitext (nach Preprocessing):\\
+		\begin{verbatim}
+{| class="wikitable"
+|+ Text der Überschrift
+|-
+! Überschrift 1
+! Überschrift 2
+|-
+|style="text-align:center"|Foo
+| Bar
+|}
+		\end{verbatim}
+		\pause
+		\begin{itemize}
+			\item Zeilenpräfix anschauen
+			\item Styles beachten
+			\item Tabellen in Tabellen dann auch easy
+		\end{itemize}
+	\end{frame}
+
+	% TODO Beispiel Token-Baum
+
+	% TODO HTML Generierung
+	
 	
 	% Probleme, die aufgetreten sind
 	
