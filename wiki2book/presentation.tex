@@ -6,10 +6,8 @@
 \usepackage[ngerman]{babel}
 \usepackage{lastpage}
 \usepackage{xcolor}
-\usepackage{fontawesome}
 \usepackage{lmodern}
 \usepackage{tabularx}
-\usepackage{fancyvrb}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning}
@@ -18,12 +16,9 @@
 
 \setbeamercovered{invisible}
 
-\author[Hauke Stieler]{
-	Hauke Stieler\n
-	\href{https://github.com/hauke96}{\footnotesize\textcolor{gray}{\faicon{github} hauke96}}
-}
+\author[Hauke Stieler]{Hauke Stieler}
 \title{wiki2book}
-\subtitle{Aus Wikipedia eigene Bücher bauen}
+\subtitle{Aus Wikipedia eigene eBooks bauen}
 \date{\today}
 
 \begin{document}
@@ -426,9 +421,11 @@ GET  de.wikipedia.org/w/api.php
 	%  2. Templates evaluieren
 	%  3. Allerlei Dinge (Links, Bilder, Tabellen, Listen, ...)
 	%  Solange zu 1 zurück springen bis alles fertig ist
-	\section{Interner Aufbau}
+	\section{Funktionsweise}
 	
-	\begin{frame}{Ablauf}
+	\subsection{Ablauf}
+	
+	\begin{frame}
 		\begin{center}
 			\vspace{-0.65cm}
 			\begin{tikzpicture}[node distance=1.15cm]
@@ -478,6 +475,8 @@ GET  de.wikipedia.org/w/api.php
 			\end{tikzpicture}
 		\end{center}
 	\end{frame}
+
+	\subsection{Pipeline}
 	
 	\begin{frame}{1. Artikel laden}
 		Via CLI über drei mögliche Wege:
@@ -574,14 +573,81 @@ GET  de.wikipedia.org/w/api.php
 		\end{itemize}
 	\end{frame}
 
-	% TODO Beispiel Token-Baum
+	\subsection{Token-Map}
 
-	% TODO HTML Generierung
+	\begin{frame}[fragile]{Beispiel}
+		\textbf{Wikitext:} (vorher)\\
+		\begin{verbatim}
+Die Sonne ist ein:
+* [https://de.wikipedia.org/wiki/Stern Stern]
+		\end{verbatim}\n\pause
+		\textbf{Wikitext:} (nachher)\\
+		\begin{verbatim}
+Die Sonne ist ein:
+$$TOKEN_UNORDERED_LIST_4$$
+		\end{verbatim}\n\pause
+		\textbf{Token-Map:}\n
+		\hspace{-0.65cm}
+		\addtolength{\tabcolsep}{-0.5\tabcolsep}
+		\begin{tabularx}{\textwidth}{rcp{6cm}}
+			\verb+$$TOKEN_UNORDERED_LIST_4$$+		& \textrightarrow & \verb+$$TOKEN_LIST_ITEM_3$$+\\
+			\verb+$$TOKEN_LIST_ITEM_3$$+			& \textrightarrow & \verb+$$TOKEN_EXTERNAL_LINK_2$$+\\
+			\verb+$$TOKEN_EXTERNAL_LINK_2$$+		& \textrightarrow & \verb+$$TOKEN_EXTERNAL_LINK_URL_0$$+\newline\verb+$$TOKEN_EXTERNAL_LINK_TEXT_1$$+\\
+			\verb+$$TOKEN_EXTERNAL_LINK_URL_0$$+	& \textrightarrow & \verb+https://de.wikipedia.org/wiki/Stern+\\
+			\verb+$$TOKEN_EXTERNAL_LINK_TEXT_1$$+	& \textrightarrow & Stern\\
+		\end{tabularx}
+	\end{frame}
+
+	\subsection{HTML Generierung}
+
+	\begin{frame}[fragile]
+		\textbf{Token-Map:}\n
+		\hspace{-0.65cm}
+		\addtolength{\tabcolsep}{-0.5\tabcolsep}
+		\begin{tabularx}{\textwidth}{rcp{6cm}}
+			\verb+$$TOKEN_EXTERNAL_LINK_2$$+		& \textrightarrow & \verb+$$TOKEN_EXTERNAL_LINK_URL_0$$+\newline\verb+$$TOKEN_EXTERNAL_LINK_TEXT_1$$+\\
+			\verb+$$TOKEN_EXTERNAL_LINK_URL_0$$+	& \textrightarrow & \verb+https://de.wikipedia.org/wiki/Stern+\\
+			\verb+$$TOKEN_EXTERNAL_LINK_TEXT_1$$+	& \textrightarrow & Stern\\
+		\end{tabularx}
+		~\n\pause
+		\textbf{Template ausfüllen:}\n
+		\begin{onlyenv}<2>
+			\verb+<a href="              %s                   ">  %s </a>+
+			\verb+<a href="https://de.wikipedia.org/wiki/Stern">Stern</a>+
+		\end{onlyenv}
+		\visible<3>
+		{
+			\includegraphics[width=\linewidth]{images/code-html-generation.png}
+		}
+	\end{frame}
 	
-	
+	\section{Take aways}
+
 	% Probleme, die aufgetreten sind
+	\begin{frame}{Sonstige Problemchen}
+		\begin{itemize}
+			\item Tolino ist weird
+			\begin{itemize}
+				\item Absturz bei Nutzung von CSS \texttt{gap} Eigenschaft
+				\item Absturz bei anderen Kleinigkeiten
+			\end{itemize}\pause
+			\item Pandoc ist weird
+			\begin{itemize}
+				\item Ergänzt eigenmächtig \texttt{<p>} Elemente
+				\item \texttt{<th>} in \texttt{<tr>} werden umgewandelt
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
 	
 	% Infos (Repo, Bauen, CLI, ...)
+	\begin{frame}
+		\vspace{1cm}
+		\centering\href{https://github.com/hauke96/wiki2book}{github.com/hauke96/wiki2book}
+	\end{frame}
 	
 	% Hands-on
+	\begin{frame}
+		\vspace{1cm}
+		\centering Hands-on
+	\end{frame}
 \end{document}
