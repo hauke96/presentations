@@ -130,7 +130,7 @@
 	
 	\begin{frame}[fragile]{Formatierung}
 		\begin{verbatim}
-Wikitext ''kann'' auch '''Formattierung'''.
+Wikitext ''kann'' auch '''Formatierung'''.
 
 Und  '''sogar ''alles''' durcheinander'' geht.
 		\end{verbatim}
@@ -633,8 +633,14 @@ $$TOKEN_UNORDERED_LIST_4$$
 			\end{itemize}\pause
 			\item Pandoc ist weird
 			\begin{itemize}
-				\item Ergänzt eigenmächtig \texttt{<p>} Elemente
+				\item Baut HTML um \& ergänzt eigenmächtig \texttt{<p>} Elemente
 				\item \texttt{<th>} in \texttt{<tr>} werden umgewandelt
+			\end{itemize}\pause
+			\item Wikipedia-Artikel sind weird/ungünstig
+			\begin{itemize}
+				\item Random Leerzeilen
+				\item Uneinheitliche Template-Nutzungen
+				\item Verweise auf andere Artikel (ala "`Siehe hierzu Artikel [[foo]]."')
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
