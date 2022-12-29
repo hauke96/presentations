@@ -128,6 +128,13 @@
 	% Mediawiki Sprache
 	\subsection{Wikitext -- Die Sprache der Wikipedia}
 	
+	\begin{frame}
+		\vspace{1cm}
+		\begin{center}
+			Wie Wikipedia funktioniert
+		\end{center}
+	\end{frame}
+	
 	\begin{frame}[fragile]{Formatierung}
 		\begin{verbatim}
 Wikitext ''kann'' auch '''Formatierung'''.
@@ -340,6 +347,13 @@ GET  de.wikipedia.org/w/api.php
 	% - Wie funktioniert ein Compiler/Transpiler
 	\section{Technischer Aufbau}
 	
+	\begin{frame}
+		\vspace{1cm}
+		\begin{center}
+			Wie wiki2book funktioniert
+		\end{center}
+	\end{frame}
+	
 	\subsection{Technischer Aufbau}
 	
 	\begin{frame}{Idee \& Annahmen}
@@ -348,6 +362,9 @@ GET  de.wikipedia.org/w/api.php
 			\item Heruntergeladener wikitext ist korrekt \textrightarrow\ Keine Syntaxprüfung nötig.
 			\item Formatierung vom HTML (Einrückung, Leerzeilen, etc.) ist egal
 		\end{itemize}\pause
+		\vspace{0.25cm}
+		Warum HTML?\\
+		EPUB eBooks sind quasi zezippte Webseiten.\pause\n
 		Idee:
 		\begin{itemize}
 			\item Elemente im wikitext rekursiv durch Token ersetzen
@@ -423,6 +440,13 @@ GET  de.wikipedia.org/w/api.php
 	%  Solange zu 1 zurück springen bis alles fertig ist
 	\section{Funktionsweise}
 	
+	\begin{frame}
+		\vspace{1cm}
+		\begin{center}
+			Interner Aufbau
+		\end{center}
+	\end{frame}
+	
 	\subsection{Ablauf}
 	
 	\begin{frame}
@@ -496,11 +520,11 @@ GET  de.wikipedia.org/w/api.php
 		\end{itemize}
 	\end{frame}
 
-	\begin{frame}{2. Cleanup -- Irgendwas mit Performance oder so}
-		\begin{center}
-			\includegraphics[width=\linewidth]{images/code-cleanup.png}
-		\end{center}
-	\end{frame}
+%	\begin{frame}{2. Cleanup -- Irgendwas mit Performance oder so}
+%		\begin{center}
+%			\includegraphics[width=\linewidth]{images/code-cleanup.png}
+%		\end{center}
+%	\end{frame}
 
 	\begin{frame}{3. Templates evaluieren}
 		\begin{itemize}
@@ -622,6 +646,13 @@ $$TOKEN_UNORDERED_LIST_4$$
 	\end{frame}
 	
 	\section{Take aways}
+	
+	\begin{frame}
+		\vspace{1cm}
+		\begin{center}
+			Sonst noch was?
+		\end{center}
+	\end{frame}
 
 	% Probleme, die aufgetreten sind
 	\begin{frame}{Sonstige Problemchen}
