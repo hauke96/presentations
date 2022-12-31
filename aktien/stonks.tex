@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \input{../flat-blue-theme.inc}
+\input{../footnotes.inc}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
@@ -18,48 +19,6 @@
 \usepackage{lmodern}
 %\usepackage{libertine}
 
-\renewcommand\footnoterule
-{
-	% Original implementation just with gray color
-	\color{gray}
-	\kern-3pt 
-	\hrule width 2in 
-	\kern 2.6pt
-}
-\renewcommand\thefootnote{\tiny\textcolor{gray}{\arabic{footnote}}}
-\let\oldfootnote\footnote
-\renewcommand{\footnote}[1]
-{%
-	\oldfootnote
-	{
-		\tiny
-		\textcolor{gray}{#1}
-	}%
-}
-\newcommand{\citewiki}[2][]
-{%
-	\footnote
-	{
-		\ifthenelse{\isempty{#1}}
-		{
-			Quelle: \href{https://de.wikipedia.org/wiki/#2}{Wikipedia:#2}
-		}
-		{
-			Quelle: \href{https://de.wikipedia.org/wiki/#2}{Wikipedia:#1}
-		}
-	}
-}
-\newcommand{\citeurl}[2]
-{
-	\footnote
-	{
-		\tiny
-		\textcolor{gray}
-		{
-			Quelle: \href{#1}{#2}
-		}
-	}
-}
 \newcommand{\money}[2][green!45!gray]{
 	\node
 	[

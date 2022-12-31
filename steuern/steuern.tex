@@ -1,4 +1,7 @@
 \documentclass{beamer}
+\input{../flat-blue-theme.inc}
+\input{../footnotes.inc}
+
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -14,42 +17,6 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
 
-\renewcommand\footnoterule
-{
-	% Original implementation just with gray color
-	\color{gray}
-	\kern-3pt 
-	\hrule width 2in 
-	\kern 2.6pt
-}
-\renewcommand\thefootnote{\tiny\textcolor{gray}{\arabic{footnote}}}
-\let\oldfootnote\footnote
-\renewcommand{\footnote}[1]
-{%
-	\oldfootnote
-	{
-		\tiny
-		\textcolor{gray}{\ #1}
-	}%
-}
-\renewcommand{\footref}[1]{\textsuperscript{\ref{#1}}}
-\newcommand{\citewiki}[2][]
-{%
-	\footnote
-	{
-		\ifthenelse{\isempty{#1}}
-		{
-			Quelle: \href{https://de.wikipedia.org/wiki/#2}{Wikipedia:#2}
-		}
-		{
-			Quelle: \href{https://de.wikipedia.org/wiki/#2}{Wikipedia:#1}
-		}
-	}
-}
-\newcommand{\citeurl}[2]
-{%
-	\footnote{Quelle: \href{#1}{#2}}
-}
 \newcommand{\money}[1]{
 	\node
 	[
@@ -74,8 +41,6 @@
 		semithick
 	] at #1 {\tiny\color{white}€};
 }
-
-\input{../flat-blue-theme.inc}
 
 \setbeamercovered{invisible}
 \beamertemplatenavigationsymbolsempty
@@ -866,10 +831,14 @@
 			\end{frame}
 		
 			\begin{frame}
-				YouTube ist unser Freund!\n
+				Nützliches Material:\n
 				\begin{itemize}
 					\item "`Steuern mit Kopf"' \textrightarrow\ \href{https://www.youtube.com/watch?v=vEYL7AlCTgw&list=PL0OXhlRkvak8sq4efIvHYxx4e_DrE8zZT}{Playlist} Schritt für Schritt durch die Steuererklärung
 					\item "`Finanzfluss"' \textrightarrow\ \href{https://www.youtube.com/watch?v=FiAGN-RrHMg}{ELSTER Tutorial} von Login bis Abschicken der Steuererklärung
+					\item \href{https://www.steuererklaerung-verstehen.de/}{steuererklaerung-verstehen.de}
+					\item \href{https://www.kann-man-das-absetzen.de/}{kann-man-das-absetzen.de}
+					\item \href{https://www.buhl.de/steuer/ratgeber/}{buhl Ratgeber}
+					\item \href{https://www.elster.de/eportal/helpGlobal?themaGlobal=help_est_ufa_10_2022}{ELSTER-FAQ} (2022)
 				\end{itemize}
 			\end{frame}
 	
