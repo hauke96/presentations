@@ -8,7 +8,7 @@
 \usepackage{lastpage}
 
 \newcommand{\sarrow}{\small$\rightarrow$}
-\newcommand{\tipp}[2][Tipp:]{\vspace{0.2cm}\textbf{#1:}\\#2}
+\newcommand{\tipp}[2][Tipp]{\vspace{0.2cm}\textbf{#1:}\\#2}
 
 \setbeamercovered{invisible}
 \beamertemplatenavigationsymbolsempty
@@ -87,35 +87,60 @@
 			\end{frame}
 			
 			\begin{frame}{Rucksäcke: Arten (1/2)}
-				\begin{itemize}
-					\item \textbf{Tagesrucksäcke}
-					\begin{itemize}
-						\item Für 0-2 Übernachtungen
-						\item Volumen: 5-25 L
-						\item Kein oder kleiner Hüftgurt
-						\item 30 - 150 €
-					\end{itemize}\pause
-					\item \textbf{Tourenrucksack}
-					\begin{itemize}
-						\item Für 1-7 Übernachtungen
-						\item Volumen: 25-50 L
-						\item Hüftgurt, ggf. Trägersystem
-						\item 100 - 300 €
-					\end{itemize}
-				\end{itemize}
+				\begin{columns}[c]
+					\begin{column}{0.64\textwidth}
+						\begin{itemize}
+							\item \textbf{Tagesrucksäcke}
+							\begin{itemize}
+								\item Für 0-2 Übernachtungen
+								\item Volumen: 5-25 L
+								\item Kein oder kleiner Hüftgurt
+								\item 30 - 150 €
+							\end{itemize}
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.34\textwidth}
+						\includegraphics[height=2.25cm]{images/backpack-small.png}
+					\end{column}
+				\end{columns}
+				\vspace{0.4cm}
+				\pause
+				\begin{columns}[c]
+					\begin{column}{0.64\textwidth}
+						\begin{itemize}
+							\item \textbf{Tourenrucksack}
+							\begin{itemize}
+								\item Für 1-7 Übernachtungen
+								\item Volumen: 25-50 L
+								\item Hüftgurt, ggf. Trägersystem
+								\item 100 - 300 €
+							\end{itemize}
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.34\textwidth}
+						\includegraphics[height=2.5cm]{images/backpack-medium.png}
+					\end{column}
+				\end{columns}
 			\end{frame}
 				
 			\begin{frame}{Rucksäcke: Arten (2/2)}
-				\begin{itemize}
-					\item \textbf{Trekkingrucksack}
-					\begin{itemize}
-						\item Für 5+ Übernachtungen
-						\item Volumen: 45-100 L
-						\item Hüftgurt, Trägersystem, ggf. hohes Eigengewicht
-						\item 150 - 400 €
-					\end{itemize}\pause
-					\item \textbf{Weitere:} Kletterrucksack, Trail-Runner-Rucksack, Skirucksack, ...
-				\end{itemize}
+				\begin{columns}[T]
+					\begin{column}{0.64\textwidth}
+						\begin{itemize}
+							\item<1-> \textbf{Trekkingrucksack}
+							\begin{itemize}
+								\item Für 5+ Übernachtungen
+								\item Volumen: 45-100 L
+								\item Hüftgurt, Trägersystem, ggf. hohes Eigengewicht
+								\item 150 - 400 €
+							\end{itemize}
+							\item<2-> \textbf{Weitere:} Kletterrucksack, Trail-Runner-Rucksack, Skirucksack, ...
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.34\textwidth}
+						\onslide<1->{\includegraphics[height=3cm]{images/backpack-big.png}}
+					\end{column}
+				\end{columns}
 			\end{frame}
 			
 			\begin{frame}{Rucksäcke: Welcher ist der richtige?}
@@ -129,19 +154,35 @@
 			\end{frame}
 			
 			\begin{frame}{Unterkunft: Zelte \& Tarp}
-				\textbf{Zelt:}
-				\begin{itemize}
-					\item Dach, Wand, Boden + Gestände
-					\item Tunnel- / Kuppelzelt
-					\item Größe abhängig von Personenanzahl
-					\item Sonstige: Autodachzelt, Familienzelt, Strandmuschel, ...
-				\end{itemize}\pause
-				\textbf{Tarp:}
-				\begin{itemize}
-					\item Basically: Plane \textrightarrow\ Zelt ohne Gestänge und Boden
-					\item Je nach Ausführung: Gestände, Seile, Mückennetz, etc.
-					\item Dreieckig, Rechteckig, Fünfeckig, ...
-				\end{itemize}
+				\begin{columns}[c]
+					\begin{column}{0.69\textwidth}
+						\textbf{Zelt:}
+						\begin{itemize}
+							\item Dach, Wand, Boden + Gestände
+							\item Tunnel- / Kuppelzelt
+							\item Größe abhängig von Personenanzahl
+							\item Sonstige: Autodachzelt, Familienzelt, Strandmuschel, ...
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.29\textwidth}
+						\onslide<1->{\includegraphics[width=3cm]{images/tent.png}}
+					\end{column}
+				\end{columns}
+				\vspace{0.2cm}
+				\pause
+				\begin{columns}[c]
+					\begin{column}{0.69\textwidth}
+						\textbf{Tarp:}
+						\begin{itemize}
+							\item Zelt ohne Gestänge und Boden
+							\item Ggf.: Gestände, Seile, Mückennetz, etc.
+							\item Dreieckig, Rechteckig, Fünfeckig, ...
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.29\textwidth}
+						\onslide<1->{\includegraphics[width=2.5cm]{images/tarp.png}}
+					\end{column}
+				\end{columns}
 			\end{frame}
 			
 			\begin{frame}{Unterkunft: Zelte \& Tarp -- Vor- \& Nachteile}
@@ -153,7 +194,7 @@
 				\end{itemize}\pause
 				\textbf{Tarp:}
 				\begin{itemize}
-					\item[$+$] Leicht(er): < 1 kg (manche sogar < 200 g)
+					\item[$+$] Leicht(er): $<$ 1 kg (manche sogar $<$ 200 g)
 					\item[$+$] Billig(er): ab 6,50 € (bis 300 €)
 					\item[$-$] Nicht immer geeignet
 				\end{itemize}\pause
@@ -211,34 +252,68 @@
 			\end{frame}
 			
 			\begin{frame}{Outdoor-Küche: Kocher (1/2)}
-				\textbf{Gaskocher:}
-				\begin{itemize}
-					\item Kartusche mit Isobutan, Propan, etc.
-					\item Aufsatz für Kartusche
-					\item[\sarrow] Allrounder, billig, einfache Benutzung, Kartuschen ggf. nicht immer verfügbar
-				\end{itemize}\pause
-				\textbf{Spirituskocher:}
-				\begin{itemize}
-					\item Becher für Spiritus
-					\item Gestell für Topf
-					\item[\sarrow] Simpler Aufbau, keine Kartusche, Spiritus überall verfügbar, Vorsicht bei Benutzung
-				\end{itemize}
+				\begin{columns}[c]
+					\begin{column}{0.69\textwidth}
+						\textbf{Gaskocher:}
+						\begin{itemize}
+							\item Kartusche mit Isobutan, Propan, etc.
+							\item Aufsatz für Kartusche
+							\item[\sarrow] Allrounder, billig, einfache Benutzung, Kartuschen ggf. nicht immer verfügbar
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.29\textwidth}
+						\includegraphics[width=2.5cm]{images/kocher-gas.png}
+					\end{column}
+				\end{columns}
+			\end{frame}
+				
+			\begin{frame}{Outdoor-Küche: Kocher (2/4)}
+				\begin{columns}[c]
+					\begin{column}{0.69\textwidth}
+						\textbf{Spirituskocher:}
+						\begin{itemize}
+							\item Becher für Spiritus
+							\item Gestell für Topf
+							\item[\sarrow] Simpler Aufbau, keine Kartusche, Spiritus überall verfügbar, Vorsicht bei Benutzung
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.29\textwidth}
+						\includegraphics[width=3cm]{images/kocher-spiritus.png}
+					\end{column}
+				\end{columns}
 			\end{frame}
 		
-			\begin{frame}{Outdoor-Küche: Kocher (2/2)}
-				\textbf{Benzinkocher / Mehrstoffkocher:}
-				\begin{itemize}
-					\item Drucktank für Benzin (alternativ: Petroleum, Diesel, Kerosin)
-					\item Vorheiz-Filz
-					\item Brennkopf mit Halterung für Topf
-					\item[\sarrow] Schwierige Handhabung, hohe Heizleistung, Brennstoff überall verfügbar
-				\end{itemize}\pause
-				\textbf{Hobokocher:}
-				\begin{itemize}
-					\item Kleiner Holzofen
-					\item Ineinander gesteckte Bleche
-					\item[\sarrow] Kleines Packmaß, Brennstoff Verfügbarkeit prüfen, ggf. illegal (z.B. in NSGs) 
-				\end{itemize}
+			\begin{frame}{Outdoor-Küche: Kocher (3/4)}
+				\begin{columns}[c]
+					\begin{column}{0.62\textwidth}
+						\textbf{Benzinkocher / Mehrstoffkocher:}
+						\begin{itemize}
+							\item Drucktank für Benzin (alternativ: Petroleum, Diesel, Kerosin)
+							\item Vorheiz-Filz
+							\item Brennkopf mit Halterung für Topf
+							\item[\sarrow] Schwierige Handhabung, hohe Heizleistung, Brennstoff überall verfügbar
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.36\textwidth}
+						\includegraphics[width=3.85cm]{images/kocher-benzin.png}
+					\end{column}
+				\end{columns}
+			\end{frame}
+		
+			\begin{frame}{Outdoor-Küche: Kocher (4/4)}
+				\begin{columns}[c]
+					\begin{column}{0.69\textwidth}
+						\textbf{Hobokocher:}
+						\begin{itemize}
+							\item Kleiner Holzofen
+							\item Ineinander gesteckte Bleche
+							\item[\sarrow] Kleines Packmaß, Brennstoff Verfügbarkeit prüfen, ggf. illegal (z.B. in NSGs) 
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.29\textwidth}
+						\includegraphics[width=2.35cm]{images/kocher-hobo.png}
+					\end{column}
+				\end{columns}
 			\end{frame}
 			
 			\begin{frame}{Outdoor-Essen: Frühstück}
@@ -248,25 +323,7 @@
 					\item[\sarrow] Gerne warm, viele Kohlenhydrate \& Proteine, mäßig viel Fett, wenig/kein Zucker
 				\end{itemize}\pause
 				\tipp[Was manche gerne machen]{Aufstehen, eine Stunde wandern und erst dann Frühstücken}\\\pause
-				\tipp[Was ich gerne mache]{Kaffeepulver mitnehmen ;)}
-			\end{frame}
-			
-			\begin{frame}{Outdoor-Essen: Hauptmahlzeit}
-				\begin{itemize}
-					\item Warme \& leckere Mahlzeit
-					\item Idealerweise: Getrocknetes Essen, heißt Wasser drauf, ziehen lassen, fertig
-					\item Fertigprodukte:
-					\begin{itemize}
-						\item Sea To Summit, Trek'n Eat, ...
-						\item Teuer + viel Müll
-					\end{itemize}
-					\item Selbst mischen:
-					\begin{itemize}
-						\item Nudeln, Reis, Cousous, Bulgur, Quinoa, getr. Tofu
-						\item Getrocknetes Gemüse
-						\item Eine Tüte Suppen- oder Saucenpulver
-					\end{itemize}
-				\end{itemize}
+				\tipp[Was ich gerne mache]{Instant-Kaffeepulver mitnehmen ;)}
 			\end{frame}
 			
 			\begin{frame}{Outdoor-Essen: Snacks}
@@ -278,11 +335,35 @@
 				\end{itemize}
 			\end{frame}
 			
+			\begin{frame}{Outdoor-Essen: Hauptmahlzeit}
+				\begin{itemize}
+					\item Warme \& leckere Mahlzeit
+					\item Idealerweise: Getrocknetes Essen, heißt Wasser drauf, ziehen lassen, fertig\pause
+					\item Fertigprodukte:
+					\begin{itemize}
+						\item Sea To Summit, Trek'n Eat, ...
+						\item Teuer + viel Müll
+					\end{itemize}\pause
+					\item Selbst mischen:
+					\begin{itemize}
+						\item Nudeln, Linsen, Reis, Cousous, Bulgur, Quinoa, getr. Tofu, Haferflocken
+						\item Getrocknetes Gemüse, Röstzwiebeln, Samen, Kerne
+						\item Eine Tüte Fertiggericht-, Suppen- oder Saucenpulver
+						\item Kleines Fläschchen Öl separat mitnehmen
+					\end{itemize}
+					\item Nachtisch hebt die Stimmung (und liefert Kalorien)
+				\end{itemize}
+			\end{frame}
+			
 			\begin{frame}{Outdoor-Essen: Hinweise}
 				\begin{itemize}
-					\item Kalorienverbrauch x1,5 bis x2 (\textrightarrow\ ab 2500-3000 / Tag)
-					\item Knorr Fertig-Gericht: 500-700 kcal \textrightarrow\ drauf achten, ggf. selbst mischen
-					\item Gerade bei längeren Touren: Es \textit{muss} schmecken!
+					\item Kalorienverbrauch x1,5 bis x2 ($>$ 2500-3000 / Tag)
+					\begin{itemize}
+						\item Fertig-Gerichte: 500 - 700 kcal
+						\item Eigene Mischung: ca. 300-350 kcal / 100g
+						\item Gewichtsabnahme bei längeren Wanderungen wahrscheinlich
+					\end{itemize}
+					\item Gerade bei längeren Touren: Es muss schmecken!
 				\end{itemize}
 			\end{frame}
 			
@@ -292,17 +373,17 @@
 					\item Waschlappen, Handtuch (Mikrofaser)
 					\item Outdoor-Seife (einigermaßen biologisch abbaubar)
 					\item Zahnputzsachen
-					\item Genug Unterwäsche
 					\item Toilettenpapier, Desinfektionsmittel
+					\item Erste-Hilfe-Set
 				\end{itemize}\pause
 				\textbf{Optional:}
 				\begin{itemize}
-					\item Spaten (oder etwas, das man als solches benutzen kann)
+					\item Deo
 					\item Schlafsack Inlett
 				\end{itemize}\pause
 				\textbf{Überbewertet (IMHO):}
 				\begin{itemize}
-					\item Deo, Parfum, Schminke o.O
+					\item Parfum, Schmuck, Schminke o.O
 					\item Schampoo, Duschgel
 				\end{itemize}
 			\end{frame}
@@ -310,27 +391,9 @@
 			\begin{frame}{Werkzeuge}
 				\begin{itemize}
 					\item Kompass
-					\item Taschenmesser
+					\item Taschenmesser, Multitool, Axt
 					\item Taschenlampe, Stirnlampe
 					\item Feuerzeug (besser: Feuerstahl)
-				\end{itemize}
-			\end{frame}
-			
-			\begin{frame}{Kleidung}
-				\textbf{Must have:}
-				\begin{itemize}
-					\item Bequeme Kleidung
-					\item Immer trockene Wechselkleidung
-					\item An Witterung, Temperatur, Umgebung, Dauer, Belastung angepasst
-				\end{itemize}\pause
-				\textbf{Optional:}
-				\begin{itemize}
-					\item Auf Wandern angepasste Kleidung
-				\end{itemize}\pause
-				\textbf{Überbewertet (IMHO):}
-				\begin{itemize}
-					\item Super-duper Funktionskleidung
-					\item Gewisse Marken (z.B. Icebreaker, Fjällräven, Arc'teryx)
 				\end{itemize}
 			\end{frame}
 			
@@ -359,7 +422,7 @@
 					\item Jacke: Softshell, Hardshell, Regenjacke
 					\item Poncho
 				\end{itemize}\pause
-				\tipp[Hinweis 1]{Regenjacken sind i.d.R. auch winddicht}\\\pause
+				\tipp[Hinweis 1]{Regenjacken sind i.d.R. auch winddicht.}\\\pause
 				\tipp[Hinweis 2]{Regenjacken bleiben nicht wasserdicht!}
 			\end{frame}
 			
@@ -387,18 +450,68 @@
 				\tipp{Zwei-Socken-Prinzip gegen Blasen: Normale Socken und darüber Wandersocken.}
 			\end{frame}
 			
-			\begin{frame}{Kleidung: Must haves}
+			\begin{frame}{Kleidung}
+				\textbf{Must have:}
 				\begin{itemize}
-					\item Vernünftige Regenkleidung
-					\item Bequeme und adäquate Kleidung
+					\item Bequeme Kleidung
+					\item An Witterung, Temperatur, Umgebung, Dauer, Belastung angepasst
+					\item Immer trockene Wechselkleidung!
 					\item Gute Wanderschuhe
 					\item Socken-Strategie, die keine Blasen verursacht
+				\end{itemize}\pause
+				\textbf{Optional:}
+				\begin{itemize}
+					\item Auf Wandern angepasste Kleidung
+				\end{itemize}\pause
+				\textbf{Überbewertet (IMHO):}
+				\begin{itemize}
+					\item Super-duper Funktionskleidung
+					\item Gewisse Marken (z.B. Icebreaker, Fjällräven, Arc'teryx)
 				\end{itemize}
+			\end{frame}
+			
+			\begin{frame}{Wanderstöcke}
+				\begin{columns}[c]
+					\begin{column}{0.69\textwidth}
+						\begin{itemize}
+							\item[$+$] Mehr Stabilität \& Trittsicherheit
+							\item[$+$] Gewichtsverlagerung
+							\item[$+$] Weniger anstrengend
+							\item[$+$] Geringere Kniebelastung
+							\item[$+$] Hilfreich beim Furten
+							\item[$+$] Gestände beim Tarp\pause
+							\item[$-$] Hände nicht mehr frei
+							\item[$-$] Falsche Sicherheit
+							\item[$-$] Schäden an Weg und Natur
+						\end{itemize}
+					\end{column}
+					\begin{column}{0.29\textwidth}
+						\includegraphics[width=1.25cm]{images/hiking-sticks.png}
+					\end{column}
+				\end{columns}
 			\end{frame}
 		
 		\subsection{Karten}
 			
-			\begin{frame}{}
+			\begin{frame}{Arten}
+				\begin{minipage}{0.59\textwidth}
+					\textbf{Relevante Rubriken:}
+					\begin{itemize}
+						\item<1-> Stadtpläne, Straßenkarten
+						\item<1-> Fahrradkarten
+						\item<1-> Gewässerkarten
+						\item<2-> Luftbildkarten
+						\item<3-> Thematische Karten
+						\item<4-> Wanderkarten
+						\item<4-> Topografische Karten
+					\end{itemize}
+				\end{minipage}
+				\begin{minipage}{0.39\textwidth}
+					\onslide<1->{\includegraphics[height=2cm]{images/map-example-street.png}}
+					\onslide<2->{\includegraphics[height=2cm]{images/map-example-aerial.png}}\vspace{0.1cm}\\\noindent
+					\onslide<3->{\includegraphics[height=2cm]{images/map-example-thematic.png}}
+					\onslide<4->{\includegraphics[height=2cm]{images/map-example-hiking.png}}
+				\end{minipage}
 			\end{frame}
 		
 		\subsection{Navigation}
