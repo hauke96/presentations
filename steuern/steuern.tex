@@ -44,11 +44,7 @@
 
 \setbeamercovered{invisible}
 \beamertemplatenavigationsymbolsempty
-
-% Reduce spacing between TOC elements by replacing "1.5em" with "0.75em"
-\makeatletter
-\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.75em}{}{}
-\makeatother
+\condensedToc
 
 \author[Hauke Stieler]{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
 \title{Steuern}
@@ -57,10 +53,10 @@
 \begin{document}
 	{
 		\setbeamertemplate{footline}{}
-		\begin{frame}
-			\includegraphics[width=\paperwidth,trim=2cm 2cm -1.9cm 3.35cm]{images/tax-government}
-		\end{frame}
+		\setbeamertemplate{headline}{}
+		\setbeamertemplate{background}{\includegraphics[width=\paperwidth,trim=0 0 0 3.5cm]{images/tax-government}}
 		\addtocounter{page}{-1}
+		\frame{}
 	}
 
 	{
