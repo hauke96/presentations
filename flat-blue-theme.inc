@@ -41,9 +41,9 @@
 
 % Reduce spacing between TOC elements
 \makeatletter
-	\newcommand{\condensedToc}{
+	\newcommand{\condensedToc}[1][0.8em]{
 		% Replace default 1.5em with the given value
-		\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.8em}{}{}
+		\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip#1}{}{}
 	}
 \makeatother
 
