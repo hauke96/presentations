@@ -39,4 +39,12 @@
 
 \newcommand{\n}{\hfill\\\vspace{0.25cm}}
 
+% Reduce spacing between TOC elements
+\makeatletter
+	\newcommand{\condensedToc}{
+		% Replace default 1.5em with the given value
+		\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.8em}{}{}
+	}
+\makeatother
+
 \mode<all>
