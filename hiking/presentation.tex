@@ -15,6 +15,7 @@
 
 \setbeamercovered{invisible}
 \beamertemplatenavigationsymbolsempty
+\condensedToc
 \setbeamertemplate{title page}[default][right]
 \defbeamertemplate*{title page}{customized}[1][]
 {
@@ -31,7 +32,7 @@
 	\insertdate\par
 }
 
-\author{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
+\author[Hauke Stieler]{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
 \title{Wandern, Trekking \& Co.}
 \date{\today}
 
@@ -39,7 +40,7 @@
 	{
 		\setbeamertemplate{headline}{}
 		\setbeamertemplate{footline}{}
-		\setbeamertemplate{background}{\includegraphics[width=1.01\paperwidth,trim=1 0 0 36]{images/hiking-1}}
+		\setbeamertemplate{background}{\includegraphics[width=1.01\paperwidth,trim=1 0 0 38]{images/hiking-1}}
 		\maketitle
 		\addtocounter{page}{-1}
 	}
@@ -89,7 +90,7 @@
 			\tableofcontents[currentsection,hideothersubsections]
 		\end{frame}
 		
-		\subsection{Equipment}
+		\subsection{Rucksäche}
 		
 			\begin{frame}{Rucksäcke}
 				\begin{itemize}
@@ -104,7 +105,7 @@
 				\end{itemize}
 			\end{frame}
 			
-			\begin{frame}{Rucksäcke: Arten (1/2)}
+			\begin{frame}{Arten (1/2)}
 				\begin{columns}[c]
 					\begin{column}{0.64\textwidth}
 						\begin{itemize}
@@ -141,7 +142,7 @@
 				\end{columns}
 			\end{frame}
 				
-			\begin{frame}{Rucksäcke: Arten (2/2)}
+			\begin{frame}{Arten (2/2)}
 				\begin{columns}[T]
 					\begin{column}{0.64\textwidth}
 						\begin{itemize}
@@ -161,28 +162,30 @@
 				\end{columns}
 			\end{frame}
 			
-			\begin{frame}{Rucksäcke: Welcher ist der richtige?}
-				\begin{itemize}
-					\item Was für eine Tour?
-					\item Wie viel Equipment?
-					\item Wie ist meine Anatomie? \textrightarrow\ Rückenlänge, Hüftbreite, ...
-					\item Sind besondere Funktionen nötig/gewünscht?
-					\item Tragekomfort \textrightarrow\ Im Laden anprobieren!
-				\end{itemize}
-			\end{frame}
+%			\begin{frame}{Welcher ist der richtige?}
+%				\begin{itemize}
+%					\item Was für eine Tour?
+%					\item Wie viel Equipment?
+%					\item Wie ist meine Anatomie? \textrightarrow\ Rückenlänge, Hüftbreite, ...
+%					\item Sind besondere Funktionen nötig/gewünscht?
+%					\item Tragekomfort \textrightarrow\ Im Laden anprobieren!
+%				\end{itemize}
+%			\end{frame}
 			
-			\begin{frame}{Unterkunft: Zelte \& Tarp}
+		\subsection{Unterkunft}
+			
+			\begin{frame}{Zelte \& Tarp}
 				\begin{columns}[c]
 					\begin{column}{0.69\textwidth}
 						\textbf{Zelt:}
 						\begin{itemize}
-							\item Dach, Wand, Boden + Gestände
-							\item Tunnel- / Kuppelzelt
-							\item Größe abhängig von Personenanzahl
-							\item Sonstige: Autodachzelt, Familienzelt, Strandmuschel, ...\pause
-							\item[$+$] Regen, Wind \& Sichtschutz
-							\item[$-$] Schwer: 1,5 - 2,5 kg (1-Personen Zelt)
-							\item[$-$] Teuer: 200 - 350 €
+							\item<1-> Dach, Wand, Boden + Gestände
+							\item<1-> Tunnel- / Kuppelzelt
+							\item<1-> Größe abhängig von Personenanzahl
+							\item<1-> Sonstige: Autodachzelt, Familienzelt, Strandmuschel, ...
+							\item<2->[$+$] Regen, Wind \& Sichtschutz
+							\item<2->[$-$] Schwer: 1,5 - 2,5 kg (1-Personen Zelt)
+							\item<2->[$-$] Teuer: 200 - 350 €
 						\end{itemize}
 					\end{column}
 					\begin{column}{0.29\textwidth}
@@ -191,17 +194,17 @@
 				\end{columns}
 			\end{frame}
 		
-			\begin{frame}{Unterkunft: Zelte \& Tarp}
+			\begin{frame}{Zelte \& Tarp}
 				\begin{columns}[c]
 					\begin{column}{0.69\textwidth}
 						\textbf{Tarp:}
 						\begin{itemize}
-							\item Zelt ohne Gestänge und Boden
-							\item Ggf.: Gestände, Seile, Mückennetz, etc.
-							\item Dreieckig, Rechteckig, Fünfeckig, ...\pause
-							\item[$+$] Leicht(er): $<$ 1 kg (manche sogar $<$ 200 g)
-							\item[$+$] Billig(er): ab 6,50 € (bis 300 €)
-							\item[$-$] Nicht immer geeignet
+							\item<1-> Zelt ohne Boden
+							\item<1-> Ggf.: Gestände, Seile, Mückennetz, etc.
+							\item<1-> Dreieckig, Rechteckig, Fünfeckig, ...\pause
+							\item<2->[$+$] Leicht(er): $<$ 1 kg (manche sogar $<$ 200 g)
+							\item<2->[$+$] Billig(er): ab 6,50 € (bis 300 €)
+							\item<2->[$-$] Nicht immer geeignet
 						\end{itemize}
 					\end{column}
 					\begin{column}{0.29\textwidth}
@@ -211,7 +214,7 @@
 				\tipp{Baumarktplane für 6,50 € mit Ösen bei Bauhaus.}
 				\end{frame}
 				
-			\begin{frame}{Unterkunft: Schlafsack}
+			\begin{frame}{Schlafsack}
 				\begin{itemize}
 					\item Füllmaterial: Kunstfaser vs. Daune
 					\item Temperaturbereiche (ISO EN 23537:2016):
@@ -221,26 +224,24 @@
 						\item Grenzbereich / Limit: Norm-Mann friert gerade so nicht.
 						\item Extrembereich: Norm-Frau überlebt gerade so für 6 Stunden.
 					\end{itemize}
-				\end{itemize}
-				\tipp[Schlafsack Tipp 1]{Am Anfang mit Kunstfaser probieren.}\\\pause
-				\tipp[Schlafsack Tipp 2]{Inletts wärmen zusätzlich und verhindern, dass man den eigenen Schlafsack voll schwitzt.}
+				\end{itemize}\pause
+				\tipp{Inletts wärmen zusätzlich und verhindern, dass man den eigenen Schlafsack voll schwitzt.}
 			\end{frame}
 			
-			\begin{frame}{Unterkunft: Schlafsack}
+			\begin{frame}{Schlafsack}
 				\textbf{Kunstfaser:}
 				\begin{itemize}
 					\item[$+$] Günstig(er): 100 - 400 € (Herbst- \& Winterschlafsäcke)
-					\item[$+$] Können mit Feuchtigkeit umgehen
-					\item[$+$] Leichter zu waschen
+					\item[$+$] Können mit Feuchtigkeit umgehen + leichter zu waschen
 					\item[$-$] Schwer und Voluminös
 				\end{itemize}\pause
 				\textbf{Daune:}
 				\begin{itemize}
 					\item[$+$] Leichter und kleiner
 					\item[$-$] Teuer: 300 - 800 € (Herbst- \& Winterschlafsäcke)
-					\item[$-$] Daunen verklumpen bei Feuchtigkeit
-					\item[$-$] Tricky zu waschen
-				\end{itemize}
+					\item[$-$] Daunen verklumpen bei Feuchtigkeit + tricky zu waschen
+				\end{itemize}\pause
+				\tipp{Am Anfang mit Kunstfaser probieren.}
 			\end{frame}
 			
 			% TODO Temperaturbereiche erklären
@@ -258,14 +259,14 @@
 %				\tipp[Schlafsack Tipp 2]{Inletts wärmen zusätzlich und verhindern, dass man den eigenen Schlafsack voll schwitzt.}
 %			\end{frame}
 			
-			\begin{frame}{Unterkunft: Isomatte}
+			\begin{frame}{Isomatte}
 				\begin{itemize}
 					\item Mit/ohne Füllmaterial, zusätzliche Isolierung, (selbst) aufblasbar
 					\item Wärmeisolierung: R-Wert (gute Isolierung ab $R \geq 3$)
 					\item Nicht aufblasbare: 15 - 50€
 					\item Aufblasbare: 50 - 300 €
 				\end{itemize}\pause
-				\tipp[Hinweis]{Ab ca. 5cm Dicke werden Isomatten bequem.}
+				\tipp[Hinweis]{Ab ca. 4-5cm Dicke werden Isomatten bequem.}
 			\end{frame}
 			
 %			\begin{frame}{Outdoor-Küche: Geschirr}
@@ -276,8 +277,10 @@
 %					\item Übliche Materialien: Gummi, Plastik, Alu, Edelstahl, Titan-Legierung
 %				\end{itemize}
 %			\end{frame}
+
+		\subsection{Outdoor-Küche \& Verpflegung}
 			
-			\begin{frame}{Outdoor-Küche: Kocher (1/2)}
+			\begin{frame}{Kocher (1/2)}
 				\begin{columns}[c]
 					\begin{column}{0.69\textwidth}
 						\textbf{Gaskocher:}
@@ -293,7 +296,7 @@
 				\end{columns}
 			\end{frame}
 				
-			\begin{frame}{Outdoor-Küche: Kocher (2/4)}
+			\begin{frame}{Kocher (2/4)}
 				\begin{columns}[c]
 					\begin{column}{0.69\textwidth}
 						\textbf{Spirituskocher:}
@@ -309,7 +312,7 @@
 				\end{columns}
 			\end{frame}
 		
-			\begin{frame}{Outdoor-Küche: Kocher (3/4)}
+			\begin{frame}{Kocher (3/4)}
 				\begin{columns}[c]
 					\begin{column}{0.62\textwidth}
 						\textbf{Benzinkocher / Mehrstoffkocher:}
@@ -326,7 +329,7 @@
 				\end{columns}
 			\end{frame}
 		
-			\begin{frame}{Outdoor-Küche: Kocher (4/4)}
+			\begin{frame}{Kocher (4/4)}
 				\begin{columns}[c]
 					\begin{column}{0.69\textwidth}
 						\textbf{Hobokocher:}
@@ -341,18 +344,32 @@
 					\end{column}
 				\end{columns}
 			\end{frame}
+		
+			\begin{frame}{Kocher}
+				\begin{center}
+					\includegraphics[height=2cm]{images/kocher-gas.png}\hspace{1cm}
+					\includegraphics[height=2cm]{images/kocher-spiritus.png}\hspace{1cm}
+					\includegraphics[height=2cm]{images/kocher-benzin.png}\hspace{1cm}
+					\includegraphics[height=2cm]{images/kocher-hobo.png}
+					\\\pause
+					\vspace{0.25cm}
+					\tipp[Kocher Tipp 1]{Gas- oder Spirituskocher für den Anfang.}
+					\\
+					\tipp[Kocher Tipp 2]{Windschutz aus Blech.}
+				\end{center}
+			\end{frame}
 			
-			\begin{frame}{Outdoor-Essen: Frühstück}
+			\begin{frame}{Frühstück}
 				\begin{itemize}
 					\item Müsli / Porridge
 					\item Rührei aus Eipulver und Wasser
 					\item Tee, Instant-Kaffeepulver
 					\item[\sarrow] Gerne warm, viele Kohlenhydrate \& Proteine, mäßig viel Fett, wenig/kein Zucker
 				\end{itemize}\pause
-				\tipp{Aufstehen, eine Stunde wandern und erst dann Frühstücken}\\\pause
+				\tipp{Aufstehen, eine Stunde wandern und erst dann Frühstücken}
 			\end{frame}
 			
-			\begin{frame}{Outdoor-Essen: Snacks}
+			\begin{frame}{Snacks}
 				\begin{itemize}
 					\item Müsli- oder Sportriegel (\textrightarrow\ möglichst wenig Zucker!)
 					\item Nüsse
@@ -363,13 +380,13 @@
 				\end{itemize}
 			\end{frame}
 			
-			\begin{frame}{Outdoor-Essen: Hauptmahlzeit}
+			\begin{frame}{Hauptmahlzeit}
 				\begin{itemize}
 					\item Warme \& leckere Mahlzeit
 					\item Idealerweise: Getrocknetes Essen, heißes Wasser drauf, ziehen lassen, fertig\pause
 					\item Fertigprodukte:
 					\begin{itemize}
-						\item Sea To Summit, Trek'n Eat, ...
+						\item Sea to Summit, Trek'n Eat, ...
 						\item Teuer + viel Müll
 					\end{itemize}\pause
 					\item Selbst mischen:
@@ -378,20 +395,88 @@
 						\item Getrocknetes Gemüse, Röstzwiebeln, Samen, Kerne
 						\item Eine Tüte Fertiggericht-, Suppen- oder Saucenpulver
 						\item Kleines Fläschchen Öl separat mitnehmen
-					\end{itemize}
+					\end{itemize}\pause
 					\item Nachtisch hebt die Stimmung (und liefert Kalorien)
 				\end{itemize}
 			\end{frame}
 			
-			\begin{frame}{Outdoor-Essen: Hinweise}
+			\begin{frame}{Hinweise}
 				\begin{itemize}
-					\item Kalorienverbrauch x1,5 bis x2 ($>$ 2500-3000 / Tag)
+					\item Kalorienverbrauch x1,5 bis x2 ($>$ 2500-3000 kcal / Tag)
 					\begin{itemize}
-						\item Fertig-Gerichte: 500 - 700 kcal
+						\item Fertig-Gerichte: 500 - 700 kcal\pause
 						\item Eigene Mischung: ca. 300-350 kcal / 100g
 						\item Gewichtsabnahme bei längeren Wanderungen wahrscheinlich
+					\end{itemize}\pause
+					\item Gerade bei längeren Touren: 
+					\begin{itemize}
+						\item Es muss schmecken!
+						\item Mehr Hunger zum Ende hin
 					\end{itemize}
-					\item Gerade bei längeren Touren: Es muss schmecken!
+				\end{itemize}
+			\end{frame}
+			
+		\subsection{Kleidung \& Hygiene}
+			
+			\begin{frame}{Materialien}
+				\begin{itemize}
+					\item Baumwolle (\textrightarrow\ \textit{cotton kills}), Viskose, Lyocell
+					\item Wolle (Schaf, Merino, Alpaka, etc.)
+					\item Polyesther, Polypropylen, Elastan
+					\item Nylon
+					\item Membrane (GoreTex, H2NO, Drilite, etc.)
+				\end{itemize}
+			\end{frame}
+			
+%			\begin{frame}{Kleidung}
+%				\begin{itemize}
+%					\item Unterwäsche: Normale oder Funktionsunterwäsche
+%					\item Mütze, Hut, Multifunktions / Tunneltuch
+%					\item Top, T-Shirt, Langarmshirt, Sport-Shirts
+%					\item Jacke: Normal, Soft- / Hardshell, Regenjacke
+%					\begin{itemize}
+%						\item Poncho
+%					\end{itemize}
+%					\item Hose: Normal, Soft- / Hardshell, Regenhose
+%					\item Wandershuhe / -stiefel
+%					\item Wandersocken
+%				\end{itemize}
+%			\end{frame}
+			
+			\begin{frame}{Kleidung}
+				\textbf{Must have:}
+				\begin{itemize}
+					\item An Witterung, Temperatur, Umgebung, Dauer, Belastung angepasst
+					\item Bequeme Kleidung
+					\item Immer trockene Wechselkleidung!
+					\item Passendes Schuhwerk (\textrightarrow\ gute Wanderschuhe)
+					\item Socken-Strategie, die keine Blasen verursacht
+				\end{itemize}\pause
+				\textbf{Optional:}
+				\begin{itemize}
+					\item Funktionskleidung
+				\end{itemize}\pause
+				\textbf{Überbewertet (IMHO):}
+				\begin{itemize}
+					\item Gewisse Marken (z.B. Icebreaker, Fjällräven, Arc'teryx)
+				\end{itemize}
+			\end{frame}
+			
+			\begin{frame}{Kleidung}
+				\textbf{Hinweise zu Regenjacken:}
+				\begin{itemize}
+					\item Sind i.d.R. auch winddicht
+					\item Bleiben nicht wasserdicht!
+					\item[\sarrow] Poncho
+				\end{itemize}
+				\pause
+				\vspace{0.2cm}
+				\textbf{Hinweise zu Blasen:}
+				\begin{itemize}
+					\item Verursacht durch Reibung
+					\item Begünstigt durch Wärme \& Feuchtigkeit
+					\item Zwei-Socken-Strategie: Normale Socken und darüber Wandersocken
+					\item Mit Hirschtalg- / Feuchtigkeitscreme vorbeugen
 				\end{itemize}
 			\end{frame}
 			
@@ -415,74 +500,7 @@
 				\end{itemize}
 			\end{frame}
 			
-			\begin{frame}{Werkzeuge}
-				\begin{itemize}
-					\item Kompass
-					\item Taschenmesser, Multitool, Axt
-					\item Taschenlampe, Stirnlampe
-					\item Feuerzeug (besser: Feuerstahl)
-				\end{itemize}
-			\end{frame}
-			
-			\begin{frame}{Kleidung: Materialien}
-				\begin{itemize}
-					\item Baumwolle (\textrightarrow\ \textit{cotton kills}), Viskose, Lyocell
-					\item Wolle (Schaf, Merino, Alpaka, etc.)
-					\item Polyesther, Polypropylen
-					\item Nylon
-					\item Membrane (GoreTex, H2NO, Drilite, etc.)
-				\end{itemize}
-			\end{frame}
-			
-			\begin{frame}{Kleidung}
-				\begin{itemize}
-					\item Unterwäsche: Normale oder Funktionsunterwäsche
-					\item Mütze, Hut, Multifunktions / Tunneltuch
-					\item Top, T-Shirt, Langarmshirt, Sport-Shirts
-					\item Jacke: Normal, Soft- / Hardshell, Regenjacke
-					\begin{itemize}
-						\item Poncho
-					\end{itemize}
-					\item Hose: Normal, Soft- / Hardshell, Regenhose
-					\item Wandershuhe / -stiefel
-					\item Wandersocken
-				\end{itemize}
-			\end{frame}
-				
-			\begin{frame}{Kleidung}
-				\textbf{Hinweise zu Regenjacken:}
-				\begin{itemize}
-					\item Sind i.d.R. auch winddicht
-					\item Bleiben nicht wasserdicht!
-				\end{itemize}
-				\pause
-				\vspace{0.2cm}
-				\textbf{Hinweise zu Blasen:}
-				\begin{itemize}
-					\item Verursacht durch Reibung
-					\item Begünstigt durch Wärme \& Feuchtigkeit
-					\item Zwei-Socken-Strategie: Normale Socken und darüber Wandersocken
-				\end{itemize}
-			\end{frame}
-			
-			\begin{frame}{Kleidung}
-				\textbf{Must have:}
-				\begin{itemize}
-					\item Bequeme Kleidung
-					\item An Witterung, Temperatur, Umgebung, Dauer, Belastung angepasst
-					\item Immer trockene Wechselkleidung!
-					\item Passendes Schuhwerk (\textrightarrow\ gute Wanderschuhe)
-					\item Socken-Strategie, die keine Blasen verursacht
-				\end{itemize}\pause
-				\textbf{Optional:}
-				\begin{itemize}
-					\item Funktionskleidung
-				\end{itemize}\pause
-				\textbf{Überbewertet (IMHO):}
-				\begin{itemize}
-					\item Gewisse Marken (z.B. Icebreaker, Fjällräven, Arc'teryx)
-				\end{itemize}
-			\end{frame}
+		\subsection{Sonstiges}
 			
 			\begin{frame}{Wanderstöcke}
 				\begin{columns}[c]
@@ -496,13 +514,57 @@
 							\item<1->[$+$] Gestände beim Tarp
 							\item<2->[$-$] Hände nicht mehr frei
 							\item<2->[$-$] Falsche Sicherheit
-							\item<2->[$-$] Schäden an Weg und Natur
+							\item<2->[$-$] Schäden an Weg und Natur\pause
+							\item<2->[$-$] Sieht bescheuert aus
 						\end{itemize}
 					\end{column}
 					\begin{column}{0.29\textwidth}
 						\onslide<1->{\includegraphics[width=1.25cm]{images/hiking-sticks.png}}
 					\end{column}
 				\end{columns}
+			\end{frame}
+			
+			\begin{frame}{Werkzeuge}
+				\begin{itemize}
+					\item Kompass
+					\item Taschenmesser, Multitool, Axt
+					\item Taschenlampe, Stirnlampe
+					\item Feuerzeug (besser: Feuerstahl \textrightarrow\ funktioniert auch bei Nässe)
+				\end{itemize}
+			\end{frame}
+		
+%			\begin{frame}{Was gibt es noch?}
+%				Ausrüstung für weitere Aktivitäten:
+%				\begin{itemize}
+%					\item Skifahren
+%					\item Mountainbiking
+%					\item Trailrunning
+%					\item Survival
+%					\item Schneetouren
+%					\item Bergsteigen
+%					\item Klettern
+%					\item[...] usw.
+%				\end{itemize}
+%			\end{frame}
+			
+			\begin{frame}{Wo kaufen?}
+				\begin{enumerate}
+					\item Im Laden (recommended + Filialen hier im Hamburg):
+					\begin{itemize}
+						\item Globetrotter
+						\item Trekking König
+						\item McTREK
+						\item Läden für Armee- \& Militärbekleidung ("`army store"')
+						\item Ggf. allgemeine Sportgeschäfte
+					\end{itemize}\pause
+					\item Online:
+					\begin{itemize}
+						\item Globetrotter, Trekking König, McTREK
+						\item Bergzeit
+						\item Bergfreunde
+						\item Campz
+					\end{itemize}
+				\end{enumerate}
 			\end{frame}
 		
 		\subsection{Karten}
@@ -518,6 +580,7 @@
 						\item<3-> Thematische Karten
 						\item<4-> Wanderkarten
 						\item<4-> Topografische Karten
+						\item<5-> Digitale Karten (\textrightarrow\ \href{https://openstreetmap.org}{OpenStreetMap})
 					\end{itemize}
 				\end{minipage}
 				\begin{minipage}{0.39\textwidth}
@@ -599,12 +662,12 @@
 								\draw[thick,red,->] (cliff) -- (0.64,0.44);
 							}
 							
-							\only<6>{
-								\node[red] (view) at (0.5, 0.05) {\contour{white}{Geile Aussicht}};
-								\draw[thick,red,->] (view) -- (0.05,0.56);
-								\draw[thick,red,->] (view) -- (0.56,0.51);
-								\draw[thick,red,->] (view) -- (0.63,0.62);
-							}
+%							\only<6>{
+%								\node[red] (view) at (0.5, 0.05) {\contour{white}{Geile Aussicht}};
+%								\draw[thick,red,->] (view) -- (0.05,0.56);
+%								\draw[thick,red,->] (view) -- (0.56,0.51);
+%								\draw[thick,red,->] (view) -- (0.63,0.62);
+%							}
 						\end{scope}
 					\end{tikzpicture}
 				\end{center}
@@ -655,7 +718,8 @@
 				\end{column}
 				\begin{column}{0.44\textwidth}
 					\only<1>{\includegraphics[width=0.95\linewidth]{images/info-source-routing-1.png}}
-					\only<2->{\includegraphics[width=0.95\linewidth]{images/info-source-routing-2.png}}
+					\only<2>{\includegraphics[width=0.95\linewidth]{images/info-source-routing-2.png}}
+					\only<3->{\includegraphics[width=0.95\linewidth]{images/info-source-forum.jpg}}
 				\end{column}
 			\end{columns}
 		\end{frame}
@@ -709,7 +773,7 @@
 				Sollte immer geplant werden:
 				\begin{itemize}
 					\item An- \& Abreise
-					\item Genug Essen \& vor allem Trinken einpacken
+					\item Genug Essen \& vor allem Trinken ($\geq 2$ L) einpacken
 					\item Reicht die Zeit?
 				\end{itemize}
 				Je nach Situation prüfen/einplanen:
@@ -826,6 +890,7 @@
 	\section{Richtiges Verhalten}
 		
 		\begin{frame}[t]{Inhalt}
+			\linespread{1.4}
 			\tableofcontents[currentsection,hideothersubsections]
 		\end{frame}
 		
@@ -959,7 +1024,7 @@
 		{
 			\setbeamertemplate{headline}{}
 			\setbeamertemplate{footline}{}
-			\setbeamertemplate{background}{\includegraphics[width=1.01\paperwidth,trim=1 0 0 36]{images/hiking-2}}
+			\setbeamertemplate{background}{\includegraphics[width=1.01\paperwidth,trim=1 0 0 38]{images/hiking-2}}
 			\frame{}
 		}
 \end{document}
