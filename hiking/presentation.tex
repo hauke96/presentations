@@ -1,11 +1,10 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 \input{../flat-blue-theme.inc}
 \input{../footnotes.inc}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
 \usepackage[ngerman]{babel}
-\usepackage{lastpage}
 \usepackage{tikz}
 
 \usepackage[outline]{contour}
@@ -16,16 +15,31 @@
 
 \setbeamercovered{invisible}
 \beamertemplatenavigationsymbolsempty
+\setbeamertemplate{title page}[default][right]
+\defbeamertemplate*{title page}{customized}[1][]
+{
+	\raggedleft
+	\hspace*{0.5\paperwidth}
+	\begin{beamercolorbox}[wd=0.4\paperwidth,ht=4.25ex,dp=2ex]{palette primary}
+		\centering\usebeamerfont{title}\inserttitle
+	\end{beamercolorbox}
+	\restoregeometry
+	
+	\vspace{1cm}
+	\insertauthor\par
+	\vspace{1cm}
+	\insertdate\par
+}
 
-\author[Hauke Stieler]{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
+\author{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
 \title{Wandern, Trekking \& Co.}
 \date{\today}
 
 \begin{document}
 	{
-		\setbeamertemplate{footline}{}
 		\setbeamertemplate{headline}{}
-		%		\setbeamertemplate{background}{\includegraphics[width=\paperwidth,trim=0 0 0 3.5cm]{images/tax-government}}
+		\setbeamertemplate{footline}{}
+		\setbeamertemplate{background}{\includegraphics[width=1.01\paperwidth,trim=1 0 0 35]{images/hiking-1}}
 		\maketitle
 		\addtocounter{page}{-1}
 	}
