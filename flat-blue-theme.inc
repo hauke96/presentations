@@ -6,8 +6,10 @@
 \newcommand*\oldmacro{}%
 \let\oldmacro\insertshorttitle%
 \renewcommand*\insertshorttitle
-{
-\makebox[0.94\textwidth]{\oldmacro\hfill\thepage\,/\,\pageref{LastPage}}
+{%
+	% To not count \pause as new frame. And also to make the package "appendixnumberbeamer" work.
+	% \makebox[0.94\textwidth]{\oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber}
+	\makebox[0.94\textwidth]{\oldmacro\hfill\thepage\,/\,\pageref{LastPage}}
 }
 \makeatletter
 \newcommand*{\currentname}{\TR@currentTitle}
