@@ -16,6 +16,9 @@
 \makeatother
 
 \definecolor{light-light-gray}{gray}{0.85}
+\definecolor{blue}{rgb}{0,0.55,0.8}
+\definecolor{darker_blue}{rgb}{0,0.41,0.6}
+\definecolor{light_blue}{rgb}{0.2,0.4,0.6}
 
 %\usetheme[compress]{Berlin}
 \usetheme[compress]{Dresden}
@@ -34,9 +37,6 @@
 \setbeamercolor{block title}{bg=darker_blue!100,fg=white}
 \setbeamercolor{block body}{bg=light_blue!25,fg=black}
 
-\definecolor{blue}{rgb}{0,0.55,0.8}
-\definecolor{darker_blue}{rgb}{0,0.41,0.6}
-\definecolor{light_blue}{rgb}{0.2,0.4,0.6}
 \usecolortheme[named=blue]{structure}
 
 \newcommand{\n}{\hfill\\\vspace{0.25cm}}
