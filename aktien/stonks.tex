@@ -50,6 +50,12 @@
 \newcommand{\wkn}[1]{\href{https://www.finanzen.net/anleihen/#1}{#1}}
 
 \setbeamercovered{invisible}
+\beamertemplatenavigationsymbolsempty
+\renewcommand*\insertshorttitle
+{
+	% To not count \pause as new frame. And also to make the package "appendixnumberbeamer" work.
+	\makebox[0.94\textwidth]{\oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber}
+}
 
 \author[Hauke Stieler]{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
 \title{Stonks}
@@ -59,7 +65,7 @@
 	{
 		\setbeamertemplate{headline}{}
 		\setbeamertemplate{footline}{}
-		\setbeamertemplate{background}{\includegraphics[width=\paperwidth,trim=0 0 0 3.5cm]{images/stonks-title-full}}
+		\setbeamertemplate{background}{\includegraphics[width=\paperwidth,trim=0 0 0 3.4cm]{images/stonks-title-full}}
 		\maketitle
 		\addtocounter{page}{-1}
 	}
@@ -75,7 +81,13 @@
 
 	\begin{frame}
 		\begin{center}
-			Was für Vorwissen hast du?
+			\textbf{Was für Vorwissen hast du?}\\\pause
+			\hfill\\
+			Könntest du erklären was eine Aktie ist?\\\pause
+			\hfill\\
+			Hast du schon mal an der Börse was gekauft?\\\pause
+			\hfill\\
+			Warst du schon mal auf der Hauptversammlung einer AG?
 		\end{center}
 	\end{frame}
 
@@ -93,14 +105,15 @@
 		
 		\begin{frame}
 			\begin{description}[labelwidth=0cm]
-				\item[Gewinn/Verlust] Differenz Kauf- \& Verkaufspreis\pause
+%				\item[Gewinn/Verlust] Differenz Kauf- \& Verkaufspreis\pause
 				\item[Kurs] Aktueller Preis einer Aktie an einer bestimmten Börse\pause
 				\item[Rendite] Gewinn relativ zum Einsatz (in Prozent)\pause
-				\item[Kapital] = Mittel = Geld (meistens)\pause
+				\item[Buchgewinn] Theoretischer Gewinn, wenn man jetzt verkaufen würde\pause
+%				\item[Kapital] = Mittel = Geld (meistens)\pause
 				\item[Anleger] Auch \textit{Investor}, nimmt am Finanzmarkt teil, z.B. durch Investitionen\pause
-				\item[Risiko] Wahrscheinlichkeit des Eintretens eines negativen Ereignisses\pause
+%				\item[Risiko] Wahrscheinlichkeit des Eintretens eines negativen Ereignisses\pause
 				\item[Portfolio] Sammlung an Wertpapieren
-				\item[Wertpapier] Z.B. Aktien, Anleihen, ETFs, ...
+				\item[Wertpapier] Auch \textit{asset}, z.B. Aktien, Anleihen, ETFs, ...
 			\end{description}
 		\end{frame}
 		
@@ -111,14 +124,14 @@
 					Einsatz von Kapital für einen bestimmten Verwendungszweck.\citewiki{Investition}
 				\end{definition}
 				\begin{itemize}
-					\item Motivation: Glaube an die Qualität des Unternehmens
+					\item Motivation: Glaube an die Qualität\footnote{Wirtschaftliche Qualität, also Rentabilität, Zukunftssicherheit, Markstellung, etc.} des Unternehmens
 					\item Horizont: Langfristig (Jahre/Jahrzehnte)
-				\end{itemize}\n
+				\end{itemize}\pause\n
 				\textbf{Beispiele:}
 				\begin{itemize}
-					\item Kauf von Aktien zum Vermögensaufbau.
-					\item Kauf eines Buches zum lernen für eine Uni-Veranstaltung.
-					\item Sport treiben zum Erhalt der körperlichen Gesundheit.
+					\item Kauf von Aktien zum Vermögensaufbau
+					\item Kauf eines Buches → bessere Noten → später mehr Gehalt
+%					\item Sport treiben zum Erhalt der körperlichen Gesundheit.
 				\end{itemize}
 			\end{frame}
 		
@@ -126,19 +139,19 @@
 		
 			\begin{frame}
 				\begin{definition}
-					Risikoreiches Ausnutzen von Preisschwankungen zur Gewinnmitnahme.\citewiki{Spekulation\_(Wirtschaft)}
+					Risiko behaftetes Ausnutzen von Preisschwankungen zur Gewinnmitnahme.\citewiki{Spekulation\_(Wirtschaft)}
 				\end{definition}
 				\begin{itemize}
-					\item Motivation: Externe Faktoren zur Gewinnerzeugung nutzen
+					\item Motivation: Externe Einflüsse zur Gewinnerzeugung nutzen
 					\begin{itemize}
 						\item Böse formuliert: Sich an Fehlentscheidungen/""Hoffnungen/Unwissen/... anderer bereichern
 					\end{itemize}
 					\item Horizont: Kurzfristig (Sekunden bis Monate)
-				\end{itemize}\n
+				\end{itemize}\pause\n
 				\textbf{Beispiele:}
 				\begin{itemize}
-					\item Kauf (irgend)einer Aktie, Verkauf am Folgetag.
-					\item Bunkern von Getreide in Hoffnung auf Kriege und Wirtschaftskrisen.
+					\item Kauf einer Aktie vor Veröffentlichung eines Quartalsberichts.
+					\item Bunkern von Getreide/Rohstoffen in Hoffnung auf Notlagen.
 				\end{itemize}
 			\end{frame}
 		
@@ -151,8 +164,8 @@
 				
 				\textbf{Beispiele:}
 				\begin{itemize}
-					\item Monatlich 300€ nicht ausgeben
-					\item Einmalig 10.000€ auf ein Festgeldkonto
+					\item Monatlich 300€ nicht/weniger ausgeben
+					\item Einmalig 1.000€ auf ein Festgeldkonto
 					\item Bis zum 18. Geburtstag des Kindes jährlich 500€ kontinuierlich investieren
 				\end{itemize}
 			\end{frame}
@@ -164,12 +177,15 @@
 					\item[Gläubiger] Kredit\textit{geber}, vergibt Kredite (z.B. Bank)\pause
 					\item[Schuldner] Kredit\textit{nehmer}, empfängt den Kredit (z.B. Du)
 				\end{description}
+				\hfill\\\pause
+				Schuldner schuldet dem Gläubiger Geld.\n
+				Gläubiger glaubt daran sein geld zurück zu bekommen.
 			\end{frame}
 		
 			\begin{frame}{Zinsen}
 				\begin{definition}
 					Zinsen sind das Entgeld für zeitweise überlassenes Kapital (z.B. ein Kredit) vom Schuldner zum Gläubiger.\citewiki{Zins}
-				\end{definition}
+				\end{definition}\pause
 				\textbf{Beispiele:}
 				\begin{multicols}{2}
 					\begin{itemize}
@@ -181,8 +197,9 @@
 							\draw (i) to [bend left=10] node[above,font=\tiny] {Sparbetrag} (b);
 							\draw (b) to [bend left=10] node[below,align=center,font=\tiny] {Sparbetrag\\+ Zinsen} (i);
 						\end{tikzpicture}
+						\pause
 						\columnbreak
-						\item Kredit:\\
+						\item Kredit\footnote{Exkurs: Banken brauchen \textit{keine} Einlagen um Kredite zu vergeben, Stichwort \href{https://de.wikipedia.org/wiki/Leitzins}{Leitzins} und \href{https://de.wikipedia.org/wiki/Buchgeld}{Giralgeld}.}:\\
 						\begin{tikzpicture}[->,>=stealth']
 							\node (b) at (0,0) {Bank};
 							\node (i) at (3,0) {Du};
@@ -192,8 +209,6 @@
 						\end{tikzpicture}
 					\end{itemize}
 				\end{multicols}
-				\vspace{-0.25cm}
-				{\tiny Reale Welt sieht anders aus, Stichwort \href{https://de.wikipedia.org/wiki/Leitzins}{Leitzins} und \href{https://de.wikipedia.org/wiki/Buchgeld}{Giralgeld}.}
 			\end{frame}
 		
 			\begin{frame}{Zinsen}
@@ -217,13 +232,19 @@
 					Zinsen, die auf Kapital mit zuvor hinzugefügten Zinsen gezahlt werden.\citewiki{Zinseszins}
 				\end{definition}
 				\textbf{Einfach gesagt:}\\
-				Zinsen auf Zinsen \textrightarrow\ exponentielles Wachstum\n
-				
-				\textbf{Beispiel Sparbuch} mit 10\% Zinsen:
+				Zinsen auf Zinsen \textrightarrow\ exponentielles Wachstum
+			\end{frame}
+			
+			\begin{frame}{Zinsen: Der Zinseszins-Effekt (Beispiel)}
+				\textbf{Beispiel Sparbuch:}\\
+				Zinssatz: 10\%
 				\begin{itemize}
-					\item 2021: 100,00€ \textrightarrow\ 10,00€ Zinsen \textrightarrow\ 110,00€ am Jahresende
-					\item 2022: 110,00€ \textrightarrow\ 11,00€ Zinsen \textrightarrow\ 121,00€
-					\item 2023: 121,00€ \textrightarrow\ 12,\textbf{10}€ Zinsen \textrightarrow\ 133,10€
+					\item 2021: 100,00€ \textrightarrow\ 10,00€ Zinsen
+					\item 2022: 110,00€ \textrightarrow\ 11,00€ Zinsen (+1,00€ zum Vorjahr)
+					\item 2023: 121,00€ \textrightarrow\ 12,\textbf{10}€ Zinsen (+1,\textbf{10}€ zum Vorjahr)\pause\\...
+					\item 2030: 235,79€ \textrightarrow\ 23,58€ Zinsen (+2,14€ zum Vorjahr)\\...
+					\item 2040: 611,59€ \textrightarrow\ 61,16€ Zinsen (+5,56€ zum Vorjahr)\\...
+					\item 2050: 1586,31€ \textrightarrow\ 158,63€ Zinsen (+14,42€ zum Vorjahr)
 				\end{itemize}
 			\end{frame}
 	
@@ -243,32 +264,25 @@
 		\end{frame}
 	
 		\subsection{Aktien}
-		
-			\begin{frame}
-				\vspace{0.5cm}
-				\begin{center}
-					Was ist eine Aktie?
-				\end{center}
-			\end{frame}
 			
 			\begin{frame}
 				\begin{itemize}
 					\item Erste Aktie 1288\citewiki{Aktie}
 					\item Verbrieft einen Anteil an Unternehmen
 					\begin{itemize}
-						\item Mitbesitzer des Unternehmens \textrightarrow\ Aktionär
-					\end{itemize}
+						\item Aktionär ist Mitbesitzer des Unternehmens
+					\end{itemize}\pause
 					\item Rechte
 					\begin{itemize}
+						\item Jährliche Hauptversammlung besuchen
 						\item Stimmrecht
 						\item Dividendenanspruch
-					\end{itemize}
+					\end{itemize}\pause
 					\item Pflichten
 					\begin{itemize}
 						\item Aktie bezahlen (Einlage in Grundkapital)
 						\item Treuepflicht: Im Interesse des Unternehmens \& anderer Anleger handeln
 					\end{itemize}
-					\item Jährliche Hauptversammlung besuchen
 				\end{itemize}
 			\end{frame}
 		
@@ -280,7 +294,6 @@
 				\begin{itemize}
 					\item Optional (s. "`Alphabet Inc."' aka Google)
 					\item Höhe wird von Aktionären auf Hauptversammlung bestimmt
-					\item Dividenden sind eine Art der Ausschüttung von \textbf{Gewinnen}
 				\end{itemize}
 			\end{frame}
 				
@@ -314,7 +327,7 @@
 				\begin{itemize}
 					\item Auch: Rentenpapier, Schuldverschreibung, Bond
 					\item Feste Laufzeit
-					\item Zinssatz (fest oder variabel), jährlich gezahlt
+					\item Zinssatz (fest oder variabel)
 					\item Ggf. handelbar
 					\item Staatsanleihen/Unternehmensanleihen
 				\end{itemize}
@@ -332,19 +345,19 @@
 				\end{center}
 			\end{frame}
 		
-		\subsection{Exkurs: Geschäftsanteil}
-		
-			\begin{frame}
-				\begin{definition}
-					Teil einer GmbH / Genossenschaft, der von einem Gesellschafter erworben werden kann.\citewiki{Geschäftsanteil}
-				\end{definition}
-			
-				\begin{itemize}
-					\item Beitrag zum Stammkapital (GmbH) oder Geschäftsguthabens (Genossenschaft)
-					\item Dividende/Ausschüttung (z.B. GLS: 1-3\%)
-					\item In der Regel: Kunde / Mitarbeiter sein
-				\end{itemize}
-			\end{frame}
+%		\subsection{Exkurs: Geschäftsanteil}
+%		
+%			\begin{frame}
+%				\begin{definition}
+%					Teil einer GmbH / Genossenschaft, der von einem Gesellschafter erworben werden kann.\citewiki{Geschäftsanteil}
+%				\end{definition}
+%			
+%				\begin{itemize}
+%					\item Beitrag zum Stammkapital (GmbH) oder Geschäftsguthabens (Genossenschaft)
+%					\item Dividende/Ausschüttung (z.B. GLS: 1-3\%)
+%					\item In der Regel: Kunde / Mitarbeiter sein
+%				\end{itemize}
+%			\end{frame}
 		
 		\subsection{Index}
 		
@@ -352,16 +365,15 @@
 				\begin{definition}
 					Kennzahl zur repräsentativen Dokumentation eines Teilmarktes.\citewiki{Aktienindex}
 				\end{definition}
+				Mehrere Aktien werden gewichtet anhand von Merkmalen (z.B. Gewinn oder Kurs) auf eine Zahl gemappt.
 			
 				\begin{itemize}
-					\item Abstraktion auf Punktesystem
-					\item Zeitliche Entwicklung spiegelt hypothetisches Portfolio wieder
+					\item Abstraktion auf Punktesystem\pause
 					\item Kursindex:
 					\begin{itemize}
-						\item Aktienkurs bestimmt Index
-						\item Dividenden werden ignoriert
+						\item Aktienkurs (ohne Dividenden) bestimmt Index
 						\item Beispiele: Dow Jones, FTSE 100, S\&P 500, Euro Stoxx 50
-					\end{itemize}
+					\end{itemize}\pause
 					\item Performanceindex:
 					\begin{itemize}
 						\item Aktienkurs + Dividenden bestimmen Index
