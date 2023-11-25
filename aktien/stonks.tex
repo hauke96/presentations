@@ -13,8 +13,9 @@
 \usepackage{multicol}
 
 \usepackage{tikz}
-\usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
 
 \usepackage{lmodern}
 %\usepackage{libertine}
@@ -59,7 +60,7 @@
 
 \author[Hauke Stieler]{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
 \title{Stonks}
-\date{\today}
+\date{29. November 2023}
 
 \begin{document}
 	{
@@ -112,7 +113,7 @@
 %				\item[Kapital] = Mittel = Geld (meistens)\pause
 				\item[Anleger] Auch \textit{Investor}, nimmt am Finanzmarkt teil, z.B. durch Investitionen\pause
 %				\item[Risiko] Wahrscheinlichkeit des Eintretens eines negativen Ereignisses\pause
-				\item[Portfolio] Sammlung an Wertpapieren
+				\item[Portfolio] Sammlung an Wertpapieren\pause
 				\item[Wertpapier] Auch \textit{asset}, z.B. Aktien, Anleihen, ETFs, ...
 			\end{description}
 		\end{frame}
@@ -387,9 +388,9 @@
 					\item DAX = \textbf{D}eutscher \textbf{A}ktieninde\textbf{x}\citewiki{DAX}
 					\item Quasi TOP 40 der deutschen Unternehmen
 					\item Geschwister: MDAX, SDAX, TecDAX, DivDAX, ...
-					\item Aufnahmekriterium \& Gewichtung: Streubesitz-Marktkapitalisierung
+					\item Aufnahmekriterium \& Gewichtung ach Börsenwert\footnote{Genau: Streubesitz-Marktkapitalisierung}
 					\item Maximales Gewicht: 10\%
-					\item Simple Formel:\pause
+					\item Transparente Formel:\pause
 					\[
 						\text{I}_t = K_T \cdot B \cdot \frac
 						{
@@ -407,33 +408,37 @@
 			\begin{frame}
 				\begin{definition}
 					Verwaltetes Sondervermögen, welches in festgelegte Finanzprodukte investiert wird.\citewiki{Investmentfonds}
-				\end{definition}\hfill
-			
+				\end{definition}
+				\pause
 				\textbf{Einfacher gesagt:}\\
-				Sammlung an Aktien, Anleihen, etc. in die man investieren kann.
+				Sammlung an Aktien, Anleihen, etc. in die man investieren kann.\n
+				\pause
+				\textbf{Sondervermögen:}\\
+				Dein Investment ist vom Kapital der Fondsgesellschaft getrennt.
+				Geht diese pleite, verliert ihr kein Geld!\citewiki[Sondervermögen\_(Investmentgesellschaft)]{Sonderverm\%C3\%B6gen\_(Investmentgesellschaft)}
 			\end{frame}
 		
 			\begin{frame}
 				\begin{itemize}
-					\item Kategorien: Länder, Branchen, Unternehmensgröße\pause
+					\item Kategorien: Länder, Branchen, Unternehmensgröße, ...\pause
 					\item Aktiv
 					\begin{itemize}
 						\item Fondmanager beobachtet und analysiert Markt
 						\item Ziel: Besser sein als "`der Markt"'
 						\item Ziel erreichen nur sehr wenige
-						\item Hohe Kosten (TER): ca. 1,3-2,5\%\footnote{z.B. \href{https://www.comdirect.de/inf/fonds/LU0552028770}{Amundi Funds Emerging Markets Equity Focus (ISIN: LU0552028770)}}
+						\item Hohe TER\footnote{TER = \wikilink{Total\_Expense\_Ratio}{Total Expense Ratio (Gesamtkostenquote)} = jährliche laufende Kosten in \%}: ca. 1,3 - 3,5\%\footnote{z.B. \href{https://www.comdirect.de/inf/fonds/LU0552028770}{Amundi Funds Emerging Markets Equity Focus (ISIN: LU0552028770)}}
 					\end{itemize}\pause
 					\item Passiv\pause
 					\begin{itemize}
 						\item Keine Anpassungen durch Fondmanager
 						\item Meist Abbildung eines Index (s. \nameref{subsec:etfs})
-						\item Niedrige Kosten (ca. 0,02\footnote{z.B. \href{https://de.extraetf.com/etf-profile/LU1781541096}{Lyxor Core Morningstar UK UCITS (ISIN: LU1781541096)}}-0,87\%\footnote{z.B. \href{https://de.extraetf.com/etf-profile/IE00BYPLS672}{L\&G Cyber Security UCITS (ISIN: IE00BYPLS672)}})
+						\item Niedrige TER: ca. 0,03\footnote{z.B. \href{https://de.extraetf.com/etf-profile/LU1781541096}{Lyxor Core Morningstar UK UCITS (ISIN: LU1781541096)}} - 0,85\%\footnote{z.B. \href{https://extraetf.com/de/etf-profile/FR0010375766}{Amundi MSCI India II UCITS ETF (ISIN: FR0010375766)}}
 					\end{itemize}\pause
 					\item Kein direkter Besitz der Aktien!
 				\end{itemize}
 			\end{frame}
 		
-			\begin{frame}
+			\begin{frame}{Beispiel Workflow}
 				\hspace*{-0.75cm}
 				\begin{tikzpicture}[->,>=stealth']
 					\node (s) at (0,0) {\includegraphics[width=1.25cm,trim=0 0 0 -1.35cm]{images/stonks-guy}};
@@ -464,7 +469,7 @@
 					{
 						\money{(5.25,1)}
 						\money{(5.35,0.9)}
-						\draw[thick] (i) to [bend left=10] (b);
+						\draw[thick] (i) to [bend left=10] node[below,align=center,font=\tiny] {z.B. jedes \\ Quartal} (b);
 					}
 				
 					\onslide<4->
@@ -479,6 +484,8 @@
 						\draw[thick] (b) to [bend left=10] (s2);
 						\draw[thick] (s2) to [bend left=10] (b);
 						\node at (8.75,-1) {\includegraphics[width=0.75cm]{images/stock}};
+						\node at (8.9,-1.1) {\includegraphics[width=0.75cm]{images/stock}};
+						\node[font=\tiny] at (8.9,-1.7) {Aktien};
 					}
 					
 					\onslide<5>
@@ -508,14 +515,20 @@
 					{
 						\draw[thick] (i) to [bend left=10] (s);
 						\node at (1.75,-1) {\includegraphics[width=0.75cm]{images/fond-share}};
+						\node[font=\tiny] at (1.75,-1.5) {Fondsanteil};
 					}
 				
-					\onslide<7>
+					\onslide<7->
 					{
 						\draw[thick,gray!50!white] (i) to [bend left=10] (s);
 						\node at (0,1) {\includegraphics[width=0.75cm]{images/fond-share}};
 					}
 				\end{tikzpicture}
+				\onslide<8>
+				{
+					\textbf{Hinweis:}\\
+					Viele andere Variationen/Workflows möglich.
+				}
 			\end{frame}
 		
 		\subsection{ETFs}
@@ -536,23 +549,26 @@
 		
 			\begin{frame}{Indexfonds}
 				\begin{itemize}
-					\item Bildet Index ab
+					\item Bildet Index ab = Auswahl \& Gewichtung der Aktien wie im Index
 					\item Passiver Fond
-					\item Auswahl Aktien wie im Index
-				\end{itemize}\vspace{0.25cm}
-				\textbf{Beispiel DAX:}\vspace{0.25cm}
+				\end{itemize}
+				\pause
+				\vspace{0.25cm}
+				\textbf{Beispiel DAX und zwei ETFs:}
+				\vspace{0.25cm}
 				\begin{tabularx}{\linewidth}{X|p{3cm}|X|X}
 					Unternehmen & DAX-Gewichtung & iShares\footnote{\href{https://de.extraetf.com/etf-profile/DE0005933931?tab=components}{iShares Core DAX UCITS ETF (ISIN: DE0005933931)}} & Xtrackers\footnote{\href{https://de.extraetf.com/etf-profile/LU0274211480?tab=components}{Xtrackers DAX UCITS ETF (ISIN: LU0274211480)}}\\
 					\hline
-					Linde PLC & 10,10\% & 10,82\% & 10,89\% \\
-					SAP & 8,50\% & 7,88\% & 7,86\%\\
-					Siemens & 8,30\% & 7,37\% & 7,41\%
+					SAP		& 10,60\%	& 10,39\%	& 10,62\% \\
+					Siemens	&  9,75\%	&  9,50\%	&  9,47\% \\
+					Allianz	&  7,12\%	&  7,80\%	&  7,83\%
 				\end{tabularx}
+				{\tiny Stand: 24.11.2023}
 			\end{frame}
 		
 			\begin{frame}{Indexfonds}
 				\begin{center}
-					\includegraphics[height=0.75\textheight,trim=0 0 0 0.5cm]{images/dax-etf-benchmark}\footnote{Stand 04.12.2022; Quelle: \href{https://charts.comdirect.de/charts/benchmark_underlying.chart?HEIGHT=600&WIDTH=800&ID_BENCH1=20735&ID_BENCH2=12221463&ID_NOTATION=17138767&TIME_SPAN=5Y}{comdirect} / Grün: MSCI World; Schwarz: \href{https://www.comdirect.de/inf/etfs/LU0252633754}{Lyxor DAX UCITS ETF EUR ACC}; Blau: Dax Index}\\
+					\includegraphics[height=0.75\textheight,trim=0 0 0 0.5cm]{images/dax-etf-benchmark}\footnote{Stand 24.11.2023; Quelle: \href{https://charts.comdirect.de/charts/benchmark_underlying.chart?HEIGHT=600&WIDTH=800&ID_BENCH1=20735&ID_BENCH2=12221463&ID_NOTATION=17138767&TIME_SPAN=5Y}{comdirect} / Grün: MSCI World; Schwarz: \href{https://www.comdirect.de/inf/etfs/LU0252633754}{Lyxor DAX UCITS ETF EUR ACC}; Blau: Dax Index}\\
 				\end{center}
 			\end{frame}
 		
@@ -569,6 +585,7 @@
 					\item[Optionen] Future aber ohne Pflicht (\textrightarrow\ höhere Gebühren).
 					\item[Forwards] Quasi Futures aber außerbörslich.
 					\item[Zertifikat] Ähnlich zu Futures \& Optionen, aber in weird
+					\item[...]
 				\end{description}
 			\end{frame}
 		
@@ -596,8 +613,8 @@
 				\begin{itemize}
 					\item Derzeit nicht reguliert
 					\item Reines Spekulationsobjekt
-					\item Ein Träumchen für Kriminelle (Steuerhinterziehung, illegale Geschäfte, Scam)
-					\item Steuerlich: Uff
+					\item Ein Träumchen für Kriminelle (Geldwäsche, illegale Geschäfte, Scam)
+					\item Steuerliches:
 					\begin{itemize}
 						\item Privates Veräußerungsgeschäft (\textrightarrow\ Einkommenssteuer)
 						\item Bis 600€ steuerfrei
@@ -619,12 +636,15 @@
 					Organisierter Markt für standardisierte Handelsobjekte.\citewiki[Börse]{B\%Crse}
 				\end{definition}
 				\begin{itemize}
-					\item Typische Handelsobjekte: Aktien, Anleihen, Derivate, ...
-					\item Führt Angebot und Nachfrage zusammen \textrightarrow\ Entstehung Börsenkurse
+					\item Typische Handelsobjekte: Aktien, Derivate, Rohstoffe, ...
+					\begin{itemize}
+						\item Bis 1962 reine Kaffeebörse in der Speicherstadt
+					\end{itemize}
+					\item Führt Angebot und Nachfrage zusammen \textrightarrow\ Börsenkurse
 					\begin{itemize}
 						\item Kurse von Börse zu Börse leicht unterschiedlich
 					\end{itemize}
-					\item Überwacht durch z.B. BaFin oder SEC (Securities and Exchange Commission)
+					\item Überwacht durch z.B. BaFin oder SEC\footnote{Securities and Exchange Commission, Finanzaufsicht in den USA}
 				\end{itemize}
 			\end{frame}
 		
@@ -656,7 +676,16 @@
 					
 					\node (s2) at (10,0) {\reflectbox{\includegraphics[width=0.75cm,trim=0 0 0 -1.35cm]{images/stonks-guy}}};
 					
-					\onslide<1> {
+					\onslide<1-8> {
+						\node[below right=0.075cm and -2.675cm of b, font=\tiny] {Orderbuch:};
+						\node[below right=0.48cm and -2.55cm of b, minimum width=4.5cm, minimum height=0.85cm, draw, black] {};
+					}
+					\onslide<1-8> {
+						\node at ($(i.center)+(-1.25,-0.25)$) {\includegraphics[width=0.5cm]{images/stock}};
+						\smallmoney{($(i2.center)+(1.25,-0.25)$)}
+					}
+					
+					\onslide<2> {
 						\draw (s) to [bend left=10] node[above right, align=center, font=\scriptsize] {Kauf-\\order} (i);
 %						\smallmoney{(1.3, -0.5)}
 %						\smallmoney{(1.375, -0.55)}
@@ -665,10 +694,10 @@
 %						\smallmoney{(1.6, -0.7)}
 					}
 				
-					\onslide<2-> {
+					\onslide<3-> {
 						\draw[gray!50!white] (s) to [bend left=10] (i);
 					}
-					\onslide<2> {
+					\onslide<3> {
 %						\smallmoney{(2.5, -1.35)}
 						
 						\draw (i) to [bend left=10] node[above right, align=center, font=\scriptsize] {Kauf-\\order} (b);
@@ -678,51 +707,59 @@
 %						\smallmoney{(4.1, -2.7)}
 					}
 				
-					\onslide<3-> {
+					\onslide<4-8> {
 						\draw[gray!50!white] (s) to [bend left=10] (i);
 						\draw[gray!50!white] (i) to [bend left=10] (b);
-						\node[below left=0.75cm and 0cm of b, font=\scriptsize, anchor=east] {Kauforder};
+						\node[below left=0.95cm and 0cm of b, font=\scriptsize, anchor=east, align=right] {Kauforder \\ \tiny 3,45€};
 					}
-					\onslide<3> {
+					\onslide<5> {
 						\draw (s2) to [bend right=10] node[above left, align=center, font=\scriptsize] {Verkaufs-\\order} (i2);
 					}
 				
-					\onslide<4-> {
+					\onslide<6-> {
 						\draw[gray!50!white] (s) to [bend left=10] (i);
 						\draw[gray!50!white] (i) to [bend left=10] (b);
 						\draw[gray!50!white] (s2) to [bend right=10] (i2);
 					}
-					\onslide<4> {
+					\onslide<6> {
 						\draw (i2) to [bend right=10] node[above left, align=center, font=\scriptsize] {Verkaufs-\\order} (b);
 					}
 				
-					\onslide<5-> {
+					\onslide<7-> {
 						\draw[gray!50!white] (s) to [bend left=10] (i);
 						\draw[gray!50!white] (i) to [bend left=10] (b);
 						\draw[gray!50!white] (s2) to [bend right=10] (i2);
 						\draw[gray!50!white] (i2) to [bend right=10] (b);
-						\node[below right=0.75cm and 0cm of b, font=\scriptsize, anchor=west] {Verkaufsorder};
 					}
-					\onslide<1-5> {
-						\node[below right=0.075cm and -2.675cm of b, font=\tiny] {Orderbuch:};
-						\node[below right=0.48cm and -2.55cm of b, minimum width=4.5cm, minimum height=0.5cm, draw, black] {};
+					
+					\onslide<7-8> {
+						\node[below right=0.95cm and 0cm of b, font=\scriptsize, anchor=west, align=left] {Verkaufsorder \\ \tiny 3,42€};
 					}
 				
-					\onslide<6-> {
-						\node[below right=0.075cm and -2.675cm of b, font=\tiny] {Orderbuch:};
-						\node[below right=0.48cm and -2.55cm of b, minimum width=4.5cm, minimum height=0.5cm, draw, green!75!black] {};
+					\onslide<7-> {
 						\coordinate[below=0.75cm of b] (bb);
-						\draw[<->] (bb)++(-0.5,0) -- +(1,0);
 					}
-					\onslide<7> {
+					\onslide<8> {
+						\node[below right=0.075cm and -2.675cm of b, font=\tiny] {Orderbuch:};
+						\node[below right=0.48cm and -2.55cm of b, minimum width=4.5cm, minimum height=0.85cm, draw, thick, green!75!black] {};
+						\draw[<->] (bb)++(-0.5,0) -- node[below] {\checkmark} +(1,0);
+						\node[below right=0.75cm and 2cm of b, green!75!black, font=\scriptsize] {Preis passt};
+					}
+					\onslide<9> {
 						\smallmoney{(5, -1.45)}
 						\draw (i) to [bend right=-7] (i2);
 						\node at (5, -2.6) {\includegraphics[width=0.5cm]{images/stock}};
 						\draw (i2) to [bend right=-7] (i);
 					}
-					\onslide<8> {
-						\node at (0, 0.8) {\includegraphics[width=0.5cm]{images/stock}};
-						\smallmoney{(10, 0.8)}
+					\onslide<9-> {
+						\node[below right=0.075cm and -2.675cm of b, font=\tiny] {Orderbuch:};
+						\node[below right=0.48cm and -2.55cm of b, minimum width=4.5cm, minimum height=0.85cm, draw, black] {};
+					}
+					\onslide<10> {
+%						\node at (0, 0.8) {\includegraphics[width=0.5cm]{images/stock}};
+%						\smallmoney{(10, 0.8)}
+						\smallmoney{($(i.center)+(-1.25,-0.25)$)}
+						\node at ($(i2.center)+(1.25,-0.25)$) {\includegraphics[width=0.5cm]{images/stock}};
 					}
 				\end{tikzpicture}
 			\end{frame}
@@ -750,17 +787,19 @@
 	
 		\subsection{Depot, Bank, Broker}
 		
-			\begin{frame}{Bank}
-				Reguliertes Kreditinstitut mit folgenden Geschäftsfeldern:
-				\begin{itemize}
-					\item Einlagen-, Kredit- und meistens Wertpapiergeschäft
-					\item Wertpapierverwahrung
-					\item Depotgeschäft
-				\end{itemize}
-			\end{frame}
+%			\begin{frame}{Bank}
+%				Reguliertes Kreditinstitut mit folgenden Geschäftsfeldern:
+%				\begin{itemize}
+%					\item Einlagen-, Kredit- und meistens Wertpapiergeschäft
+%					\item Wertpapierverwahrung
+%					\item Depotgeschäft
+%				\end{itemize}
+%			\end{frame}
 		
 			\begin{frame}{Depot}
-				Verwahrstelle von Wertpapieren (Konto).
+				\begin{definition}
+					Verwahrstelle von Wertpapieren (Konto).
+				\end{definition}
 				\begin{itemize}
 					\item Ggf. Depotführungsgebühren
 					\item Angeboten von: Banken, Fondsgesellschaften, Broker
@@ -768,11 +807,14 @@
 			\end{frame}
 		
 			\begin{frame}{Broker}
-				Finanzdienstleister zum Handel mit Wertpapieren.
+				\begin{definition}
+					Finanzdienstleister zum Handel mit Wertpapieren.
+				\end{definition}
 				\begin{itemize}
 					\item Engl. für Börsenmakler
 					\item Meist sind Banken auch Broker
 					\item Fokus reiner Broker: spekulative Privatanleger
+					\item Neobroker: Broker mit fancy Apps und i.d.R. niedrigen Gebühren
 				\end{itemize}
 			\end{frame}
 		
@@ -780,28 +822,27 @@
 		
 			\begin{frame}
 				\begin{description}[labelwidth=0cm]
-					\item[Diversifikation] Streuung von Anlagen zur Risikominimierung
-					\item[Strategie] Einen Plan konsequent verfolgen (z.B. Core-Satellite-Strategie) \textrightarrow\  "`hin und her macht Taschen leer"'
-					\item[Geduld] Verkauf erst in mehreren Jahren, sonst wäre es Spekulation
-					\item[Gebühren] Depot- \& Ordergebühren, TER, Börsenplatzentgelte, Ausgabeaufschlag
-					\item[Nachdenken] Clickbaits, Werbung, "`Beratung"' und "`Gruppen"'\footnote{\href{https://www.youtube.com/watch?v=dM-8-KuKprA}{PORSCHE CAYMAN S JUNGS! JAWOLL, JAAA! GEIL MAN!}} warten an jeder Ecke
+					\item[Diversifikation] Streuung von Anlagen zur Risikominimierung\pause
+					\item[Strategie] Einen Plan konsequent verfolgen (z.B. Core-Satellite-Strategie) \textrightarrow\  "`hin und her macht Taschen leer"'\pause
+					\item[Geduld] Verkauf erst in mehreren Jahren, sonst wäre es Spekulation\pause
+					\item[Gebühren] Depot- \& Ordergebühren, TER, Börsenplatzentgelte, Ausgabeaufschlag\pause
+					\item[Nachdenken] Clickbaits, Werbung, "`Beratung"' und "`Gruppen"'\footnote{\href{https://www.youtube.com/watch?v=dM-8-KuKprA}{PORSCHE CAYMAN S JUNGS! JAWOLL, JAAA! GEIL MAN!}} warten an jeder Ecke\pause
 					\item[Bildung] Wissen ist Macht, eigene Entscheidungen treffen
 				\end{description}
 			\end{frame}
 		
 			\begin{frame}{Welche Aktie/ETF/... kaufen?}
-				DAS beste Finanzprodukt gibt es nicht!\pause
+				\textbf{DAS beste Finanzprodukt gibt es nicht!}\pause
 				\begin{itemize}
-					\item Anlageziel klären
+					\item Anlageziel
 					\begin{itemize}
-						\item Geld "`parken"'?
-						\item Vermögensaufbau?
-						\item Rente aufbessern?
-						\item Etwas bewirken? (\textrightarrow\ impact investing)
+						\item Geld "`parken"'? (z.B. im Inflation zu kompensieren)
+						\item Vermögensaufbau? (z.B. zum Rente aufbessern)
 					\end{itemize}\pause
-					\item Risikobereitschaft klären
+					\item Anlagehorizont\pause
+					\item Risikobereitschaft
 					\begin{itemize}
-						\item Wie viel Geld bin ich bereit zu verlieren?
+						\item Wie viel Geld kann/will ich mit leisten zu verlieren?
 						\item Was ist mein worst-case Szenario? (Totalverlust? Verlust von $x$ \% Einsatz? ...)
 					\end{itemize}\pause
 					\item Art des Handels
@@ -830,48 +871,75 @@
 				\textrightarrow\ Artikel der BaFin bzgl. Geldanlage: \href{https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Fachartikel/2015/fa_bj_1506_geldanlage.html}{bafin.de}
 			\end{frame}
 	
-	\section{Steuern}
+	\section{Sonstiges}
 	
 		\begin{frame}
 			\tableofcontents[currentsection,hideallsubsections]
 		\end{frame}
+		
+		\subsection{Steuern}
 	
-		\begin{frame}{Steuern}
-			\begin{center}
-				\vspace{-0.5cm}
-				\includegraphics[height=0.85\textheight]{images/taxes-peter-parker}
-			\end{center}
-		\end{frame}
-	
-		\begin{frame}{Steuern}
-			\begin{description}[labelwidth=0cm, align=right]
-				\item[Kapitalertragssteuer] 25\% auf Kapitalerträge (+Soli +Kirchensteuer)
-				\item[Sparerpauschbetrag] Freibetrag von 801€ pro Person pro Jahr
-				\item[Vorabpauschale] Wird ggf. bei Fonds (z.B. ETFs) fällig
-			\end{description}
-		\end{frame}
-	
-		\begin{frame}{Steuer: HowTo}
-			\begin{itemize}
-				\item Abgeltungssteuer = Kapitalertragssteuer \textrightarrow\ Quellensteuer
-				\item Quelle = Bank\pause
-				\item Bank hält Steuer direkt ein
+			\begin{frame}
+				\begin{center}
+					\vspace{-0.5cm}
+					\includegraphics[height=0.85\textheight]{images/taxes-peter-parker}
+				\end{center}
+			\end{frame}
+		
+			\begin{frame}
+				\begin{description}[labelwidth=0cm,align=right]
+					\item[Kapitalertragssteuer] 25\% auf Kapitalerträge (+Soli und ggf. Kirchensteuer)\pause
+					\item[Abgeltungssteuer] Wie Kapitalertragssteuer, aber bereits von der Bank bezahlt\pause
+					\item[Sparerpauschbetrag] Freibetrag von 1000€ pro Person pro Jahr\footnote{Bis 2022 801€ p.P.}\pause
+					\item[Vorabpauschale] Wird ggf. bei Fonds (z.B. thesaurierenden ETFs) fällig
+				\end{description}
+			\end{frame}
+		
+			\begin{frame}{HowTo Steuer}
 				\begin{itemize}
-					\item Freistellungsauftrag stellen
-					\item Verluste werden "`gut geschrieben"'
-				\end{itemize}\pause
-				\item Steuererklärung ggf. trotzdem sinnvoll
-				\begin{itemize}
-					\item Kein/falscher Freistellungsauftrag
-					\item Sonstige Kapitalerträge
-					\item Kapitalerträge im Ausland
+					\item Abgeltungssteuer = nothing to do here
+					\begin{itemize}
+						\item Abgeltungssteuer = Quellensteuer \textrightarrow\ Quelle = Bank
+						\item Bank hält Steuer direkt ein
+						\item Freistellungsauftrag stellen
+						\item Verluste werden mit Gewinnen aus gleichem Jahr verrechnet
+					\end{itemize}\pause
+					\item Steuererklärung ggf. trotzdem sinnvoll
+					\begin{itemize}
+						\item Kein/falscher Freistellungsauftrag
+						\item Sonstige Kapitalerträge
+						\item Kapitalerträge im Ausland
+					\end{itemize}
 				\end{itemize}
-			\end{itemize}
-		\end{frame}
-	
+			\end{frame}
+		
+		\subsection{Informationsquellen}
+			
+			\begin{frame}
+				Websites:
+				\begin{itemize}
+					\item \href{https://www.finanzen.net/}{finanzen.net}
+					\item \href{https://www.justetf.com/}{justetf.com} \& \href{https://extraetf.com/}{extraetf.com}
+					\item \href{https://www.finanztip.de/}{finanztip.de}, \href{https://www.finanzfluss.de/}{finanzfluss.de} \& \href{https://www.bafin.de/DE/Verbraucher/Finanzwissen/finanzwissen_node.html}{BaFin}
+				\end{itemize}
+				YouTube:
+				\begin{itemize}
+					\item \href{https://www.youtube.com/@finanztip}{Finanztip}, \href{https://www.youtube.com/@Finanzfluss}{Finanzfluss} \& \href{Madame Moneypenny}{https://www.youtube.com/@MadameMoneypenny}
+				\end{itemize}
+				Bücher:
+				\begin{itemize}
+					\item \href{https://www.thalia.de/shop/home/suggestartikel/A1058629085}{Börse für Dummies}
+					\item \href{https://www.thalia.de/shop/home/suggestartikel/A1056992675}{Nachhaltig investieren - simplified}
+					\item \href{https://www.thalia.de/shop/home/artikeldetails/A1062107486}{Aktienstrategie Kompakt}
+					\item \href{https://www.thalia.de/shop/home/suggestartikel/A1058453804}{Unternehmensbewertung \& Kennzahlenanalyse}
+				\end{itemize}
+			\end{frame}
+			
+	\appendix
+		
 	{
 		\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{images/questions.png}}
-		\begin{frame}[plain]
+		\begin{frame}[plain, noframenumbering]
 			\begin{center}
 				\vspace{1.5cm}
 				Fragen?
