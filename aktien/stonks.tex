@@ -388,7 +388,7 @@
 					\item DAX = \textbf{D}eutscher \textbf{A}ktieninde\textbf{x}\citewiki{DAX}
 					\item Quasi TOP 40 der deutschen Unternehmen
 					\item Geschwister: MDAX, SDAX, TecDAX, DivDAX, ...
-					\item Aufnahmekriterium \& Gewichtung ach Börsenwert\footnote{Genau: Streubesitz-Marktkapitalisierung}
+					\item Aufnahmekriterium \& Gewichtung nach Börsenwert\footnote{Genau: Streubesitz-Marktkapitalisierung}
 					\item Maximales Gewicht: 10\%
 					\item Transparente Formel:\pause
 					\[
@@ -550,10 +550,21 @@
 			\begin{frame}{Indexfonds}
 				\begin{itemize}
 					\item Bildet Index ab = Auswahl \& Gewichtung der Aktien wie im Index
-					\item Passiver Fond
+					\item Passiver Fond\pause
+					\item Thesaurierend
+					\begin{itemize}
+						\item Zinsen/Dividenden werden automagisch reinvestiert
+						\item Zinseszinseffekt!
+					\end{itemize}\pause
+					\item Ausschüttend
+					\begin{itemize}
+						\item Zinsen/Dividenden werden euch überwiesen
+						\item Abgeltungssteuer fällt an (s. Abschnitt `"Steuern'")
+					\end{itemize}
 				\end{itemize}
-				\pause
-				\vspace{0.25cm}
+			\end{frame}
+		
+			\begin{frame}{Indexfonds}
 				\textbf{Beispiel DAX und zwei ETFs:}
 				\vspace{0.25cm}
 				\begin{tabularx}{\linewidth}{X|p{3cm}|X|X}
@@ -681,8 +692,8 @@
 						\node[below right=0.48cm and -2.55cm of b, minimum width=4.5cm, minimum height=0.85cm, draw, black] {};
 					}
 					\onslide<1-8> {
-						\node at ($(i.center)+(-1.25,-0.25)$) {\includegraphics[width=0.5cm]{images/stock}};
-						\smallmoney{($(i2.center)+(1.25,-0.25)$)}
+						\smallmoney{($(i.center)+(-1.25,-0.25)$)}
+						\node at ($(i2.center)+(1.25,-0.25)$) {\includegraphics[width=0.5cm]{images/stock}};
 					}
 					
 					\onslide<2> {
@@ -758,8 +769,8 @@
 					\onslide<10> {
 %						\node at (0, 0.8) {\includegraphics[width=0.5cm]{images/stock}};
 %						\smallmoney{(10, 0.8)}
-						\smallmoney{($(i.center)+(-1.25,-0.25)$)}
-						\node at ($(i2.center)+(1.25,-0.25)$) {\includegraphics[width=0.5cm]{images/stock}};
+						\node at ($(i.center)+(-1.25,-0.25)$) {\includegraphics[width=0.5cm]{images/stock}};
+						\smallmoney{($(i2.center)+(1.25,-0.25)$)}
 					}
 				\end{tikzpicture}
 			\end{frame}
@@ -889,7 +900,7 @@
 			\begin{frame}
 				\begin{description}[labelwidth=0cm,align=right]
 					\item[Kapitalertragssteuer] 25\% auf Kapitalerträge (+Soli und ggf. Kirchensteuer)\pause
-					\item[Abgeltungssteuer] Wie Kapitalertragssteuer, aber bereits von der Bank bezahlt\pause
+					\item[Abgeltungssteuer] Wie Kapitalertragssteuer, aber bereits von der Bank/Broker bezahlt\pause
 					\item[Sparerpauschbetrag] Freibetrag von 1000€ pro Person pro Jahr\footnote{Bis 2022 801€ p.P.}\pause
 					\item[Vorabpauschale] Wird ggf. bei Fonds (z.B. thesaurierenden ETFs) fällig
 				\end{description}
@@ -919,18 +930,18 @@
 				Websites:
 				\begin{itemize}
 					\item \href{https://www.finanzen.net/}{finanzen.net}
-					\item \href{https://www.justetf.com/}{justetf.com} \& \href{https://extraetf.com/}{extraetf.com}
-					\item \href{https://www.finanztip.de/}{finanztip.de}, \href{https://www.finanzfluss.de/}{finanzfluss.de} \& \href{https://www.bafin.de/DE/Verbraucher/Finanzwissen/finanzwissen_node.html}{BaFin}
-				\end{itemize}
+					\item \href{https://www.justetf.com/}{justetf.com}, \href{https://extraetf.com/}{extraetf.com}
+					\item \href{https://www.finanztip.de/}{finanztip.de}, \href{https://www.finanzfluss.de/}{finanzfluss.de}, \href{https://www.bafin.de/DE/Verbraucher/verbraucher_node.html}{BaFin}
+				\end{itemize}\pause
 				YouTube:
 				\begin{itemize}
-					\item \href{https://www.youtube.com/@finanztip}{Finanztip}, \href{https://www.youtube.com/@Finanzfluss}{Finanzfluss} \& \href{Madame Moneypenny}{https://www.youtube.com/@MadameMoneypenny}
-				\end{itemize}
+					\item \href{https://www.youtube.com/@finanztip}{Finanztip}, \href{https://www.youtube.com/@Finanzfluss}{Finanzfluss}, \href{https://www.youtube.com/@MadameMoneypenny}{Madame Moneypenny}
+				\end{itemize}\pause
 				Bücher:
 				\begin{itemize}
 					\item \href{https://www.thalia.de/shop/home/suggestartikel/A1058629085}{Börse für Dummies}
-					\item \href{https://www.thalia.de/shop/home/suggestartikel/A1056992675}{Nachhaltig investieren - simplified}
 					\item \href{https://www.thalia.de/shop/home/artikeldetails/A1062107486}{Aktienstrategie Kompakt}
+					\item \href{https://www.thalia.de/shop/home/suggestartikel/A1056992675}{Nachhaltig investieren - simplified}
 					\item \href{https://www.thalia.de/shop/home/suggestartikel/A1058453804}{Unternehmensbewertung \& Kennzahlenanalyse}
 				\end{itemize}
 			\end{frame}
