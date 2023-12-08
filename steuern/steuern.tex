@@ -44,6 +44,11 @@
 
 \setbeamercovered{invisible}
 \beamertemplatenavigationsymbolsempty
+\renewcommand*\insertshorttitle
+{
+	% To not count \pause as new frame. And also to make the package "appendixnumberbeamer" work.
+	\makebox[0.94\textwidth]{\oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber}
+}
 \condensedToc
 
 \author[Hauke Stieler]{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@inf}}
@@ -76,8 +81,11 @@
 
 	\begin{frame}
 		\begin{center}
-			Was für Vorwissen hast du?
-			% TODO was hier machen? Umfrage? Welche Fragen?
+			\textbf{Was für Vorwissen hast du?}\\\pause
+			\hfill\\
+			Wer hat vor demnächst eine Steuererklärung zu machen?\\\pause
+			\hfill\\
+			Wer hat schon mal eine Steuererklärung gemacht?
 		\end{center}
 	\end{frame}
 
@@ -99,7 +107,7 @@
 					\item Kein Anspruch auf Gegenleistung
 					\begin{itemize}
 						\item Anders als bei Abgaben, Gebühren, Maut, etc.
-						\item Beispiel: Fahrräder dürfen auf Straßen fahren, obwohl es keine Fahrradsteuer gibt (sondern nur eine Kfz-Steuer)
+						\item Beispiel: Fahrräder dürfen auf Kfz-Straßen fahren, obwohl sie keine Kfz-Steuer zahlen
 					\end{itemize}
 				\end{itemize}
 			\end{frame}
@@ -115,51 +123,51 @@
 				
 				\textbf{Umverteilung} von reich zu arm
 			\end{frame}
+			
+			\begin{frame}
+				\begin{center}
+					\includegraphics[height=\textheight]{images/bundeshaushalt.png}
+				\end{center}
+			\end{frame}
 		
 			\begin{frame}{Von wem an wen werden Steuern gezahlt?}
 				Steuerzahler zahlt Steuern an Bund/Land/Gemeinde:\n
 				
 				\begin{description}[An Gemeinde]
-					\item[An Bund] Einkommenssteuer, Lohnsteuer, Umsatzsteuer, ...
+					\item[An Bund] Einkommensteuer, Lohnsteuer, Umsatzsteuer, ...
 					\item[An Land] Erbschaftssteuer, Lotteriesteuer, Biersteuer, ...
 					\item[An Gemeinde] Grundsteuer, Hundesteuer, ...
 				\end{description}
 			\end{frame}
 		
-		\subsection{Grundsätze}
+%		\subsection{Grundsätze}
+%	
+%			\begin{frame}{Maxime im Aufbau von Steuern\citewiki{Steuer\#Die\_Grundsätze\_der\_Besteuerung}}
+%				\begin{description}[labelwidth=0cm]
+%					\item[Gerechtigkeit] Nur wirtschaftliche Faktoren wichtig (nicht z.B. Hautfarbe)
+%					\item[Gleichmäßigkeit] Kein Spielraum/Willkür
+%					\item[Rückwirkungsverbot] Steuergesetze dürfen nicht rückwirkend in Kraft treten
+%					\item[Ergiebigkeit] Steuern sollten Staatshaushalt decken + keinen zu hohen Verwaltungsaufwand erzeugen
+%					\item[Unmerklichkeit] Steuererhebung und -belastung sollte man nicht merken
+%					\item[Praktikabilität] Steuergesetze sollen transparent, bestimmt und einfach sein
+%				\end{description}
+%			\end{frame}
 	
-			\begin{frame}{Maxime im Aufbau von Steuern\citewiki{Steuer\#Die\_Grundsätze\_der\_Besteuerung}}
-				\begin{description}[labelwidth=0cm]
-					\item[Gerechtigkeit] Nur wirtschaftliche Faktoren wichtig (nicht z.B. Hautfarbe)
-					\item[Gleichmäßigkeit] Kein Spielraum/Willkür
-					\item[Rückwirkungsverbot] Steuergesetze dürfen nicht rückwirkend in Kraft treten
-					\item[Ergiebigkeit] Steuern sollten Staatshaushalt decken + keinen zu hohen Verwaltungsaufwand erzeugen
-					\item[Unmerklichkeit] Steuererhebung und -belastung sollte man nicht merken
-					\item[Praktikabilität] Steuergesetze sollen transparent, bestimmt und einfach sein
+		\subsection{Steuersatz}
+		
+			\begin{frame}
+				Steuer (in Prozent), die man zahlen muss. Kann sich wie folgt entwickeln\citewiki{Steuertarif}:\n
+				\begin{description}
+					\item[Proportional] Immer gleicher Prozentwert (z.B. 19\% Umsatzsteuer)
+					\item[Progressiv] Prozentwert steigt mit Bemessungsgrundlage (z.B. Lohnsteuer)
+					\item[Regressiv] Prozentwert sinkt mit Bemessungsgrundlage \vspace{0.1cm}\newline
+					{\tiny Existiert in Deutschland nicht; In USA/UK sind Sozialabgaben regressiv\\}
+					\item[Stufen] Prozentwert verändert sich Stufenweise
 				\end{description}
 			\end{frame}
 	
-	\subsection{Steuersatz}
-	
-		\begin{frame}
-			Steuer (in Prozent), die man zahlen muss. Kann sich wie folgt entwickeln\citewiki{Steuertarif}:\n
-			\begin{description}
-				\item[Proportional] Immer gleicher Prozentwert (z.B. 19\% Umsatzsteuer)
-				\item[Progressiv] Prozentwert steigt mit Bemessungsgrundlage (z.B. Lohnsteuer)
-				\item[Regressiv] Prozentwert sinkt mit Bemessungsgrundlage \vspace{0.1cm}\newline
-				{\tiny Existiert in Deutschland nicht; In USA/UK sind Sozialabgaben regressiv\\}
-				\item[Stufen] Prozentwert verändert sich Stufenweise
-			\end{description}
-		\end{frame}
-	
-	\section{Glossar}
-	
-		\begin{frame}[t]{Inhalt}
-			\tableofcontents[currentsection,hideallsubsections]
-		\end{frame}
-		
 		\subsection{Glossar}
-		
+	
 			\begin{frame}
 				\begin{description}[Steuerfestsetzung]
 					\item[Steuerschuldner] Gesetzlich verpflichtet Steuern zu zahlen
@@ -172,66 +180,72 @@
 				\end{description}
 			\end{frame}
 	
-	\section{Steuerarten}
+		\subsection{Steuerarten}
+		
+			\begin{frame}
+				\begin{description}
+					\item[Direkte Steuer] Schuldner = Träger (z.B. Lohnsteuer)
+					\item[Indirekte Steuer] Schuldner $\neq$ Träger (z.B. Umsatzsteuer\footnote{Umsatzsteuer = Mehrwertsteuer})
+					\item[Pauschalsteuer] Fester Steuersatz (z.B. Umsatzsteuer)
+					\item[Quellensteuer] Steuer wird direkt an der Quelle gezahlt (z.B. Lohnsteuer, Abgeltungssteuer)
+				\end{description}
+			\end{frame}
 	
-		\begin{frame}[t]{Inhalt}
-			\tableofcontents[currentsection,hideothersubsections]
-		\end{frame}
 	
-		\subsection{Direkte / indirekte Steuern}
-		
-			\begin{frame}
-				\begin{tabularx}{\linewidth}{X|X}
-					\multicolumn{1}{c|}{\textbf{Direkt}} &
-					\multicolumn{1}{c}{\textbf{Indirekt}} \\[0.25cm]
-					Schuldner = Träger & Schuldner $\neq$ Träger \\
-					\vspace{0.25cm}Beispiel Lohnsteuer: \newline
-						Ich (Schuldner) muss von meinem Lohn Steuer \textbf{direkt} ans Finanzamt zahlen. Meist vom Arbeitgeber übernommen, es ist aber \textbf{mein Geld}, das überwiesen wird, ich (Träger) trage die Steuerlast selbst. & 
-					\vspace{0.25cm}Beispiel Mehrwertsteuer: \newline
-						Kunden (Träger) zahlen Steuern \textbf{indirekt}, da Verkäufer (Schuldner) diese auf \textbf{seine Einnahmen} zahlen muss \textrightarrow\ Steuer ist daher im Preis mit enthalten = Kunde \textbf{trägt} die Steuerlast.
-				\end{tabularx}\\
-				\citewiki{Direkte\_und\_indirekte\_Steuer}
-			\end{frame}
-		
-		\subsection{Personen- / Realsteuer}
-		
-			\begin{frame}
-				\begin{tabularx}{\linewidth}{X|X}
-					\multicolumn{1}{c|}{\textbf{Personensteuer}\citewiki{Personensteuer}} &
-					\multicolumn{1}{c}{\textbf{Realsteuer}\citewiki{Realsteuer}} \\[0.25cm]
-					Steuer \textbf{abhängig} von persönlichen Umständen (Alter, Familie, etc.). & Steuer \textbf{unabhängig} von Personen. \\
-					\vspace{0.25cm} Beispiel: Lohnsteuer &
-					\vspace{0.25cm} Beispiel: Grundsteuer
-				\end{tabularx}
-			\end{frame}
-		
-		\subsection{Quellen- / Veranlagungssteuer}
-		
-			\begin{frame}
-				\begin{tabularx}{\linewidth}{X|X}
-					\multicolumn{1}{c|}{\textbf{Quellensteuer}\citewiki{Quellensteuer}} &
-					\multicolumn{1}{c}{\textbf{Veranlagungssteuer}\citeurl{https://www.steuererklaerung-verstehen.de/lexikon/veranlagungssteuer}{steuererklaerung-verstehen.de}} \\[0.25cm]
-					Steuer wird sofort direkt an Quelle erhoben. & Steuer wird zu anderem Zeitpunkt (z.B. im Voraus) erhoben.\\
-					\vspace{0.25cm} Beispiel Lohnsteuer:\newline
-						Arbeitgeber (Quelle) überweist mir meinen Lohn und meine Lohnsteuer ans Finanzamt. &
-					\vspace{0.25cm} Beispiel Umsatzsteuer:\newline
-						Zeitpunkt der Umsatzsteuerzahlung und Zeitpunkt der Einnahmen unterschiedlich. Steuer wird im Voraus entrichtet \textrightarrow\ nach Jahresende ist Steuererklärung Pflicht.
-				\end{tabularx}
-			\end{frame}
-		
-		\subsection{Pauschal- / Individualsteuer}
-		
-			\begin{frame}
-				\begin{tabularx}{\linewidth}{X|X}
-					\multicolumn{1}{c|}{\textbf{Pauschalsteuer}\citewiki{Flat\_Tax}} &
-					\multicolumn{1}{c}{\textbf{Individualsteuer}} \\[0.25cm]
-					Steuersatz (Prozent-Zahl) immer gleich. & Steuersatz individuell von persönlichen Verhältnissen.\\
-					\vspace{0.25cm} Beispiel Umsatzsteuer:\newline
-						Immer 7\% bzw. 19\%. &
-					\vspace{0.25cm} Beispiel Lohnsteuer:\newline
-						Steuersatz abhängig von Gehalt.
-				\end{tabularx}
-			\end{frame}
+%		\subsection{Direkte / indirekte Steuern}
+%		
+%			\begin{frame}
+%				\begin{tabularx}{\linewidth}{X|X}
+%					\multicolumn{1}{c|}{\textbf{Direkt}} &
+%					\multicolumn{1}{c}{\textbf{Indirekt}} \\[0.25cm]
+%					Schuldner = Träger & Schuldner $\neq$ Träger \\
+%					\vspace{0.25cm}Beispiel Lohnsteuer: \newline
+%						Ich (Schuldner) muss von meinem Lohn Steuer \textbf{direkt} ans Finanzamt zahlen. Meist vom Arbeitgeber übernommen, es ist aber \textbf{mein Geld}, das überwiesen wird, ich (Träger) trage die Steuerlast selbst. & 
+%					\vspace{0.25cm}Beispiel Mehrwertsteuer: \newline
+%						Kunden (Träger) zahlen Steuern \textbf{indirekt}, da Verkäufer (Schuldner) diese auf \textbf{seine Einnahmen} zahlen muss \textrightarrow\ Steuer ist daher im Preis mit enthalten = Kunde \textbf{trägt} die Steuerlast.
+%				\end{tabularx}\\
+%				\citewiki{Direkte\_und\_indirekte\_Steuer}
+%			\end{frame}
+%		
+%		\subsection{Personen- / Realsteuer}
+%		
+%			\begin{frame}
+%				\begin{tabularx}{\linewidth}{X|X}
+%					\multicolumn{1}{c|}{\textbf{Personensteuer}\citewiki{Personensteuer}} &
+%					\multicolumn{1}{c}{\textbf{Realsteuer}\citewiki{Realsteuer}} \\[0.25cm]
+%					Steuer \textbf{abhängig} von persönlichen Umständen (Alter, Familie, etc.). & Steuer \textbf{unabhängig} von Personen. \\
+%					\vspace{0.25cm} Beispiel: Lohnsteuer &
+%					\vspace{0.25cm} Beispiel: Grundsteuer
+%				\end{tabularx}
+%			\end{frame}
+%		
+%		\subsection{Quellen- / Veranlagungssteuer}
+%		
+%			\begin{frame}
+%				\begin{tabularx}{\linewidth}{X|X}
+%					\multicolumn{1}{c|}{\textbf{Quellensteuer}\citewiki{Quellensteuer}} &
+%					\multicolumn{1}{c}{\textbf{Veranlagungssteuer}\citeurl{https://www.steuererklaerung-verstehen.de/lexikon/veranlagungssteuer}{steuererklaerung-verstehen.de}} \\[0.25cm]
+%					Steuer wird sofort direkt an Quelle erhoben. & Steuer wird zu anderem Zeitpunkt (z.B. im Voraus) erhoben.\\
+%					\vspace{0.25cm} Beispiel Lohnsteuer:\newline
+%						Arbeitgeber (Quelle) überweist mir meinen Lohn und meine Lohnsteuer ans Finanzamt. &
+%					\vspace{0.25cm} Beispiel Umsatzsteuer:\newline
+%						Zeitpunkt der Umsatzsteuerzahlung und Zeitpunkt der Einnahmen unterschiedlich. Steuer wird im Voraus entrichtet \textrightarrow\ nach Jahresende ist Steuererklärung Pflicht.
+%				\end{tabularx}
+%			\end{frame}
+%		
+%		\subsection{Pauschal- / Individualsteuer}
+%		
+%			\begin{frame}
+%				\begin{tabularx}{\linewidth}{X|X}
+%					\multicolumn{1}{c|}{\textbf{Pauschalsteuer}\citewiki{Flat\_Tax}} &
+%					\multicolumn{1}{c}{\textbf{Individualsteuer}} \\[0.25cm]
+%					Steuersatz (Prozent-Zahl) immer gleich. & Steuersatz individuell von persönlichen Verhältnissen.\\
+%					\vspace{0.25cm} Beispiel Umsatzsteuer:\newline
+%						Immer 7\% bzw. 19\%. &
+%					\vspace{0.25cm} Beispiel Lohnsteuer:\newline
+%						Steuersatz abhängig von Gehalt.
+%				\end{tabularx}
+%			\end{frame}
 	
 	\section{Einkommen \& Steuern}
 	
@@ -286,11 +300,11 @@
 					\item Wie viel Steuern muss ich jetzt zahlen?\pause\ ... well\pause
 					\begin{itemize}
 						\item Steuersatz nach Zonen (je nach Einkommen)
-						\item Grenzsteuersatz: Steuersatz auf den \textit{nächsten} Euro
-						\item Durchschnittssteuersatz: Steuersatz bezogen auf den gesamten Betrag
+						\item Grenzsteuersatz: Steuersatz auf den \textit{x-ten} Euro Einkommen
+						\item Durchschnittssteuersatz: Steuersatz bezogen aufs gesamte Einkommen
 					\end{itemize}
 				\end{itemize}
-				Ja aber wie viel ist das jetzt?!\pause\ Na so viel, ist doch klar\citewiki[Einkommenssteuer]{Einkommensteuer_(Deutschland)\#Tarif_2020}:\pause
+				Ja aber wie viel ist das jetzt?!\pause\ Na so viel, ist doch klar\citewiki[Einkommensteuer]{Einkommensteuer_(Deutschland)\#Tarif_2022}:\pause
 				\begin{center}
 					\includegraphics[width=\textwidth]{images/tarifzonen-formel}
 				\end{center}
@@ -303,7 +317,16 @@
 				\begin{center}
 					\vspace{-0.5cm}
 					\begin{figure}
-						\includegraphics[width=0.9\linewidth]{images/tarifzonen-diagramm}\citeurl{https://de.wikipedia.org/wiki/Datei:ESt_D_Splittingtarif_2022_zvE_bis_150000.svg}{Wikipedia (CC BY-SA 3.0)}
+						\includegraphics[width=0.9\linewidth]{images/tarifzonen-diagramm}\citeurl{https://commons.wikimedia.org/wiki/File:ESt_D_Grenz_und_Durchschnittsteuersatz_\%C2\%A732a_2022.svg}{Wikipedia (CC BY-SA 4.0)}
+					\end{figure}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}{Steuersätze}
+				\begin{center}
+					\vspace{-0.5cm}
+					\begin{figure}
+						\includegraphics[width=0.9\linewidth]{images/tarifzonen-steuerfunktion-diagramm}\citeurl{https://commons.wikimedia.org/wiki/File:Linear_progressiver_Tarif_Steuerbetrag.svg}{Wikipedia (CC BY-SA 3.0)}
 					\end{figure}
 				\end{center}
 			\end{frame}
@@ -326,28 +349,34 @@
 				\end{center}
 			\end{frame}
 			
-			\begin{frame}{Einkommen und Steuern}
+			\begin{frame}[label={einkommen-und-steuern}]{Einkommen und Steuern}
 				\begin{itemize}
 					\item Alle Arten von Einnahmen werden besteuert
 					\begin{itemize}
-						\item Lohn + Gewinne aus Verkäufe, Vermietung, ...
+						\item Lohn + Gewinne aus Verkäufen, Vermietung, ...
 					\end{itemize}
-					\item \textbf{I.d.R.} überweist Arbeitgeber die Steuer (man selbst braucht nichts tun)
+					\item \textbf{I.d.R.} überweist Arbeitgeber die Steuer (man selbst braucht nichts tun) \textrightarrow\ Quellensteuer
 					\item Steuerfreibeträge
 					\begin{itemize}
-						\item Grundfreibetrag
+						\item Grundfreibetrag (relevant für Gehalt)
 						\begin{itemize}
-							\item $\leq2022$:  9.984€ (832€ / Monat)
-							\item $\geq2023$: 10.908€ (909€ / Monat)
+							\item 2022: \ 9.984€ (832€ / Monat)
+							\item 2023: 10.908€ (909€ / Monat)
 						\end{itemize}
-						\item Sparerpauschbetrag
+						\item Sparerpauschbetrag (relevant für Kapitalerträge)
 						\begin{itemize}
 							\item $\leq2022$: 801€
 							\item $\geq2023$: 1000€
 						\end{itemize}
 					\end{itemize}
-					\item Beruflich motivierte Ausgaben \textit{absetzen}
+					\item Steuerlast mindern \textrightarrow\ Ausgaben \textit{absetzen}
 				\end{itemize}
+			\end{frame}
+			
+			\begin{frame}{Einkommen und Steuern}
+				\begin{center}
+					\includegraphics[height=0.85\textheight]{images/meme-low-income.jpg}
+				\end{center}
 			\end{frame}
 		
 			\begin{frame}{Von der Steuer absetzen}
@@ -358,23 +387,26 @@
 		
 			\begin{frame}{Von der Steuer absetzen}
 				\begin{itemize}
-					\item Finanzamt weiß nur, was du verdienst
-					\item Du hast beruflich/steuerlich motivierte Ausgaben?
+					\item Finanzamt weiß: Brutto- \& Nettoeinnahmen
+					\item Finanzamt weiß nicht: Durch Arbeit entstandene Unkosten
+					\pause
+					\item Beruflich motivierte Ausgaben:
 					\begin{itemize}
-						\item Fahrtkosten zum Büro, Monatskarten, ...
-						\item Büromaterial, Internet (Home-Office und so), ...
-						\item Steuerberater, Lektüre über Steuern, ...
+						\item Fahrtkosten, Monatskarten, ...
+						\item Büromaterial, Internet, Telefon, Home-Office, ...
+						\item Steuerberater, Steuersoftware, Lektüre, ...
+						\item ...
 					\end{itemize}
-					\item Solche Ausgaben reduzieren das \textit{zu versteuernde Einkommen}
+					\item Ausgaben reduzieren \textit{zu versteuerndes Einkommen}
 				\end{itemize}\n\pause
 				
-				\textbf{Fun fact:} Für das Finanzamt sind Ausbildungskosten = beruflich motivierte Kosten.
+				\textbf{Nice:} Ausbildungskosten (auch fürs Studium) = beruflich motivierte Kosten!
 			\end{frame}
 				
 			\begin{frame}{Von der Steuer absetzen}
 				\textbf{Problem:} Arbeitgeber hat Steuern ja schon gezahlt :(\n
-				\textbf{Lösung:} Dem Finanzamt nachträglich über Ausgaben informieren und zu viel gezahlte Steuern zurück bekommen\footnote{PORSCHE CAYMAN S JUNGS! JAWOLL, JAAA! GEIL MAN!}\n
-				\textrightarrow\ \textbf{Steuererklärung} :)
+				\textbf{Lösung:} Dem Finanzamt nachträglich über Ausgaben informieren und zu viel gezahlte Steuern zurück bekommen  :)\n
+				\textrightarrow\ nachträgliche \textbf{Steuererklärung}
 			\end{frame}
 		
 		\subsection{Exkurs: Kapitalerträge}
@@ -388,7 +420,7 @@
 					\begin{itemize}
 						\item Grenzsteuersatz $<$ 25\%? \textrightarrow\ Günstigerprüfung
 					\end{itemize}\pause
-					\item Freibetrag (Sparerpauschbetrag): max. 801€ ($\leq2022$); 1000€ ($\geq2023$)
+					\item Freibetrag (Sparerpauschbetrag, s. Folie \ref{einkommen-und-steuern})
 					\begin{itemize}
 						\item Bei Bank/Broker "`Freistellungsauftrag"' festlegen
 					\end{itemize}
@@ -404,14 +436,13 @@
 	
 		\begin{frame}{Bachelor / Erstausbildung}
 			\begin{itemize}
-				\item Bachelor ?= Erstausbildung
+				\item Bachelor = Erstausbildung
 				\begin{itemize}
-					\item Meistens ja
-					\item Zuvor \textbf{abgeschlossene/s} Studium/betriebliche Ausbildung? Dann nein
+					\item außer vorherige \textit{abgeschlossene} Ausbildung/Studium
 				\end{itemize}
-				\item Absetzen nur als Sonderausgaben (nicht als Werbungskosten)
+				\item Absetzen nur als Sonderausgaben (nicht als Werbungskosten!)
 				\item Max. 6000€ pro Jahr
-				\item Verlust/Ausgaben nicht übertragbar auf spätere Jahre
+				\item Verlust/Ausgaben nicht übertragbar auf spätere Jahre :(
 			\end{itemize}
 		\end{frame}
 	
@@ -421,7 +452,6 @@
 				\item Absetzen als Werbungskosten
 				\item Unbegrenzt viel
 				\item Verlust/Ausgaben übertragbar auf spätere Jahre
-				\item Mehr Möglichkeiten (z.B. Verpflegungsmehraufwendungen)
 			\end{itemize}
 		\end{frame}
 	
@@ -433,10 +463,9 @@
 				\item Fahrtkosten + Unterkunft
 				\item Arbeitsmittel, Druck-/Bindekosten
 				\item Telefon, Internet
-				\item Master only (?\footnote{Soweit ich einen Absatz im ELSTER-FAQ richtig verstehe}): Mehraufwendungen für Verpflegung
 				\item Spenden \& Mitgliedsbeiträge bei Vereinen
 			\end{itemize}\n
-			Siehe auch \href{https://www.elster.de/eportal/helpGlobal?themaGlobal=help_est_ufa_10_2020}{ELSTER-FAQ}.
+			Siehe auch \href{https://www.elster.de/eportal/helpGlobal?themaGlobal=help_est_ufa_10_2023\#c9718}{ELSTER-FAQ}.
 		\end{frame}
 	
 		\begin{frame}{BAföG und Steuern}
@@ -454,56 +483,66 @@
 		\end{frame}
 	
 		\begin{frame}{Disclaimer}
-			Im Folgenden \textbf{Fokus auf nicht-selbstständige Arbeit} (= Angestellte \& Werkstudenten) \textrightarrow\ Lohnsteuer\n\pause\footnotesize
+			Im Folgenden \textbf{Fokus auf nicht-selbstständige Arbeit} (= Angestellte \& Werkstudenten) \textrightarrow\ Lohnsteuer\n\pause
 			Freiberufler \& Selbstständige \textrightarrow\ Umsatzsteuer (wird hier nicht betrachtet, man kann aber fast das gleiche absetzen, muss es nur woanders eintragen)
 		\end{frame}
 	
-		{
-		\setbeamertemplate{background canvas}{}
-		\begin{frame}[plain]
-			\begin{center}
-				\includegraphics[width=\linewidth]{images/steuererklärung-überblick-1}
-			\end{center}
-		\end{frame}
-		\begin{frame}[plain]
-			\begin{center}
-				\includegraphics[width=\linewidth]{images/steuererklärung-überblick-2}
-			\end{center}
-		\end{frame}
-		\begin{frame}[plain]
-			\begin{center}
-				\includegraphics[height=1.25\textheight]{images/einkommenssteuererklärung-1}
-			\end{center}
-		\end{frame}
-		\begin{frame}[plain]
-			\begin{center}
-				\includegraphics[height=1.25\textheight]{images/einkommenssteuererklärung-2}
-			\end{center}
-		\end{frame}
-		\begin{frame}[plain]
-			\begin{center}
-				\includegraphics[height=1.25\textheight]{images/einkommenssteuererklärung-3}
-			\end{center}
-		\end{frame}
-		}
+%		{
+%		\setbeamertemplate{background canvas}{}
+%		\begin{frame}[plain]
+%			\begin{center}
+%				\includegraphics[width=\linewidth]{images/steuererklärung-überblick-1}
+%			\end{center}
+%		\end{frame}
+%		\begin{frame}[plain]
+%			\begin{center}
+%				\includegraphics[width=\linewidth]{images/steuererklärung-überblick-2}
+%			\end{center}
+%		\end{frame}
+%		\begin{frame}[plain]
+%			\begin{center}
+%				\includegraphics[height=1.25\textheight]{images/einkommenssteuererklärung-1}
+%			\end{center}
+%		\end{frame}
+%		\begin{frame}[plain]
+%			\begin{center}
+%				\includegraphics[height=1.25\textheight]{images/einkommenssteuererklärung-2}
+%			\end{center}
+%		\end{frame}
+%		\begin{frame}[plain]
+%			\begin{center}
+%				\includegraphics[height=1.25\textheight]{images/einkommenssteuererklärung-3}
+%			\end{center}
+%		\end{frame}
+%		}
 
 		\subsection{Aller Anfang ist schwer}
-		
-			\begin{frame}{Wann mache ich meine Steuererklärung?}
+
+			\begin{frame}{Wie ist eine Steuererklärung aufgebaut}
 				\begin{itemize}
-					\item Immer im Folgejahr: Steuererklärung \textbf{für} 2022 macht man also 2023.
-				\end{itemize}\n
-				\textbf{Fristen:}\\
-				Angestellt? \textrightarrow\ freiwillige Abgabe \textrightarrow\ vier Jahre Zeit\\
-				Selbstständig/Freiberufler? \textrightarrow\ Pflicht \textrightarrow\ Bis 31. Juli\footnote{Coronabedingt ggf. länger}
+					\item Hauptvordruck: Persönliche Daten, Bankverbindung, etc.
+					\item Anlagen, z.B.
+					\begin{itemize}
+						\item N: \textbf{N}ichtselbstständige Arbeit (Angestellte \& Werkstudis)
+						\item S: \textbf{S}elbstständige \& Freelancer
+						\item Vorsorgeaufwand: Z.B. Beiträge zu Krankenkasse, Altersvorsorge, etc.
+						\item Haushaltsnahe Aufwendungen: Wichtig für Wohnnebenkosten
+						\item Sonderausgaben: Z.B. Spenden
+					\end{itemize}
+					\item Jede Anlage hat Zeilennummern. Beispiele:
+					\begin{itemize}
+						\item Hauptvordruck Zeile 10 = Vorname
+						\item Anlage N Zeile 45 = Anzahl Tage für Homeoffice-Pauschale
+					\end{itemize}
+				\end{itemize}
 			\end{frame}
 
-			\begin{frame}{Wo mache ich meine Steuererklärung?}
+			\begin{frame}{Wie/womit mache ich meine Steuererklärung?}
 				\begin{itemize}
-					\item ELSTER\footnote{Elster ... Selbstironie ist der Finanzbehörde nicht fremd.}: Online Dienst der Finanzverwaltung. Hat einen Dark-Mode.
+					\item ELSTER\footnote{Elster ... Selbstironie ist der Finanzbehörde nicht fremd.}: Online Dienst der Finanzverwaltung. Umsonst, schlichte Formulare, Dark-Mode.
 					\item Steuersoftware: Günstig, IMHO selten Mehrwert gegenüber ELSTER
-					\item Lohnsteuerhilfeverein: Beratung, mittelmäßig teuer
-					\item Steuerberater: Teuer, kann alles für dich machen
+					\item Lohnsteuerhilfeverein: Nur Beratung, mittelmäßig teuer
+					\item Steuerberater: Kann alles für dich machen, teuer
 				\end{itemize}
 			\end{frame}
 		
@@ -514,20 +553,105 @@
 					\item Pauschalen kennen
 					\item Fahrten zur Arbeit/Uni notieren
 					\item Tage mit mehr als 8h außerhalb merken
-					\item abrechnung abwarten
-				\end{itemize}
+					\item Nebenkostenabrechnung abwarten
+				\end{itemize}\n
+				\textbf{Tipp:} Übers Jahr hinweg alles relevante sammeln und notieren.
+			\end{frame}
+			
+%			\begin{frame}{Wann mache ich meine Steuererklärung?}
+%				\begin{itemize}
+%					\item Immer im Folgejahr: Steuererklärung \textbf{für} 2022 macht man also 2023.
+%				\end{itemize}\n
+%				\textbf{Fristen:}\\
+%				Angestellt? \textrightarrow\ freiwillige Abgabe \textrightarrow\ vier Jahre Zeit\\
+%				Selbstständig/Freiberufler? \textrightarrow\ Pflicht \textrightarrow\ Bis 31. Juli\footnote{Coronabedingt ggf. länger}
+%			\end{frame}
+			
+			\begin{frame}{Wie läuft das ab?}{}
+				{\tiny (Timeline not to scale)}
+				\begin{center}
+					\hspace*{-0.8cm}
+					\begin{tikzpicture}
+					[
+						>=stealth',
+						label/.style={font={\scriptsize},align=center},
+						dot/.style={circle,fill=black,minimum size=0.125cm,inner sep=0,outer sep=0.175cm},
+					]
+						\draw[->,line width=0.025cm] (0,0) -- (12,0);
+%						\draw[line width=0.025cm] (0,-0.15) -- +(0,0.3);
+						
+						\visible<1->
+						{
+							\node[dot] (dot-1) at (1,0) {};
+							\node[label,gray,below = 0cm of dot-1] {1.1.};
+							\node[label,text width=2cm] (step-1) at (1,2) {Jahr beginnt, ab jetzt alle Ausgaben notieren};
+							\draw[->] (step-1) -- (dot-1);
+						}
+						
+						\visible<2->
+						{
+							\node[dot] (dot-2) at (4,0) {};
+							\node[label,gray,below = 0cm of dot-2] {31.12.};
+							\node[label,text width=2cm] (step-2) at (4,2) {Jahr endet, Lohnsteuerbescheid erhalten};
+							\draw[->] (step-2) to[out=270,in=90] (dot-2);
+							
+							\draw[line width=0.05cm,red] (dot-1.center) -- (dot-2.center);
+							\node[dot] at (dot-1) {};
+							\node[dot] at (dot-2) {};
+						}
+						
+						\visible<3->
+						{
+							\node[dot] (dot-3) at (5.5,0) {};
+							\node[label,gray,below = 0cm  of dot-3] {Frühjahr};
+							\node[label,text width=2cm] (step-3) at (5.5,3.5) {Steuererklärung vorbereiten};
+							\draw[->] (step-3) -- (dot-3);
+						}
+						
+						\visible<4->
+						{
+							\node[dot] (dot-4) at (7.5,0) {};
+							\node[label,text width=2cm] (step-4) at (6.8,2) {Nebenkosten-abrechnung erhalten};
+							\draw[->] (step-4) to[out=270,in=130] (dot-4);
+						}
+						
+						\visible<5->
+						{
+							\node[dot] (dot-5) at (7.75,0) {};
+							\node[label,text width=2cm] (step-5) at (7.9,3.5) {Steuererklärung vervollständigen \& abschicken};
+							\draw[->] (step-5) to[out=270,in=80] (dot-5);
+						}
+						
+						\visible<6->
+						{
+							\node[dot] (dot-6) at (9,0) {};
+							\node[label,text width=2cm] (step-6) at (9,2) {Ggf. Rückfragen, Dokumente nachreichen};
+							\draw[->] (step-6) to[out=270,in=90] (dot-6);
+						}
+						
+						\visible<7->
+						{
+							\node[dot] (dot-7) at (11,0) {};
+							\node[label,gray,below = 0cm of dot-7] {irgendwann ...};
+							\visible<7>
+							{
+								\node[label,text width=2cm] (step-7) at (11,2) {Einkommensteuerbescheid erhalten};
+							}
+							\visible<8->
+							{
+								\node[label,text width=2cm] (step-7) at (11,2) {Einkommen-steuerbescheid erhalten};
+							}
+							\draw[->] (step-7) -- (dot-7);
+						}
+					\end{tikzpicture}
+				\end{center}
 			\end{frame}
 		
 			\begin{frame}{Wie läuft das ab?}
 				\begin{itemize}
 					\item Jahr endet \& Erhalt Lohnsteuerbescheid
 					\item Daten aus Lohnsteuerbescheinigung in Steuerprogramm eintragen / ggf. automatisch vorausgefüllt
-					\item Ausgaben eintragen
-					\begin{itemize}
-						\item Beruflich/Uni motivierte Kosten
-						\item Altersvorsorge, Versicherungen, etc.
-						\item Spenden
-					\end{itemize}
+					\item Ausgaben eintragen (s. nachfolgende Folien), ggf. auf Nebenkostenabrechnung warten
 					\item Abschicken
 					\item Ggf. Dokumente (z.B. Rechnungen) nachreichen
 					\item Erhalt Einkommensteuerbescheid
@@ -535,7 +659,8 @@
 						\item Prüfen \& nachvollziehen
 						\item Enthält ggf. Erklärungen und Begründungen
 					\end{itemize}
-				\end{itemize}
+				\end{itemize}\n
+				\textbf{Tipp:} So früh wie möglich (Januar/Februar) anfangen ;)
 			\end{frame}
 		
 			\begin{frame}{Lohnsteuerbescheinigung}
@@ -551,22 +676,28 @@
 					\citeurl{https://de.wikipedia.org/wiki/Datei:Einkommensteuerbescheid_2019.pdf}{commons.wikimedia.org}
 				\end{center}
 			\end{frame}
+			
+			\begin{frame}
+				\begin{center}
+					\includegraphics[height=0.9\textheight]{images/meme-tax-insane.jpg}
+				\end{center}
+			\end{frame}
 		
 			\begin{frame}{Pauschalen}
 				Ohne weitere Nachweise möglich sind\citeurl{https://www.finanzfluss.de/podcast/folge-165/}{Finanzfluss -- Podcast \#165}:
 				\begin{itemize}
-					\item Werbungskosten: 1000€ ($\leq2021$); 1200€ (in 2022); 1230€ ($\geq2023$)
+					\item Werbungskosten
 					\item Kontoführung: 16€
-					\item Sparerpauschbetrag: max. 801€ ($\leq2022$); 1000€ ($\geq2023$)
 					\pause
-					\item Arbeitsmittel: 110€ (mehr mit Nachweis; s.u.)
-					\item Home-Office Pauschale: max. 600€ ($\leq2022$); 1260€ ($\geq2023$)
-					\item Telefon- \& Internet: max. 20\%\footnote{\label{mehr-moeglich}Mehr ist möglich, dann aber Einzelnachweise nötig} \& max. 20€ pro Monat
+					\item Arbeitsmittel
+					\item Home-Office Pauschale
+					\item Telefon- \& Internet
 					\pause
-					\item Entfernungspauschale (s.u.)
-					\item Verpflegungspauschale (s.u.)
+					\item Entfernungspauschale
+					\item Verpflegungspauschale
 					\pause
 					\item Umzug (beruflich motiviert): Uff, also da geht einiges ;)
+					\item Sparerpauschbetrag: max. 801€ ($\leq2022$); 1000€ ($\geq2023$)
 				\end{itemize}
 			\end{frame}
 		
@@ -575,8 +706,14 @@
 			\begin{frame}{Los gehts}
 				\begin{enumerate}
 					\item Registrierung bei ELSTER
-					\item Login
+					\begin{itemize}
+						\item Per Ausweis, Zertifikatsdatei, ...
+					\end{itemize}\pause
+					\item Login\pause
 					\item Vorausgefüllte Steuererklärung
+					\begin{itemize}
+						\item Über Abruf v. Bescheinigungen, dauert ca. 1 Tag
+					\end{itemize}
 				\end{enumerate}
 			\end{frame}
 		
@@ -605,29 +742,52 @@
 			\end{frame}
 		
 		\subsection{Das kannst du absetzen}
-		
-			\begin{frame}{Home-Office Pauschale}
+			
+			\begin{frame}{Werbungskostenpauschale}
 				\begin{itemize}
-					\item 6€ pro Arbeitstag im Home-Office ($\leq2021$: 5€)
-					\item $\leq2022$: Max. 120 Tage \& max. 600€
-					\item $\geq2023$: Max. 210 Tage \& max. 1260€
-					\item In Werbungskostenpauschale enthalten!
-					\item Beispiele\footnote{Pauschbeträge für 2021}:
+					\item Je nach Jahr:
 					\begin{itemize}
-						\item Beispiel 1: 600€ H.O. Pauschale + 100€ Werbungskosten \textrightarrow\ Werbungskostenpauschale ist größer
-						\item Beispiel 2: 504€ H.O. Pauschale + 946€ Werbungskosten = 1450€ \textrightarrow\ 450€ können zusätzlich zur Werbungskostenpauschale abgesetzt werden
+						\item $\leq2021$: 1000€
+						\item $=2022$: 1200€
+						\item $\geq2023$: 1230€
+					\end{itemize}
+					\item Arbeitgeber berücksichtigt das bereits!
+					\item Weniger Werbungskosten als Pauschale?
+					\begin{itemize}
+						\item Wahrscheinlich keine Rückerstattung :(
+						\item Trotzdem einreichen und ggf. zurückziehen (Fristen beachten!)
 					\end{itemize}
 				\end{itemize}
 			\end{frame}
 		
-			\begin{frame}{Wege zur Arbeit/Uni}
+			\begin{frame}{Home-Office Pauschale}
+				\begin{itemize}
+					\item 6€ pro Arbeitstag im Home-Office
+					\begin{itemize}
+						\item $\leq2022$: Max. 120 Tage \& max. 600€
+						\item $\geq2023$: Max. 210 Tage \& max. 1260€
+					\end{itemize}
+					\item Bereits in Werbungskostenpauschale enthalten!\pause
+					\item Beispiele\footnote{Pauschbeträge für 2023}:
+					\begin{itemize}
+						\item Beispiel 1:\\
+						700€ H.O. Pauschale + 200€ Werbungskosten = 900€\\
+						Werbungskostenpauschale ist größer\pause
+						\item Beispiel 2:\\
+						900€ H.O. Pauschale + 500€ Werbungskosten = 1400€\\
+						1400€ - 1230€ = 170€ können zusätzlich abgesetzt werden
+					\end{itemize}
+				\end{itemize}
+			\end{frame}
+		
+			\begin{frame}{Fahrtkosten zur Arbeit/Uni}
 				Stichwort: Entfernungspauschale / Pendlerpauschale\n
 				
 				\begin{itemize}
 					\item Pro Kilometer 30ct (ab dem 21. Kilometer 35ct bzw. 38ct\footnote{Die 38ct ab dem 21. Kilometer gelten nur für die Jahre 2022 bis 2026})
 					\item Einfache Wegstrecke (\textbf{nicht} hin + zurück)
 					\begin{itemize}
-						\item Auswärtstätigkeit (s. Verpflegungspauschale) \textrightarrow\ hin + zurück
+						\item Nur bei Auswärtstätigkeit (s. Folie \ref{verpflegungsmehraufwand}) hin + zurück
 					\end{itemize}
 					\item Kilometer werden immer \textbf{ab}gerundet (z.B. 2,9km \textrightarrow\ 2km)
 					\item Verkehrsmittel egal: Auto, Fahrrad, Fuß, Fahrgemeinschaft
@@ -635,6 +795,12 @@
 				\end{itemize}\n\pause
 				
 				\textbf{Achtung:} Semesterticket wird woanders eingetragen!
+			\end{frame}
+			
+			\begin{frame}{Fahrtkosten zur Arbeit/Uni}
+				\begin{center}
+					\includegraphics[height=0.85\textheight]{images/meme-fahrtkosten.jpg}
+				\end{center}
 			\end{frame}
 		
 			\begin{frame}{Semesterbeitrag (inkl. Semesterticket)}
@@ -644,7 +810,7 @@
 				\textbf{Zweitausbildung:}\\
 				Als Werbungskosten (z.B. unter "`Fortbildungskosten"' oder "`Weitere Werbungskosten"').\n
 				\hfill\\\pause
-				\textbf{Hinweis:} Entfernungspauschale geht trotz Semesterticket trotzdem, da \textbf{unabhängig} vom Verkehrsmittel (egal ob Auto, Rad oder Fuß)! Steuern sparen durch Rad fahren :D\n\pause
+				\textbf{Hinweis:} Entfernungspauschale geht trotz Semesterticket trotzdem, da \textbf{unabhängig} vom Verkehrsmittel (egal ob Auto, Rad oder Fuß)! Steuern sparen durch Rad fahren :D
 			\end{frame}
 		
 			\begin{frame}{Steuertrick: Pendlerpauschale vs. Semesterticket}
@@ -679,34 +845,43 @@
 				\end{center}
 			\end{frame}
 		
-			\begin{frame}{Verpflegungsmehraufwand}
-				Tätigkeit nicht Zuhause \& nicht an \textbf{erster Tätigkeitsstätte}:\\
-				Essen kostet Geld \textrightarrow\ Pauschale für Verpflegung\n
-				\textbf{Erste Tätigkeitsstätte?}
+			\begin{frame}{Auswärtstätigkeit}
+				Tätigkeit \textbf{nicht Zuhause \& nicht an erster Tätigkeitsstätte}.\n
+				Erste Tätigkeitsstätte?
 				\begin{itemize}
-					\item Primärer Ort deiner Tätigkeit (Arbeitnehmer und/oder Studi)
+					\item Primärer Ort deiner Tätigkeit
 					\item Pro Dienstverhältnis eine erste Tätigkeitsstätte
 					\begin{itemize}
 						\item Ggf. zwei erste Tätigkeitsstätten (Uni und Arbeitsplatz)
+						\item Z.B. Büro (Arbeitgeber) + Ikum (Uni)
 					\end{itemize}
+				\end{itemize}\n\pause
+				Wirkt sich aus auf z.B.:
+				\begin{itemize}
+					\item Fahrtkostenpauschale
+					\item Verpflegungsmehraufwand
 				\end{itemize}
 			\end{frame}
-				
-			\begin{frame}{Verpflegungsmehraufwand}
-				\textbf{Voraussetzung:}\\
-				Tätigkeit außerhalb (Exkursion, Lerngruppe\footnote{Veranlassung primär beruflich, privater Grund für Treffen sollte absolut untergeordnet sein.}, OE, ...)\n
-				\textbf{Wie viel absetzen?}
+		
+			\begin{frame}[label={verpflegungsmehraufwand}]{Verpflegungsmehraufwand}
+				Auch: Verpflegungspauschale, Mehraufwand bei Verpflegung
 				\begin{itemize}
-					\item Zeiten ab Abfahrt von Zuhause
-					\item Mehr als 8h: 14€
+					\item Essen kostet Geld \textrightarrow\ Pauschale für Verpflegung
+					\item Nur bei Auswärtstätigkeit (Exkursion, Lerngruppe\footnote{Veranlassung primär beruflich, privater Grund für Treffen sollte absolut untergeordnet sein.}, OE, ...)
+				\end{itemize}\n\pause
+				Wie viel absetzen?
+				\begin{itemize}
+					\item Zeit ab Abfahrt von Zuhause bis Ankunft Zuhause
+					\item $\leq$ 8h: Nix
+					\item $>$ 8h: 14€
+					\item $>$ 24h: 28€ {\tiny \textit{*hust* OEWE / NWE / EWE *hust*}}
 					\item An- \& Abreisetage: 14€
-					\item Mehr als 24h: 28€ {\tiny \textit{*hust* OEWE / NWE *hust*}}
 				\end{itemize}
 			\end{frame}
 		
 			\begin{frame}{Verpflegungsmehraufwand}
 				\textbf{Beispiel 1:}\\
-				8h in Uni zur Lerngruppe/Vorlesung/... = \textbf{kein} Verpflegungsmehraufwand absetzbar\n\pause
+				8h am Ikum zur Lerngruppe/Vorlesung/... = \textbf{kein} Verpflegungsmehraufwand absetzbar\n\pause
 				\textbf{Beispiel 2:}\\
 				8h beim Kumpel zum Lernen = Verpflegungsmehraufwand möglich\n\pause
 				\textbf{Beispiel 3:}\\
@@ -719,8 +894,8 @@
 				\begin{itemize}
 					\item Berufsbekleidung, Equipment, Literatur für den Beruf
 					\item Anschaffung, Reparatur, Miete, Reinigung
-					\item Mind. 10\% berufliche Nutzung
-					\item Kosten anteilig absetzbar
+					\item Inoffizielle(!) Pauschale: 110€
+					\item Mind. 10\% berufliche Nutzung, dann anteilig absetzbar
 					\item Bis 952€\footnote{800€ Netto + 19\% Mehrwertsteuer}: Im entsprechenden Jahr absetzbar
 					\item Über 952€: Verteilung über typische Nutzungsdauer
 					\begin{itemize}
@@ -743,13 +918,16 @@
 			\begin{frame}{Nebenkosten}
 				Teile der Nebenkostenabrechnung bei Miete\citeurl{https://www.buhl.de/steuer/ratgeber/nebenkosten-abrechnung-absetzen}{buhl.de}, z.B.:
 				\begin{itemize}
-					\item Handwerker
-					\item Renovierung (Dach, Fassade, Fenster, ...)
-					\item Reinigung, Winterdienst
-					\item Lohnkosten
+					\item Handwerker, Hausmeister, Haftpflichtversicherung
+					\item Renovierungen, Reinigungen
+					\item Winterdienst, Rauchmelder
 				\end{itemize}\n
-				\textbf{Hinweis:}\\
-				Jeweils 20\% der Kosten von der Steuer \textbf{abziehbar}.
+				\textbf{Hinweis:} Jeweils 20\% der Kosten von der Steuer \textbf{abziehbar}.
+				\pause
+				\vspace{0.05cm}
+				\begin{center}
+					\includegraphics[height=2.4cm]{images/google-haushaltsnahe-dienstleistungen.png}
+				\end{center}
 			\end{frame}
 		
 			\begin{frame}{Spenden \& Mitgliedsbeiträge}
@@ -814,14 +992,14 @@
 			\end{frame}
 		
 			\begin{frame}{}
-				\begingroup\tiny Beträge für 2022\endgroup
+				{\scriptsize Beträge für 2023}
 				\begin{itemize}
-					\item Home-Office Pauschale: Bis 600€, in Werbungskostenpauschale schon drin
+					\item Home-Office Pauschale: Bis 1260€ ($\leq$ 2022 nur 600€), in Werbungskostenpauschale schon drin
 					\item Weg zur Arbeit: 30ct / km (einfache Strecke; abgerundet)
 					\item Semesterbeitrag: Weitere Werbungskosten bzw. Fortbildungskosten
 					\item Verpflegungsmehraufwand: Wenn $>$8h auswärts tätig 14€ bzw. 28€
 					\item Arbeitsmittel: 110€ Pauschale, bei hohen Ausgaben ggf. über Jahre verteilen
-					\item Nebenkosten: Handwerker + haushaltsnahe Dienstleistung; 20\%
+					\item Nebenkosten: Haushaltsnahe Dienstleistung; 20\%
 					\item Spenden/Mitgliedsbeiträge: Gemeinnützig, mildtätig, kirchlich \textrightarrow\ Sonderausgaben
 				\end{itemize}
 			\end{frame}
@@ -834,7 +1012,7 @@
 					\item \href{https://www.steuererklaerung-verstehen.de/}{steuererklaerung-verstehen.de}
 					\item \href{https://www.kann-man-das-absetzen.de/}{kann-man-das-absetzen.de}
 					\item \href{https://www.buhl.de/steuer/ratgeber/}{buhl Ratgeber}
-					\item \href{https://www.elster.de/eportal/helpGlobal?themaGlobal=help_est_ufa_10_2022}{ELSTER-FAQ} (2022)
+					\item \href{https://www.elster.de/eportal/helpGlobal?themaGlobal=help_est_ufa_10_2023}{ELSTER-FAQ}
 				\end{itemize}
 			\end{frame}
 	
