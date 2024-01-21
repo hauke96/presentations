@@ -6,522 +6,701 @@
 \usepackage{gensymb}
 \usepackage{bold-extra}
 \usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{soul}
+\usepackage{fancyvrb}
 
-\input{flat-blue-theme.inc}
+\input{../flat-blue-theme.inc}
+\input{../footnotes.inc}
+
+\setcounter{tocdepth}{1}
+
+\setbeamercovered{invisible}
+\beamertemplatenavigationsymbolsempty
+\renewcommand*\insertshorttitle
+{
+	% To not count \pause as new frame. And also to make the package "appendixnumberbeamer" work.
+	\makebox[0.94\textwidth]{\oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber}
+}
+\condensedToc
 
 \title{OpenStreetMap}
 \subtitle{What is that and how can I contribute?}
-\author{Hauke Stieler\\\href{mailto:4stieler@informatik.uni-hamburg.de}{4stieler@informatik.uni-hamburg.de}}
-\titlegraphic{\includegraphics[width=1.5cm,keepaspectratio]{images/Openstreetmap-logo}}
+\author{Hauke Stieler\\4stieler@inf}
+\titlegraphic{\includegraphics[width=1.5cm,keepaspectratio]{images/openstreetmap-logo.jpg}}
 \date{\today}
 
 \begin{document}
 	\maketitle
 	
 	\begin{frame}
-		\tableofcontents[hideallsubsections]
-	\end{frame}
-
-	\section{Imagine...}
-	
-	\begin{frame}{... you want to use a map}
-		\begin{itemize}
-			\item up to date
-			\item complete streets, paths, cycleways, ...
-			\item routable (car, bicycle, foot, ...)
-		\end{itemize}
+		\tableofcontents
 	\end{frame}
 	
-	\begin{frame}{... constantly changing areas}
-		\begin{center}
-			\textbf{Example:}\\
-			Construction of A7\\
-			{\tiny (Hamburg-Stellingen, Germany)}
-		\end{center}
-	\end{frame}
-
-	\begin{frame}{... unusual use cases}
-		\begin{itemize}
-			\item hiking or trekking
-			\item travel by (motor) boat
-			\item search POIs by accessibility (e.g. for people with limited mobility)
-		\end{itemize}
-	\end{frame}
-
-	\begin{frame}{... you want to print/show maps}
-		\begin{itemize}
-			\item route to weddings/birthday/party/...
-			\item in presentations
-			\item in commercial uses
+	\section{Geodata basics}
+	
+		\subsection{Geodata basics}
+	
+		\begin{frame}{What is \enquote{geodata}?}
+			\begin{definition}
+				Information with geographical reference.
+			\end{definition}
+			\pause
+			Anything with a coordinate, geometry or other kind of geographical information:
 			\begin{itemize}
-				\item software
-				\item bus/train stop
-				\item public city map
+				\item house with address\pause
+				\item measured temperature at certain coordinate\pause
+				\item aerial imagery\pause
+				\item recorded bicycle track\pause
+				\item ...
 			\end{itemize}
-		\end{itemize}
-	\end{frame}
-
-	\begin{frame}{... there's a free map}
-		\begin{center}
-			And yes, it exists:\\
-			\hfill\\
-			\textbf{OpenStreetMap}\\
-			{\tiny (short: OSM)}
-		\end{center}
-	\end{frame}
-	
-	\section{Applications}
-	
-	\begin{frame}{OpenStreeMap website}
-		\begin{center}
-			\includegraphics[height=0.7\textheight]{images/osm-website}\\
-			\url{https://osm.org}
-		\end{center}
-	\end{frame}
-	
-	\begin{frame}{OpenRouteService}
-		\begin{center}
-			\includegraphics[height=0.7\textheight]{images/openrouteservice}\\
-			\url{https://maps.openrouteservice.org}
-		\end{center}
-	\end{frame}
-	
-	\begin{frame}{OpenTopoMap website}
-		\begin{center}
-			\includegraphics[height=0.7\textheight]{images/opentopomap-website}\\
-			\url{https://opentopomap.org}
-		\end{center}
-	\end{frame}
-	
-	\begin{frame}{Wheelmap}
-		\begin{center}
-			\includegraphics[height=0.7\textheight]{images/wheelmap-website1}\\
-			\url{https://wheelmap.org}
-		\end{center}
-	\end{frame}
-
-	\begin{frame}{Wheelmap}
-		\begin{center}
-			\includegraphics[height=0.7\textheight]{images/wheelmap-website2}\\
-			\url{https://wheelmap.org}
-		\end{center}
-	\end{frame}
-	
-	\begin{frame}{OpenStreeMap Wiki}
-		\begin{center}
-			\includegraphics[height=0.7\textheight]{images/osm-wiki}\\
-			\url{https://wiki.osm.org}
-		\end{center}
-	\end{frame}
-
-	\section{What is OSM?}
-	
-	\begin{frame}{What is OpenStreetMap?}
-		\begin{itemize}
-			\item free\footnote{\textit{free} as in \textit{free}dom} project collecting \textbf{free accessible} geodata
-			\item open database for geodata
-			\item ODC-ODbL
+		\end{frame}
+		
+		\begin{frame}{Formats}
+			Main categories:
 			\begin{itemize}
-				\item OpenDataCommons Open Database License
-				\item Ersetzt CC BY-SA 2.0 {\tiny (share alike \& attribution)}
+				\item vector files\pause
+				\item raster files\pause
+				\item database \textleftarrow\ OSM\pause
+				\item web services
 			\end{itemize}
-		\end{itemize}
-	\end{frame}
-
-	\subsection{Motivation}
-	
-	\begin{frame}
-		Why has OpenStreetMap been created?
-		\begin{itemize}
-			\item proprietary maps old and faulty
-			\item focus on cars and traffic
-			\item no access to raw data
+		\end{frame}
+		
+		\begin{frame}{File and web formats}
+			\begin{columns}[t]
+				\begin{column}{0.47\textwidth}
+					Vector formats
+					\begin{itemize}
+						\item GeoJSON
+						\item GeoPackage, SpatiaLite
+						\item Shapefile
+						\item KML, GML, WKT, OSM
+					\end{itemize}
+					\pause
+					Raster formats
+					\begin{itemize}
+						\item GeoTIFF
+						\item netCDF, JPEG2000
+					\end{itemize}
+					\pause
+				\end{column}
+				\begin{column}{0.53\textwidth}
+					Web services:
+					\begin{itemize}
+						\item OGC (WMS, WMTS, WFS, ...)
+						\item XYZ-tiles
+						\item ArcGIS
+					\end{itemize}
+				\end{column}
+			\end{columns}
+		\end{frame}
+		
+		\begin{frame}{Vector data (GeoJSON)}
+			\includegraphics[width=\textwidth]{images/geodata-vector-1.png}\footnote{\href{https://en.wikipedia.org/wiki/GeoJSON}{Wikipedia -- GeoJSON}}
+		\end{frame}
+		
+		\begin{frame}{Vector data (GeoJSON)}
+			\includegraphics[width=\textwidth]{images/geodata-vector-2.png}\footnote{\href{https://en.wikipedia.org/wiki/GeoJSON}{Wikipedia -- GeoJSON}}
+		\end{frame}
+		
+		\begin{frame}{Attributes / properties}
 			\begin{itemize}
-				\item error correction not possible
+				\item add information to geometry
+				\begin{itemize}
+					\item geometry: \textit{Where} is it?
+					\item attributes: \textit{What} is it?
+				\end{itemize}\pause
+				\item usually key-value-pairs\pause
+				\item formats restrict types and values
 			\end{itemize}
-			\item Google Maps \textit{not directly evil} -- but \textbf{not free}
-			\item license problems with (nearly) all map service providers
-		\end{itemize}
-	\end{frame}
-
-	\subsection{History}
-
-	\begin{frame}
-		\begin{itemize}
-			\item 2004 -- OSM founded
-			\item 2006 -- release JOSM-Editor
-			\item 2006 -- first map rendered with Mapnik
-			\item 2007 -- TIGER data import USA started
-			\item 2008 -- TIGER data import USA finished
-			\item 2009 -- API 0.6 (still latest version)
-			\item 2009 -- cooperation with Wikipedia
-			\item 2010 -- Bing Imagery allowed usage for OSM
-			\item 2013 -- 1 mio. registered users
-			\item 2016 -- Maps.me app enabled edits
-		\end{itemize}
-	\end{frame}
-
-	\subsection{Statistics}
-
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{images/Osmdbstats1_users.png}
-		\end{center}
-		{\tiny \url{https://wiki.openstreetmap.org/wiki/File:Osmdbstats1_users.png}, 2019-05-25}
-	\end{frame}
-
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Active_contributors_month.png}
-		\end{center}
-		{\tiny \url{https://wiki.openstreetmap.org/wiki/File:Active_contributors_month.png}, 2019-05-25}
-	\end{frame}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Osmdbstats2.png}
-		\end{center}
-			{\tiny \url{https://wiki.openstreetmap.org/wiki/File:Osmdbstats2.png}, 2019-05-25}
-	\end{frame}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Osmdbstats7A.png}
-		\end{center}
-		{\tiny \url{https://wiki.openstreetmap.org/wiki/File:Osmdbstats7A.png}, 2019-05-25}
-	\end{frame}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Osmdbstats7B.png}
-		\end{center}
-		{\tiny \url{https://wiki.openstreetmap.org/wiki/File:Osmdbstats7B.png}, 2019-05-25}
-	\end{frame}
-
-	\subsection{Community}
-
-	\begin{frame}{What is done?}
-		\begin{itemize}
-			\item developing software and tools
-			\item actual mapping
-			\item creating and maintaining documentation
-			\item doing public relations activities
-		\end{itemize}
-	\end{frame}
-
-	\begin{frame}{How is it done?}
-		\begin{itemize}
-		\item going outside collecting information
-		\item using imagery services
-		\item meet other mappers
-		\item participating in a mapathon
-		\end{itemize}
-	\end{frame}
-
-	\section{The data}
-	
-	\tableofcontents[currentsection]
-	
-	\subsection{Geometries}
-	
-	\begin{frame}{Node}
-		\begin{itemize}
-			\item single location on map
-		\end{itemize}
+			\pause
+			\vspace{0.5cm}
+			\begin{center}
+				geometry + attributes = feature
+			\end{center}
+		\end{frame}
 		
-		\vfill
-		
-		\begin{center}
-			\begin{minipage}[b][0.6\textheight][c]{0.2\linewidth}
-				\centering
-				\includegraphics[width=0.5\linewidth,height=0.5\textheight,keepaspectratio]{images/240px-Mf_node.png}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.4\linewidth}
-				\centering
-				\includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{images/red-telephone-box-uk.jpg}~\tiny{(1)}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.3\linewidth}
-				\texttt{amenity=telephone}\\
-				\texttt{covered=booth}
-				\begin{center}
-					\includegraphics[width=0.3\linewidth,height=0.3\textheight,keepaspectratio]{images/240px-Telephone.png}\\
-					\vspace{0.25cm}
-					\includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{images/telephone.png}
-				\end{center}
-			\end{minipage}
-		\end{center}
-		{\tiny (1) \url{https://wiki.openstreetmap.org/wiki/File:Red_telephone_box_-_geograph.org.uk_-_919348.jpg}, 2019-05-25}
-	\end{frame}
-		
-	\begin{frame}{Way}
-		\begin{itemize}
-			\item line on map
-			\item 2-2000 points per way
-		\end{itemize}
-		
-		\vfill
-		
-		\begin{center}
-			\begin{minipage}[b][0.6\textheight][c]{0.2\linewidth}
-				\centering
-				\includegraphics[width=0.5\linewidth,height=0.5\textheight,keepaspectratio]{images/240px-Mf_way.png}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.4\linewidth}
-				\centering
-				\includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{images/Meyenburg-L134.jpg}~\tiny{(1)}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.3\linewidth}
-				\texttt{highway=secondary}
-				\begin{center}
-					\includegraphics[width=0.3\linewidth,height=0.3\textheight,keepaspectratio]{images/Rendering-highway_secondary_neutral.png}\\
-					\vspace{0.25cm}
-				\end{center}
-			\end{minipage}
-		\end{center}
-		{\tiny (1) \url{https://wiki.openstreetmap.org/wiki/File:Meyenburg-L134.jpg}, 2019-05-25}
-	\end{frame}
+	\section{OSM overview}
 	
-	\begin{frame}{Relation}
-		\begin{itemize}
-			\item combination of ways (e.g. to a bus route)
-		\end{itemize}
-		
-		\vfill
-		
-		\begin{center}
-			\begin{minipage}[b][0.6\textheight][c]{0.15\linewidth}
-				\centering
-				\includegraphics[width=0.5\linewidth,height=0.5\textheight,keepaspectratio]{images/240px-Mf_Relation.png}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.5\linewidth}
-				\centering
-				\includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{images/relations_example.png}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.3\linewidth}
-				\texttt{type=route}\\
-				\texttt{route=bus}\\
-				\texttt{name=MetroBus 4}\\
-				\texttt{ref=4}\\
-				\texttt{from=Wildacker}\\
-				\texttt{to=Brandstwiete}
-			\end{minipage}
-		\end{center}
-	\end{frame}
+		\begin{frame}
+			\tableofcontents[currentsection]
+		\end{frame}
+	
+		\subsection{Imagine ...}
 			
-	\begin{frame}{Area}
-		\begin{itemize}
-			\item basically a closed way with special tags
-		\end{itemize}
-		
-		\vfill
-		
-		\begin{center}
-			\begin{minipage}[b][0.6\textheight][c]{0.2\linewidth}
-				\centering
-				\includegraphics[width=0.5\linewidth,height=0.5\textheight,keepaspectratio]{images/240px-Mf_area.png}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.4\linewidth}
-				\centering
-				\includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{images/Stellinger_Feldmark_ESE_01.JPG}~\tiny{(1)}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.3\linewidth}
-				\texttt{landuse=forest}\\
-				\texttt{leaf\_type=broadleaved}
+			\begin{frame}{... you want to use a map that is ...}
+				\begin{itemize}
+					\item up to date\pause
+					\item contains all sort of stuff (infrastructure, vegetation, POIs, ...)\pause
+					\item routable (car, bicycle, foot, train, ...)
+				\end{itemize}
+			\end{frame}
+			
+			\begin{frame}{... constantly changing areas}
 				\begin{center}
-					\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/forest.png}
+					\textbf{Example:}\\
+					Construction of A7\\
+					{\tiny (Hamburg-Stellingen, Germany)}
 				\end{center}
-			\end{minipage}
-		\end{center}
-		{\tiny (1) \url{https://commons.wikimedia.org/wiki/File:Stellinger_Feldmark_ESE_01.JPG}, 2019-05-25}
-	\end{frame}
-				
-	\begin{frame}{Multipolygon}
-		\begin{itemize}
-			\item basically a polygon with polygons inside
-			\item role \texttt{inner} and \texttt{outer}
-		\end{itemize}
+			\end{frame}
 		
-		\vfill
+			\begin{frame}{... unusual use cases}
+				\begin{itemize}
+					\item routing for canoes
+					\item search POIs by accessibility
+					\item research analysis
+				\end{itemize}
+			\end{frame}
 		
-		\begin{center}
-			\begin{minipage}[b][0.6\textheight][c]{0.4\linewidth}
-				\centering
-				\includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{images/multipolygon.png}~\tiny{(1)}
-			\end{minipage}
-			\begin{minipage}[b][0.6\textheight][c]{0.3\linewidth}
-				\texttt{landuse=farmland}
+			\begin{frame}{... you want to create/print/host/use maps}
+				\begin{itemize}
+					\item on invitation card to weddings/birthday/party/...
+					\item in presentations
+					\item for private purposes (e.g. cycling)
+					\item in commercial uses
+					\begin{itemize}
+						\item on websites
+						\item maps in bus/train stops
+						\item public city map
+					\end{itemize}
+				\end{itemize}
+			\end{frame}
+		
+			\begin{frame}{... a solution for all of this}
 				\begin{center}
-					\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/multipolygon_josm.png}~\tiny{(2)}
+					And yes, it exists:\\
+					\hfill\\
+					\textbf{OpenStreetMap}\\
+					{\tiny (short: OSM)}
 				\end{center}
-			\end{minipage}
-		\end{center}
-		{\tiny (1) Microsoft\copyright BingTM Maps Platform; (2) Microsoft\copyright BingTM Maps Platform inside JOSM editor}
-	\end{frame}
+			\end{frame}
 
-	\subsection{Tags}
+		\subsection{What is OSM?}
 	
-	\begin{frame}
-		\begin{itemize}
-			\item free tagging system
-			\item unlimited amount of tags
-			\item consider conventions (s. wiki)
-		\end{itemize}
-		\hfill\\\vspace{1cm}
-		\begin{tabular}{|l|l|l|}
-			\hline
-			\textbf{format} & \textbf{notation} & \textbf{example} \\
-			\hline
-			normal & \texttt{key=value} & \texttt{highway=service} \\ 
-			\hline 
-			multiple values & \texttt{key=v1;v2} & \texttt{amenity=library;cafe} \\ 
-			\hline 
-			namespace & \texttt{key:namespace=value} & \texttt{addr:housenumber=42} \\ 
-			\hline 
-		\end{tabular}
-	\end{frame}
+			\begin{frame}
+				\begin{itemize}
+					\item free\footnote{\textit{free} as in \textit{free}dom} project collecting \textbf{free accessible} geodata
+					\item open database for geodata
+					\item ODC-ODbL
+					\begin{itemize}
+						\item OpenDataCommons Open Database License
+						\item Replaced CC BY-SA 2.0 {\tiny (share alike \& attribution)}
+					\end{itemize}\pause
+					\item OpenStreetMap Foundation (OSMF)
+					\item financed by donations, conferences and memberships\footnote{374k income in 2022}
+					\item history
+					\begin{itemize}
+						\item started in 2004
+						\item API basically unchanged since 2009
+						\item 1 mio. contributors in 2013
+						\item approx. 11mio. contributors in 2024\footnote{Doubled since last KBS WTF?!}
+					\end{itemize}
+				\end{itemize}
+			\end{frame}
+
+			\begin{frame}{Why OSM?}
+				\begin{columns}[t]
+					\begin{column}{0.5\textwidth}
+						Proprietary maps
+						\begin{itemize}
+							\item often old and faulty\pause
+							\item focus on cars and traffic\pause
+							\item license problems all over the place\pause
+							\item no access to raw data
+							\item no contribution possible
+						\end{itemize}
+					\end{column}
+					\pause
+					\begin{column}{0.5\textwidth}
+						Official data
+						\begin{itemize}
+							\item often old and faulty\pause
+							\item not always usable data (e.g. for routing)\pause
+							\item not always free/open\pause
+							\item no contribution possible
+						\end{itemize}
+						\pause
+						But:\\
+						More and more open and often access to raw data
+					\end{column}
+				\end{columns}
+			\end{frame}
+			
+			\begin{frame}{Excursion: Open Data in Germany}
+				Moving towards:
+				\begin{itemize}
+					\item legally open/accessible
+					\begin{itemize}
+						\item open license: CC BY-SA 4.0, DL-DE BY 2.0, CC0
+					\end{itemize}\pause
+					\item technically open/accessible
+					\begin{itemize}
+						\item web API (OGC compliant)
+						\item professional formats (no \texttt{.pdf} and \texttt{.xlsx} WTF?!)
+					\end{itemize}
+				\end{itemize}
+				\pause
+				\vspace{0.5cm}
+				Access via web APIs/interfaces, e.g. \href{https://www.geoportal.de/}{geoportal.de}
+			\end{frame}
+			
+			\begin{frame}{Statistics}
+				\begin{itemize}
+					\item 11 mio. contributors
+					\item 40,000 monthly contributors
+					\item 110 mio. changes per month\footnote{2750 edits per contributor per month}
+					\item 8.8 Bn. points, 1 Bn. lines/polygons, 11 mio. relations
+					\item tile server: 50,000 requests/min
+				\end{itemize}
+			\end{frame}
+			
+			\begin{frame}{Stuff by the OSMF}
+				\begin{itemize}
+					\item database, backup servers, mirrors
+					\item API server
+					\item tile rendering
+					\begin{itemize}
+						\item Live rendering! Tiles are updates nearly instantly!
+						\item CDN
+					\end{itemize}
+					\item geocoder (search service)
+					\item routing
+					\item internal services
+					\begin{itemize}
+						\item data statics (taginfo)
+						\item query server (overpass)
+						\item wiki
+						\item git, trac, irc, BBB, ......
+					\end{itemize}
+				\end{itemize}
+				\pause
+				\textrightarrow\ \href{https://hardware.openstreetmap.org/}{hardware.osm.org}
+			\end{frame}
+			
+			\begin{frame}{Stuff by someone else}
+				\begin{itemize}
+					\item maps
+					\begin{itemize}
+						\item \href{https://map.openseamap.org/?zoom=13.5\&lon=9.96566\&lat=53.52952}{OpenSeaMap}
+						\item \href{https://openbeermap.github.io/\#17/53.54957/9.96370}{OpenBeerMap}
+						\item \href{https://opentopomap.org}{OpenTopoMap}
+						\item .....
+					\end{itemize}\pause
+					\item create your own map: \href{https://print.get-map.org/}{MyOSMatic}\pause
+					\item getting the data
+					\begin{itemize}
+						\item \href{https://overpass-turbo.eu/}{overpass} with filtering
+						\item larger datasets: \href{http://download.geofabrik.de/}{Geofabrik GmbH} <3
+					\end{itemize}
+					\item tools, frameworks, libraries, etc.
+				\end{itemize}
+				\pause
+				\vspace{0.5cm}
+				Many, many, many more \textrightarrow\ \href{https://wiki.openstreetmap.org/wiki/List\_of\_OSM-based\_services}{OSM-wiki: List of OSM-based services}
+			\end{frame}
+			
+		\subsection{Applications}
+			
+			\begin{frame}{OpenStreeMap website (last KBS)}
+				\begin{center}
+					\includegraphics[height=0.7\textheight]{images/osm-website-old.jpg}\\
+					\url{https://osm.org}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}{OpenStreeMap website}
+				\begin{center}
+					\includegraphics[height=0.7\textheight]{images/osm-website.jpg}\\
+					\url{https://osm.org}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}{OpenRouteService}
+				\begin{center}
+					\includegraphics[height=0.7\textheight]{images/openrouteservice.jpg}\\
+					\url{https://maps.openrouteservice.org}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}{OpenTopoMap website}
+				\begin{center}
+					\includegraphics[height=0.7\textheight]{images/opentopomap-website.jpg}\\
+					\url{https://opentopomap.org}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}{Wheelmap}
+				\begin{center}
+					\includegraphics[height=0.7\textheight]{images/wheelmap-website.jpg}\\
+					\url{https://wheelmap.org}
+				\end{center}
+			\end{frame}
+
+		\subsection{Community}
+		
+			\begin{frame}{What is done?}
+				\begin{itemize}
+					\item developing software and tools
+					\item actual mapping
+					\begin{itemize}
+						\item going outside collecting data
+						\item using external sources (e.g. aerial imagery)
+						\item talk to non-mappers (e.g. in schools, local store owners, officials, ...)
+					\end{itemize}
+					\item creating and maintaining documentation
+					\item organizing events (conferences, mapathons, workshops, ...)
+				\end{itemize}
+			\end{frame}
+		
+			\begin{frame}{Organization}
+				\begin{itemize}
+					\item \href{https://wiki.openstreetmap.org/}{wiki}
+					\item \href{https://wiki.openstreetmap.org/wiki/Mailing_lists}{mailing lists}
+					\item \href{https://community.openstreetmap.org/}{forum}
+					\item \href{https://wiki.openstreetmap.org/wiki/Contact_channels}{and more}: discord, telegram, mastodon, reddit, ...)
+				\end{itemize}
+			\end{frame}
+
+	\section{OSM data}
+		
+		\begin{frame}
+			\tableofcontents[currentsection]
+		\end{frame}
+		
+		\subsection{Tags (attributes)}
+		
+			\begin{frame}
+				\begin{itemize}
+					\item simple key-value-pairs (untyped)
+					\item free tagging system
+					\item standardized by community proposals
+					\item central documentation: wiki
+				\end{itemize}
+				\vspace{0.25cm}
+				Multiple strategies:\\
+				\vspace{0.25cm}
+				\begin{tabular}{|l|l|l|}
+					\hline
+					\textbf{format} & \textbf{notation} & \textbf{example} \\
+					\hline
+					normal & \texttt{key=value} & \texttt{highway=service} \\ 
+					\hline 
+					multiple values & \texttt{key=v1;v2} & \texttt{amenity=library;cafe} \\ 
+					\hline 
+					namespace & \texttt{namespace:key=value} & \texttt{addr:housenumber=42} \\ 
+					\hline 
+				\end{tabular}
+			\end{frame}
+		
+		\subsection{Geometries}
+		
+			\begin{frame}[fragile]{Node (point)}
+				\begin{center}
+					\begin{columns}
+						\begin{column}{1.25cm}
+							\centering
+							\includegraphics[width=1cm]{images/240px-Mf_node.png}
+						\end{column}
+						\begin{column}{3.75cm}
+							\centering
+							\includegraphics[width=3.5cm]{images/red-telephone-box-uk.jpg}\\
+							\textcolor{gray}{
+								\tiny
+								\href{https://wiki.openstreetmap.org/wiki/File:Red\_telephone\_box\_-\_geograph.org.uk\_-_919348.jpg}{OSM-wiki}
+							}
+						\end{column}
+						\begin{column}{3.5cm}
+							\begin{verbatim}
+								amenity=telephone
+								covered=booth
+							\end{verbatim}
+							\includegraphics[height=3cm]{images/telephone.png}
+						\end{column}
+					\end{columns}
+				\end{center}
+			\end{frame}
+		
+			\begin{frame}[fragile]{Way (line)}
+				\begin{center}
+					\begin{columns}
+						\begin{column}{1cm}
+							\centering
+							\includegraphics[width=1cm]{images/240px-Mf_way.png}
+						\end{column}
+						\begin{column}{4.5cm}
+							\centering
+							\includegraphics[width=4.5cm]{images/way-example.jpg}
+							\textcolor{gray}{
+								\tiny
+								\href{https://www.mapillary.com/app/?pKey=680503257254203}{Mapillary}
+							}
+						\end{column}
+						\begin{column}{3.5cm}
+							\begin{verbatim}
+								highway=secondary
+								oneway=yes
+								name=Speersort
+							\end{verbatim}
+							\begin{center}
+								\includegraphics[height=3cm]{images/secondary.png}
+							\end{center}
+						\end{column}
+					\end{columns}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}[fragile]{Area (polygon = closed way)}
+				\begin{center}
+					\begin{columns}
+						\begin{column}{1cm}
+							\centering
+							\includegraphics[width=1cm]{images/240px-Mf_area.png}
+						\end{column}
+						\begin{column}{4.5cm}
+							\includegraphics[width=4.5cm]{images/area-example.jpg}
+						\end{column}
+						\begin{column}{4cm}
+							\begin{verbatim}
+								natural=heath
+								name=Fischbeker Heide
+							\end{verbatim}
+							\begin{center}
+								\includegraphics[height=3cm]{images/heath.png}
+							\end{center}
+						\end{column}
+					\end{columns}
+				\end{center}
+			\end{frame}
+	
+			\begin{frame}[fragile]{Relation: combine multiple feature into one}
+				\begin{center}
+					\begin{columns}
+						\begin{column}{1.25cm}
+							\centering
+							\includegraphics[width=1cm]{images/240px-Mf_relation.png}
+						\end{column}
+						\begin{column}{4cm}
+							\begin{verbatim}
+								type=route
+								route=bus
+								ref=4
+							\end{verbatim}
+							\vspace{0.25cm}
+							\includegraphics[width=3.75cm]{images/relation-example.png}
+						\end{column}
+						\begin{column}{4cm}
+							\includegraphics[width=4cm]{images/relation-list.png}
+						\end{column}
+					\end{columns}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}{Multipolygon (relation; polygon inside polygon)}
+				\begin{center}
+					\texttt{farmland=center}
+					\vspace{0.5cm}
+					\begin{columns}
+						\begin{column}{4cm}
+							\includegraphics[width=\linewidth]{images/multipolygon-example.png}
+						\end{column}
+						\begin{column}{4cm}
+							\includegraphics[width=\linewidth]{images/multipolygon-josm.png}
+						\end{column}
+					\end{columns}
+					\vspace{0.25cm}
+					\textcolor{gray}{\tiny Imagery: Microsoft\copyright Bing(tm) Maps Platform}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}[fragile]{OSM-XML format}
+				OSM uses an XML format (\texttt{.osm} file; often compressed in to a \texttt{.osm.pbf} file):
+				\vspace{0.25cm}
+				{
+					\scriptsize
+					\begin{Verbatim}
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='JOSM'>
+    <node id='1' action='modify' visible='true' lat='53.558' lon='9.991' />
+    <node id='2' action='modify' visible='true' lat='53.548' lon='9.972' />
+    <node id='3' action='modify' visible='true' lat='53.545' lon='9.997' />
+    <way id='4' action='modify' visible='true'>
+        <nd ref='1' />
+        <nd ref='2' />
+        <nd ref='3' />
+    </way>
+</osm>
+					\end{Verbatim}
+				}
+			\end{frame}
 
 	\section{Contributing to OSM}
 	
-	\subsection{Trace aerial imagery}
+		\begin{frame}
+			\tableofcontents[currentsection]
+		\end{frame}
+		
+		\subsection{Contributing to OSM}
+		
+			\begin{frame}{Editing process}
+				\begin{enumerate}
+					\item register on \href{https://www.openstreetmap.org/user/new}{osm.org}\pause
+					\item choose editor
+					\begin{itemize}
+						\item web: iD
+						\item desktop: JOSM
+						\item mobile: StreetComplete, OsmAnd, Vespucci
+					\end{itemize}\pause
+					\item make changes\pause
+					\item upload changeset
+				\end{enumerate}
+			\end{frame}
+			
+			\begin{frame}{Editors: iD}
+				\begin{center}
+					\includegraphics[height=0.75\textheight]{images/id-editor.jpg}
+					\href{https://www.openstreetmap.org/edit}{osm.org/edit}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}{Editors: JOSM}
+				\begin{center}
+					\includegraphics[height=0.75\textheight]{images/josm-editor.jpg}
+					\href{https://josm.openstreetmap.de/}{josm.osm.org}
+				\end{center}
+			\end{frame}
+			
+			\begin{frame}{Making changes}
+				Process for iD and JOSM:
+				\begin{enumerate}
+					\item collect data (e.g. during hiking)
+					\begin{itemize}
+						\item make notes, photos, etc.
+						\item record GPS tracks
+					\end{itemize}\pause
+					\item open editor and get raw data\pause
+					\item get familiar with tags for your data \textrightarrow\ wiki\pause
+					\item add/change/remove existing data\pause
+					\item review your changes
+				\end{enumerate}
+			\end{frame}
+			
+			\begin{frame}{Collect data}
+				\begin{itemize}
+					\item make notes while being outside \textleftarrow\ best option!
+					\item tracing from imagery (\enquote{armchair mapping})
+					\item photos news articles, development plans, etc.
+				\end{itemize}
+			\end{frame}
+			
+			\begin{frame}{Using external sources}
+				For example:
+				\begin{itemize}
+					\item imagery (e.g. ESRI World Imagery)
+					\item official data (e.g. ALKIS\footnote{Amtliches Liegenschaftskatasterinformationssystem})
+					\item photos, websites, etc.
+				\end{itemize}
+				\pause
+				\vspace{0.25cm}
+				{
+					\setbeamercolor{block title}{bg=orange!65, fg=black}
+					\setbeamercolor{block body}{bg=orange!25}
+					\begin{block}{Important!}
+						Licenses \textbf{must} always be \href{https://wiki.openstreetmap.org/wiki/Import/ODbL_Compatibility}{compatible with the ODbL}! Contact owner if needed!
+					\end{block}
+				}
+			\end{frame}
+			
+			\begin{frame}{Upload changeset}
+				Process for iD and JOSM:
+				\begin{enumerate}
+					\item review your changes\pause
+					\item click the upload/save button\pause
+					\item fill in form fields:
+					\begin{itemize}
+						\item changeset comment: short description of changes
+						\item source: source/origin of data (see \href{https://wiki.openstreetmap.org/wiki/Key:source}{wiki} for conventions)
+					\end{itemize}\pause
+					\item click the upload button
+				\end{enumerate}
+			\end{frame}
+			
+			\begin{frame}{Other ways to contribute}
+				\begin{itemize}
+					\item report errors/missing/outdated data
+					\begin{enumerate}
+						\item go to osm.org
+						\item right click on map \textrightarrow\ \enquote{Add a note here}
+						\item enter useful information and save
+						\item important: you need an account to write comments
+					\end{enumerate}\pause
+					\item deal with companies/agencies to obtain permission to use their data\pause
+					\item organize events\pause
+					\item spread the word
+				\end{itemize}
+			\end{frame}
 	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{images/trace_imagery.png}~\tiny{(1)}
-		\end{center}
-		{\tiny (1) Microsoft\copyright BingTM Maps Platform from JOSM editor}
-	\end{frame}
+	\section{Using the data}
 	
-	\subsection{Go outside}
-	
-	\begin{frame}{Surveying}
-		\begin{center}
-			\includegraphics[width=0.7\linewidth,height=0.7\textheight,keepaspectratio]{images/surveying}~\tiny{(1)}
-		\end{center}
-		{\tiny (1) \url{https://en.wikipedia.org/wiki/File:Motion\_X\_GPS\_and\_OSM.jpg}, 2019-05-25}
-	\end{frame}
-
-	\begin{frame}{Mapping}
-		\begin{center}
-			\includegraphics[width=0.7\linewidth,height=0.7\textheight,keepaspectratio]{images/mapping_outdoor}~\tiny{(1)}
-		\end{center}
-		{\tiny (1) \url{https://en.wikipedia.org/wiki/File:Adding\_data\_to\_OSM\_after\_mapping\_Brighton\_Pier.jpg}, 2019-05-25}
-	\end{frame}
-
-	\begin{frame}{Mapping (before)}
-		\begin{center}
-			\includegraphics[height=0.9\textheight,keepaspectratio]{images/osm-uxatindar-river-0}
-		\end{center}
-	\end{frame}
-
-	\begin{frame}{Mapping (after)}
-		\begin{center}
-			\includegraphics[height=0.9\textheight,keepaspectratio]{images/osm-uxatindar-river-1}
-		\end{center}
-	\end{frame}
-	
-	\subsection{Report errors}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/report-error-menu}
-		\end{center}
-	\end{frame}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/report-error}
-		\end{center}
-	\end{frame}
-
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/report-error-2-menu}
-		\end{center}
-	\end{frame}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/report-error-2}
-		\end{center}
-	\end{frame}
-	
-	\subsection{Socialize}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{images/socializing}~\tiny{(1)}
-		\end{center}
-		{\tiny (1) \url{https://wiki.openstreetmap.org/wiki/File:20110407_osm_stammtisch_hl.jpg}, 2019-05-25}
-	\end{frame}
-	
-	\section{Editors}
-	
-	\subsection{iD}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{images/id-editor}
-			\url{https://www.openstreetmap.org/edit}
-		\end{center}
-	\end{frame}
-	
-	\subsection{JOSM}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/josm-editor}
-		\end{center}
-	\end{frame}
-	
-	\section{Hands-On}
-	
-	\begin{frame}
-		\begin{center}
-			\includegraphics[height=0.9\textheight,keepaspectratio]{images/Ellerbek_2019-06-17_08:16}
-		\end{center}
-	\end{frame}
-
-	\begin{frame}
-		\begin{center}
-			\includegraphics[height=0.9\textheight,keepaspectratio]{images/Ellerbek_2019-06-17_08:16_marked}
-		\end{center}
-	\end{frame}
-
-	\begin{frame}{Get ready}
-		\begin{enumerate}
-			\item Create an OSM-Account
-			\item Possibly install JOSM
-			\item Download collected data\\
-			\url{https://hauke-stieler.de/kbs/Ellerbek.zip}
-			\item If in JOSM: Download OSM data\\
-			File \textrightarrow\, Download data \textrightarrow\, choose rectangle \textrightarrow\, download data
-			\item Open GPX-File
-		\end{enumerate}
-	\end{frame}
-
-	\begin{frame}{Good practices}
-		\begin{itemize}
-			\item Do correct errors
-			\item Map what's on the ground
-			\item Data should be verifiable
-			\item Don't map for renderers and routers
-			\item Use good comments and source information
-		\end{itemize}
-	\end{frame}
-
-	\begin{frame}{Workflow for today}
-		\begin{enumerate}
-			\item draw outline of one building
-			\item add appropriate tags
+		\begin{frame}
+			\tableofcontents[currentsection]
+		\end{frame}
+		
+		\begin{frame}{The terms of usage}
+			Feel free to:
 			\begin{itemize}
-				\item building
-				\item address
-				\item use the wiki\footnote{\url{wiki.openstreetmap.org}} for information
+				\item download the data
+				\item use the data (also commercially)
+				\item share the data or derivative works (e.g. a printed map)
 			\end{itemize}
-			\item ask for a review
-			\item upload data
-		\end{enumerate}
-	\end{frame}
+			Under the following conditions:
+			\begin{itemize}
+				\item add proper attribution!
+				\item keep the data/work under ODbL
+				\item do not restrict shared data
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{Access the data}
+			\begin{itemize}
+				\item small areas
+				\begin{itemize}
+					\item osm.org \textrightarrow\ \enquote{Export} \textrightarrow\ select area \textrightarrow\ \enquote{Export}
+					\item API: \href{https://www.openstreetmap.org/api/0.6/map?bbox=9.93116,53.59846,9.93572,53.60052}{\texttt{osm.org/api/0.6/map?bbox=...}}
+					\item \href{https://overpass-turbo.eu/}{Overpass API} (filtering and download in various formats)
+				\end{itemize}\pause
+				\item large areas
+				\begin{itemize}
+					\item \href{https://download.geofabrik.de/}{Geofabrik GmbH}
+					\item everything (\texttt{planet.osm} dump; weekly updated; >70GB OSM-PBF file)
+				\end{itemize}
+			\end{itemize}
+			\pause
+			\vspace{0.25cm}
+			More in the wiki \textrightarrow\ \href{https://wiki.openstreetmap.org/wiki/Downloading\_data}{Downloading data}.
+		\end{frame}
+		
+		\begin{frame}{Process the data}
+			Libraries:
+			\begin{itemize}
+				\item GDAL, GeoTools: swiss army knifes of geodata processing
+				\item libosmium: special OSM-centric library (python \& node bindings)
+				\item Leaflet/OpenLayers/MapLibre: display maps/geodata
+			\end{itemize}
+			\pause
+			CLI tools:
+			\begin{itemize}
+				\item ogr2ogr: part of GDAL to convert formats
+				\item osmium: multi-purpose OSM processing CLI tool
+				\item osmosis: also powerful but slowly running out of use
+				\item osm2pgsql: Import OSM data into a PostGIS database
+			\end{itemize}
+			\pause
+			Desktop applications:
+			\begin{itemize}
+				\item QGIS: number one open source GIS tool
+				\item JOSM: OSM editor, useful for general geodata processing
+			\end{itemize}
+		\end{frame}
 \end{document}
 
 
