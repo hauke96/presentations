@@ -1,3 +1,4 @@
+% !TeX spellcheck = de_DE
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -25,9 +26,9 @@
 \condensedToc
 
 \title{OpenStreetMap}
-\subtitle{What is that and how can I contribute?}
+\subtitle{Offene Geodaten und wie man beitragen kann}
 \author{Hauke Stieler\\4stieler@inf}
-\titlegraphic{\includegraphics[width=1.5cm,keepaspectratio]{images/openstreetmap-logo.jpg}}
+\titlegraphic{\includegraphics[width=1.5cm,keepaspectratio]{images/openstreetmap-logo.png}}
 \date{\today}
 
 \begin{document}
@@ -37,16 +38,14 @@
 		\tableofcontents
 	\end{frame}
 	
-	\section{Geodata basics}
+	\section{Geodaten Grundlagen}
 	
-		\subsection{Geodata basics}
+		\subsection{Geodaten Grundlagen}
 	
-		\begin{frame}{What is \enquote{geodata}?}
+		\begin{frame}{Was sind \enquote{Geodaten}?}
 			\begin{definition}
-				Information with geographical reference.
+				Informationen/Daten mit geografischem Bezug.
 			\end{definition}
-			\pause
-			Anything with a coordinate, geometry or other kind of geographical information:
 			\begin{itemize}
 				\item house with address\pause
 				\item measured temperature at certain coordinate\pause
@@ -56,20 +55,10 @@
 			\end{itemize}
 		\end{frame}
 		
-		\begin{frame}{Formats}
-			Main categories:
-			\begin{itemize}
-				\item vector files\pause
-				\item raster files\pause
-				\item database \textleftarrow\ OSM\pause
-				\item web services
-			\end{itemize}
-		\end{frame}
-		
-		\begin{frame}{File and web formats}
+		\begin{frame}{Formate}
 			\begin{columns}[t]
 				\begin{column}{0.47\textwidth}
-					Vector formats
+					Vektorformate
 					\begin{itemize}
 						\item GeoJSON
 						\item GeoPackage, SpatiaLite
@@ -77,7 +66,7 @@
 						\item KML, GML, WKT, OSM
 					\end{itemize}
 					\pause
-					Raster formats
+					Rasterformate
 					\begin{itemize}
 						\item GeoTIFF
 						\item netCDF, JPEG2000
@@ -85,7 +74,13 @@
 					\pause
 				\end{column}
 				\begin{column}{0.53\textwidth}
-					Web services:
+					Datenbank:
+					\begin{itemize}
+						\item SQlite \textrightarrow GeoPackage, SpatiaLite
+						\item Postgres + PostGIS
+					\end{itemize}
+					\pause
+					Webstandards:
 					\begin{itemize}
 						\item OGC (WMS, WMTS, WFS, ...)
 						\item XYZ-tiles
@@ -95,181 +90,173 @@
 			\end{columns}
 		\end{frame}
 		
-		\begin{frame}{Vector data (GeoJSON)}
+		\begin{frame}{Vaktordaten (GeoJSON)}
 			\includegraphics[width=\textwidth]{images/geodata-vector-1.png}\footnote{\href{https://en.wikipedia.org/wiki/GeoJSON}{Wikipedia -- GeoJSON}}
 		\end{frame}
 		
-		\begin{frame}{Vector data (GeoJSON)}
+		\begin{frame}{Vaktordaten (GeoJSON)}
 			\includegraphics[width=\textwidth]{images/geodata-vector-2.png}\footnote{\href{https://en.wikipedia.org/wiki/GeoJSON}{Wikipedia -- GeoJSON}}
 		\end{frame}
 		
-		\begin{frame}{Attributes / properties}
+		\begin{frame}{Attribute / Eigenschaften / Felder / Properties}
 			\begin{itemize}
-				\item add information to geometry
+				\item Ergänzende Infos an Daten
 				\begin{itemize}
-					\item geometry: \textit{Where} is it?
-					\item attributes: \textit{What} is it?
+					\item Geometrie: \textit{Wo} ist es?
+					\item Attribute: \textit{Was} ist es?
 				\end{itemize}\pause
-				\item usually key-value-pairs\pause
-				\item formats restrict types and values
+				\item Einfache Key-Value Paare\pause
+				\item Formate schränken Wertebereiche und Typen ggf. ein
 			\end{itemize}
 			\pause
 			\vspace{0.5cm}
 			\begin{center}
-				geometry + attributes = feature
+				Geometrie + Attribute = \enquote{Feature}
 			\end{center}
 		\end{frame}
 		
-	\section{OSM overview}
+	\section{OSM Überblick}
 	
 		\begin{frame}
 			\tableofcontents[currentsection]
 		\end{frame}
 	
-		\subsection{Imagine ...}
+		\subsection{Stell dir vor ...}
 			
-			\begin{frame}{... you want to use a map that is ...}
+			\begin{frame}{... du möchtest 'ne Karte und die ist ...}
 				\begin{itemize}
-					\item up to date\pause
-					\item contains all sort of stuff (infrastructure, vegetation, POIs, ...)\pause
-					\item routable (car, bicycle, foot, train, ...)
-				\end{itemize}
-			\end{frame}
-			
-			\begin{frame}{... constantly changing areas}
-				\begin{center}
-					\textbf{Example:}\\
-					Construction of A7\\
-					{\tiny (Hamburg-Stellingen, Germany)}
-				\end{center}
-			\end{frame}
-		
-			\begin{frame}{... unusual use cases}
-				\begin{itemize}
-					\item routing for canoes
-					\item search POIs by accessibility
-					\item research analysis
+					\item aktuell\pause
+					\item enthält alle möglichen Daten (Infrastruktur, Grünflächen, POIs, ...)\pause
+					\item routingfähig (Auto, Fahrrad, Fuß, Zug, Boot, ...)
 				\end{itemize}
 			\end{frame}
 		
-			\begin{frame}{... you want to create/print/host/use maps}
+			\begin{frame}{... du hast ungewöhnliche Anwendungsfälle}
 				\begin{itemize}
-					\item on invitation card to weddings/birthday/party/...
-					\item in presentations
-					\item for private purposes (e.g. cycling)
-					\item in commercial uses
+					\item Routing per Boot, Zug, Pferd, ...
+					\item POIs nach Barrierefreiheit suchen
+					\item Wissenschaft
+				\end{itemize}
+			\end{frame}
+		
+			\begin{frame}{... du möchtest Karten erstellen/drucken/hosten/nutzen ...}
+				\begin{itemize}
+					\item für Einladungskarten
+					\item in Präsentationen
+					\item für private Zwecke (z.B. bei Fahrradtouren)
+					\item für kommerzielle Zwecke
 					\begin{itemize}
-						\item on websites
-						\item maps in bus/train stops
-						\item public city map
+						\item auf Websites
+						\item Karten in ÖPNV Haltestellen
+						\item öffentliche Karten in der Stadt
 					\end{itemize}
 				\end{itemize}
 			\end{frame}
 		
-			\begin{frame}{... a solution for all of this}
+			\begin{frame}{... es gäbe eine Lösung für all das!}
 				\begin{center}
-					And yes, it exists:\\
+					Und ja, die gibt es:\\
 					\hfill\\
 					\textbf{OpenStreetMap}\\
-					{\tiny (short: OSM)}
+					{\tiny (kurz: OSM)}
 				\end{center}
 			\end{frame}
 
-		\subsection{What is OSM?}
+		\subsection{Was ist OSM?}
 	
 			\begin{frame}
 				\begin{itemize}
-					\item free\footnote{\textit{free} as in \textit{free}dom} project collecting \textbf{free accessible} geodata
-					\item open database for geodata
-					\item ODC-ODbL
+					\item Projekt zum Sammeln und Bereitstellen freier\footnote{\textit{free} as in \textit{free}dom} Geodaten
+					\item offene Datenbank
+					\item Lizenz: ODC-ODbL
 					\begin{itemize}
 						\item OpenDataCommons Open Database License
-						\item Replaced CC BY-SA 2.0 {\tiny (share alike \& attribution)}
+						\item Ersetzte zuvor benutzte CC BY-SA 2.0 {\tiny (share alike \& attribution)}
 					\end{itemize}\pause
 					\item OpenStreetMap Foundation (OSMF)
-					\item financed by donations, conferences and memberships\footnote{374k income in 2022}
-					\item history
+					\item finanziert durch Spenden, Konzerenzen, Mitgliedschaften\footnote{ca. 435k EUR Einnahmen in 2022}\pause
+					\item Geschichte
 					\begin{itemize}
-						\item started in 2004
-						\item API basically unchanged since 2009
-						\item 1 mio. contributors in 2013
-						\item approx. 11mio. contributors in 2024\footnote{Doubled since last KBS WTF?!}
+						\item 2004 -- Projekt in Englang gestartet
+						\item 2009 -- Release aktueller API Version
+						\item 2013 -- 1 Mio. registrierte Nutzer
+						\item 2024 -- Ca. 11 Mio. registrierte Nutzer\footnote{Nutzerzahl seit letzten KBS in 2019 verdoppelt!}
 					\end{itemize}
 				\end{itemize}
 			\end{frame}
 
-			\begin{frame}{Why OSM?}
+			\begin{frame}{Warum OSM?}
 				\begin{columns}[t]
 					\begin{column}{0.5\textwidth}
-						Proprietary maps
+						Proprietäre Karten
 						\begin{itemize}
-							\item often old and faulty\pause
-							\item focus on cars and traffic\pause
-							\item license problems all over the place\pause
-							\item no access to raw data
-							\item no contribution possible
+							\item oft veraltet und fehlerhaft\pause
+							\item kein Beitragen möglich\pause
+							\item kein Zugriff die Rohdaten\pause
+							\item Fokus auf Autos und Verkehr\pause
+							\item Lizenzprobleme noch und nöcher
 						\end{itemize}
 					\end{column}
 					\pause
 					\begin{column}{0.5\textwidth}
-						Official data
+						Amtliche/offizielle Daten
 						\begin{itemize}
-							\item often old and faulty\pause
-							\item not always usable data (e.g. for routing)\pause
-							\item not always free/open\pause
-							\item no contribution possible
+							\item oft veraltet und fehlerhaft\pause
+							\item kein Beitragen möglich\pause
+							\item nicht immer Zugriff die Rohdaten\pause
+							\item nicht für allgemeine Anwendungsfälle gemacht (z.B. Routing)\pause
 						\end{itemize}
 						\pause
-						But:\\
-						More and more open and often access to raw data
+						Aber:\\
+						Es tut sich was, mehr und mehr Daten werden frei veröffentlicht.
 					\end{column}
 				\end{columns}
 			\end{frame}
 			
-			\begin{frame}{Excursion: Open Data in Germany}
-				Moving towards:
+			\begin{frame}{Exkursion: Open Data in Deutschland}
+				Wohin geht die Reise?
 				\begin{itemize}
-					\item legally open/accessible
+					\item Rechtliche Öffnung der Daten
 					\begin{itemize}
-						\item open license: CC BY-SA 4.0, DL-DE BY 2.0, CC0
+						\item Lizenz häufig: CC BY-SA 4.0, DL-DE BY 2.0, CC0
 					\end{itemize}\pause
-					\item technically open/accessible
+					\item Technische Öffnung der Daten
 					\begin{itemize}
-						\item web API (OGC compliant)
-						\item professional formats (no \texttt{.pdf} and \texttt{.xlsx} WTF?!)
+						\item web APIs (OGC-konform)
+						\item professionelle Formate (kein \texttt{.pdf}, \texttt{.csv} oder \texttt{.xlsx} WTF?!)
 					\end{itemize}
 				\end{itemize}
 				\pause
-				\vspace{0.5cm}
-				Access via web APIs/interfaces, e.g. \href{https://www.geoportal.de/}{geoportal.de}
+				\vspace{0.25cm}
+				Zugriff via APIs/Websites, z.B. \href{https://www.geoportal.de/}{geoportal.de}.
 			\end{frame}
 			
-			\begin{frame}{Statistics}
+			\begin{frame}{Statistiken}
 				\begin{itemize}
-					\item 11 mio. contributors
-					\item 40,000 monthly contributors
-					\item 110 mio. changes per month\footnote{2750 edits per contributor per month}
-					\item 8.8 Bn. points, 1 Bn. lines/polygons, 11 mio. relations
-					\item tile server: 50,000 requests/min
+					\item 11 Mio. Beitragende (\enquote{contributors})
+					\item 40.000 monatliche contributors
+					\item 110 Mio. Änderungen pro Monat\footnote{Oder 42/s; 2750 edits pro contributor pro Monat}
+					\item 8,8 Mrd. Punkt / 1 Mrd. Linien/Polygone / 11 Mio. Relationen
+					\item Tile server: 50.000 requests/Min.
 				\end{itemize}
 			\end{frame}
 			
-			\begin{frame}{Stuff by the OSMF}
+			\begin{frame}{Zeug bereitgestellt durch die OSMF}
 				\begin{itemize}
-					\item database, backup servers, mirrors
-					\item API server
-					\item tile rendering
+					\item Datenbank, Backup-Server, Mirror
+					\item API Server
+					\item Tile rendering
 					\begin{itemize}
-						\item Live rendering! Tiles are updates nearly instantly!
+						\item Live rendering! Tiles werden quasi sofort aktualisiert!
 						\item CDN
 					\end{itemize}
-					\item geocoder (search service)
-					\item routing
-					\item internal services
+					\item Geocoder\footnote{Suche nach Orten}
+					\item Mehrere Routing-Engines
+					\item Interne Dienste
 					\begin{itemize}
-						\item data statics (taginfo)
-						\item query server (overpass)
-						\item wiki
+						\item Statistiken über die Daten (taginfo)
+						\item Query-Server (overpass)
+						\item Wiki
 						\item git, trac, irc, BBB, ......
 					\end{itemize}
 				\end{itemize}
@@ -277,38 +264,38 @@
 				\textrightarrow\ \href{https://hardware.openstreetmap.org/}{hardware.osm.org}
 			\end{frame}
 			
-			\begin{frame}{Stuff by someone else}
+			\begin{frame}{Zeug bereitgestellt durch andere}
 				\begin{itemize}
-					\item maps
+					\item Karten
 					\begin{itemize}
 						\item \href{https://map.openseamap.org/?zoom=13.5\&lon=9.96566\&lat=53.52952}{OpenSeaMap}
 						\item \href{https://openbeermap.github.io/\#17/53.54957/9.96370}{OpenBeerMap}
 						\item \href{https://opentopomap.org}{OpenTopoMap}
 						\item .....
 					\end{itemize}\pause
-					\item create your own map: \href{https://print.get-map.org/}{MyOSMatic}\pause
-					\item getting the data
+					\item Eigene Karten-PDFs erzeugen: \href{https://print.get-map.org/}{MyOSMatic}\pause
+					\item Daten runterladen
 					\begin{itemize}
-						\item \href{https://overpass-turbo.eu/}{overpass} with filtering
-						\item larger datasets: \href{http://download.geofabrik.de/}{Geofabrik GmbH} <3
-					\end{itemize}
-					\item tools, frameworks, libraries, etc.
+						\item \href{https://overpass-turbo.eu/}{overpass}: Filterung + verschiedene Formate
+						\item große Datensätze: \href{http://download.geofabrik.de/}{Geofabrik GmbH} <3
+					\end{itemize}\pause
+					\item Tools, Frameworks, Bibliotheken, etc.
 				\end{itemize}
 				\pause
 				\vspace{0.5cm}
-				Many, many, many more \textrightarrow\ \href{https://wiki.openstreetmap.org/wiki/List\_of\_OSM-based\_services}{OSM-wiki: List of OSM-based services}
+				Und noch viel mehr \textrightarrow\ \href{https://wiki.openstreetmap.org/wiki/List\_of\_OSM-based\_services}{OSM-Wiki: List of OSM-based services}
 			\end{frame}
 			
-		\subsection{Applications}
+		\subsection{Anwendungsfälle}
 			
-			\begin{frame}{OpenStreeMap website (last KBS)}
+			\begin{frame}{OpenStreeMap Website (letztes KBS)}
 				\begin{center}
 					\includegraphics[height=0.7\textheight]{images/osm-website-old.jpg}\\
 					\url{https://osm.org}
 				\end{center}
 			\end{frame}
 			
-			\begin{frame}{OpenStreeMap website}
+			\begin{frame}{OpenStreeMap Website}
 				\begin{center}
 					\includegraphics[height=0.7\textheight]{images/osm-website.jpg}\\
 					\url{https://osm.org}
@@ -322,7 +309,7 @@
 				\end{center}
 			\end{frame}
 			
-			\begin{frame}{OpenTopoMap website}
+			\begin{frame}{OpenTopoMap Website}
 				\begin{center}
 					\includegraphics[height=0.7\textheight]{images/opentopomap-website.jpg}\\
 					\url{https://opentopomap.org}
@@ -338,63 +325,63 @@
 
 		\subsection{Community}
 		
-			\begin{frame}{What is done?}
+			\begin{frame}{Was macht die so?}
 				\begin{itemize}
-					\item developing software and tools
-					\item actual mapping
+					\item Daten beitragen (\enquote{mapping})
 					\begin{itemize}
-						\item going outside collecting data
-						\item using external sources (e.g. aerial imagery)
-						\item talk to non-mappers (e.g. in schools, local store owners, officials, ...)
-					\end{itemize}
-					\item creating and maintaining documentation
-					\item organizing events (conferences, mapathons, workshops, ...)
+						\item raus gehen und Daten sammeln
+						\item externe Quellen anzapfen (z.B. Luftbilder)
+						\item mit nicht-mappern reden (z.B. in Schulden, Geschäften, Ämtern, ...)
+					\end{itemize}\pause
+					\item Software and Tools entwickeln\pause
+					\item Dokumentation erstellen und pflegen\pause
+					\item Events organisieren (Konferenzen, Mapathons, Workshops, Stammtische, ...)
 				\end{itemize}
 			\end{frame}
 		
-			\begin{frame}{Organization}
+			\begin{frame}{Organisation der Community}
 				\begin{itemize}
-					\item \href{https://wiki.openstreetmap.org/}{wiki}
-					\item \href{https://wiki.openstreetmap.org/wiki/Mailing_lists}{mailing lists}
-					\item \href{https://community.openstreetmap.org/}{forum}
-					\item \href{https://wiki.openstreetmap.org/wiki/Contact_channels}{and more}: discord, telegram, mastodon, reddit, ...)
+					\item \href{https://wiki.openstreetmap.org/}{Wiki}
+					\item \href{https://wiki.openstreetmap.org/wiki/Mailing_lists}{Mailinglisten}
+					\item \href{https://community.openstreetmap.org/}{Forum}
+					\item \href{https://wiki.openstreetmap.org/wiki/Contact_channels}{Weiteres}: Discord, Telegram, Mastodon, Reddit, ...)
 				\end{itemize}
 			\end{frame}
 
-	\section{OSM data}
+	\section{OSM Daten}
 		
 		\begin{frame}
 			\tableofcontents[currentsection]
 		\end{frame}
 		
-		\subsection{Tags (attributes)}
+		\subsection{Tags (Attribute)}
 		
 			\begin{frame}
 				\begin{itemize}
-					\item simple key-value-pairs (untyped)
-					\item free tagging system
-					\item standardized by community proposals
-					\item central documentation: wiki
+					\item Einfache Key-Value Paare (untypisiert)
+					\item freies Tagging-System
+					\item standardisiert durch Community-Proposals
+					\item zentrale Doku (\enquote{die Wahrheit}): Wiki
 				\end{itemize}
 				\vspace{0.25cm}
-				Multiple strategies:\\
+				Mehrere Strategien:\\
 				\vspace{0.25cm}
 				\begin{tabular}{|l|l|l|}
 					\hline
-					\textbf{format} & \textbf{notation} & \textbf{example} \\
+					\textbf{Format}	& \textbf{Notation}				& \textbf{Beispiel} \\
 					\hline
-					normal & \texttt{key=value} & \texttt{highway=service} \\ 
+					Normal			& \texttt{key=value}			& \texttt{highway=service} \\ 
 					\hline 
-					multiple values & \texttt{key=v1;v2} & \texttt{amenity=library;cafe} \\ 
+					Mehrere Werte	& \texttt{key=v1;v2}			& \texttt{amenity=library;cafe} \\ 
 					\hline 
-					namespace & \texttt{namespace:key=value} & \texttt{addr:housenumber=42} \\ 
+					Namespaces		& \texttt{namespace:key=value}	& \texttt{addr:housenumber=42} \\ 
 					\hline 
 				\end{tabular}
 			\end{frame}
 		
-		\subsection{Geometries}
+		\subsection{Geometrien}
 		
-			\begin{frame}[fragile]{Node (point)}
+			\begin{frame}[fragile]{Node (Punkt)}
 				\begin{center}
 					\begin{columns}
 						\begin{column}{1.25cm}
@@ -414,13 +401,15 @@
 								amenity=telephone
 								covered=booth
 							\end{verbatim}
-							\includegraphics[height=3cm]{images/telephone.png}
+							\begin{center}
+								\includegraphics[height=3cm]{images/telephone.png}
+							\end{center}
 						\end{column}
 					\end{columns}
 				\end{center}
 			\end{frame}
 		
-			\begin{frame}[fragile]{Way (line)}
+			\begin{frame}[fragile]{Way (Linien)}
 				\begin{center}
 					\begin{columns}
 						\begin{column}{1cm}
@@ -449,7 +438,7 @@
 				\end{center}
 			\end{frame}
 			
-			\begin{frame}[fragile]{Area (polygon = closed way)}
+			\begin{frame}[fragile]{Area (Polygon = geschlossener Way)}
 				\begin{center}
 					\begin{columns}
 						\begin{column}{1cm}
@@ -472,7 +461,7 @@
 				\end{center}
 			\end{frame}
 	
-			\begin{frame}[fragile]{Relation: combine multiple feature into one}
+			\begin{frame}[fragile]{Relation: Zusammenschluss mehrerer Features}
 				\begin{center}
 					\begin{columns}
 						\begin{column}{1.25cm}
@@ -495,7 +484,7 @@
 				\end{center}
 			\end{frame}
 			
-			\begin{frame}{Multipolygon (relation; polygon inside polygon)}
+			\begin{frame}{Multipolygon (Relation; Polygon in Polygon)}
 				\begin{center}
 					\texttt{farmland=center}
 					\vspace{0.5cm}
@@ -512,8 +501,8 @@
 				\end{center}
 			\end{frame}
 			
-			\begin{frame}[fragile]{OSM-XML format}
-				OSM uses an XML format (\texttt{.osm} file; often compressed in to a \texttt{.osm.pbf} file):
+			\begin{frame}[fragile]{OSM-XML Format}
+				OSM nutzt ein XML Format (\texttt{.osm}; oft komprimiert in eine \texttt{.osm.pbf} Datei):
 				\vspace{0.25cm}
 				{
 					\scriptsize
@@ -532,175 +521,207 @@
 					\end{Verbatim}
 				}
 			\end{frame}
+			
+			\begin{frame}{Welche Daten sind in OSM?}
+				Alle möglichen öffentlich zugängliche Dinge
+				\begin{itemize}
+					\item Bauwerke, Straßen und Wege
+					\item POIs (Restaurants, Museen, Hydranten, ...)
+					\item Infrastruktur (Parkplätze, Stromleitungen, Gleise, ...)
+					\item Landschaftsformen (Wälder, Seen, Grünflächen, ...)
+					\item Routen (Busrouten, Wanderwege, MTB-Trails, ...)
+					\item .........
+				\end{itemize}
+				\pause
+				Nicht (immer) enthalten:
+				\begin{itemize}
+					\item privates und personenbezogenes
+					\item nicht verifizierbares
+					\item nicht freigegebenes
+				\end{itemize}
+				\pause
+				Mehr Details im Wiki \textrightarrow\ \href{https://wiki.openstreetmap.org/wiki/Map\_features}{Map features}
+			\end{frame}
+			
+	\section{Die Daten nutzen}
+			
+		\begin{frame}
+		\tableofcontents[currentsection]
+		\end{frame}
+		
+		\subsection{Die Daten nutzen}
+			
+			\begin{frame}{Nutzungsbedingungen}
+				Kein Problem:
+				\begin{itemize}
+					\item Daten runterladen
+					\item Daten für private und kommerzielle Zwecke nutzen
+					\item Daten weitergebenm, gilt auch für abgeleitete Werte (\enquote{derivative works}; z.B. gedruckte Karten)
+				\end{itemize}
+				\textbf{Aber} unten folgenden Bedingungen:
+				\begin{itemize}
+					\item \href{https://osmfoundation.org/wiki/Licence/Attribution\_Guidelines}{Attribution}!
+					\item Weitergabe unter ODbL
+				\end{itemize}
+			\end{frame}
+			
+			\begin{frame}{Auf Daten zugreifen}
+				\begin{itemize}
+					\item für kleine Gebiete
+					\begin{itemize}
+						\item osm.org \textrightarrow\ \enquote{Export} \textrightarrow\ Gebiet auswählen \textrightarrow\ \enquote{Export}
+						\item API: \href{https://www.openstreetmap.org/api/0.6/map?bbox=9.93116,53.59846,9.93572,53.60052}{\texttt{osm.org/api/0.6/map?bbox=...}}
+						\item \href{https://overpass-turbo.eu/}{Overpass API} (Filterung + Download verschiedener Formaten)
+					\end{itemize}\pause
+					\item für große Gebiete
+					\begin{itemize}
+						\item \href{https://download.geofabrik.de/}{Geofabrik GmbH}
+						\item Alles (\texttt{planet.osm} Dump; wöchentlich aktualisiert; >70GB OSM-PBF Datei)
+					\end{itemize}
+				\end{itemize}
+				\pause
+				\vspace{0.25cm}
+				Mehr dazu im Wiki \textrightarrow\ \href{https://wiki.openstreetmap.org/wiki/Downloading\_data}{Downloading data}
+			\end{frame}
+			
+			\begin{frame}{Daten verarbeiten/nutzen}
+				Libraries:
+				\begin{itemize}
+					\item GDAL, GeoTools: Schweizer Taschenmesser für Geodaten
+					\item libosmium: OSM-spezifische C-Library (Python- \& Node-bindings)
+					\item Leaflet/OpenLayers/MapLibre: Daten auf Karte anzeigen
+				\end{itemize}
+				\pause
+				CLI Tools:
+				\begin{itemize}
+					\item ogr2ogr: Teil von GDAL zum konvertieren von Daten
+					\item osmium: Generisches Tool für OSM-Daten
+					\item osmosis: Ähnlich zu osmium, aber eher deprecated
+					\item osm2pgsql: OSM-Daten in PostgreSQL-Datenbank importieren
+				\end{itemize}
+				\pause
+				Desktop Anwendungen:
+				\begin{itemize}
+					\item QGIS: \textit{Die} Open-Source GIS-Anwendung
+					\item JOSM: OSM-Editor, nützlich für simple Verarbeitungen
+				\end{itemize}
+			\end{frame}
 
-	\section{Contributing to OSM}
+	\section{Zu OSM beitragen}
 	
 		\begin{frame}
 			\tableofcontents[currentsection]
 		\end{frame}
 		
-		\subsection{Contributing to OSM}
+		\subsection{Zu OSM beitragen}
 		
-			\begin{frame}{Editing process}
+			\begin{frame}{Ablauf einer Bearbeitung}
 				\begin{enumerate}
-					\item register on \href{https://www.openstreetmap.org/user/new}{osm.org}\pause
-					\item choose editor
+					\item registrieren auf \href{https://www.openstreetmap.org/user/new}{osm.org}\pause
+					\item für einen Editor entscheiden
 					\begin{itemize}
-						\item web: iD
-						\item desktop: JOSM
-						\item mobile: StreetComplete, OsmAnd, Vespucci
+						\item Web: iD
+						\item Desktop: JOSM
+						\item Mobil: StreetComplete, OsmAnd, Vespucci
 					\end{itemize}\pause
-					\item make changes\pause
-					\item upload changeset
+					\item Änderungen machen\pause
+					\item Änderungen hochladen (\enquote{changeset} erstellen)
 				\end{enumerate}
 			\end{frame}
 			
-			\begin{frame}{Editors: iD}
+			\begin{frame}{Editoren: iD}
 				\begin{center}
 					\includegraphics[height=0.75\textheight]{images/id-editor.jpg}
 					\href{https://www.openstreetmap.org/edit}{osm.org/edit}
 				\end{center}
 			\end{frame}
 			
-			\begin{frame}{Editors: JOSM}
+			\begin{frame}{Editoren: JOSM}
 				\begin{center}
 					\includegraphics[height=0.75\textheight]{images/josm-editor.jpg}
 					\href{https://josm.openstreetmap.de/}{josm.osm.org}
 				\end{center}
 			\end{frame}
 			
-			\begin{frame}{Making changes}
-				Process for iD and JOSM:
+			\begin{frame}{Änderungen machen}
+				Ablauf in iD und JOSM:
 				\begin{enumerate}
-					\item collect data (e.g. during hiking)
+					\item Daten sammeln (e.g. beim Wandern)
 					\begin{itemize}
-						\item make notes, photos, etc.
-						\item record GPS tracks
+						\item Notizen oder Photos machen
+						\item GPS-Tracks aufnehmen
 					\end{itemize}\pause
-					\item open editor and get raw data\pause
-					\item get familiar with tags for your data \textrightarrow\ wiki\pause
-					\item add/change/remove existing data\pause
-					\item review your changes
+					\item Editor öffnen und Rohdaten laden\pause
+					\item mit nötigen Tags vertraut machen \textrightarrow\ Wiki\pause
+					\item ergänze/ändere/lösche Daten\pause
+					\item eigen Änderungen nochmal reviewen\pause
+					\item Daten hochladen (gleich dazu mehr)
 				\end{enumerate}
 			\end{frame}
 			
-			\begin{frame}{Collect data}
-				\begin{itemize}
-					\item make notes while being outside \textleftarrow\ best option!
-					\item tracing from imagery (\enquote{armchair mapping})
-					\item photos news articles, development plans, etc.
-				\end{itemize}
-			\end{frame}
+%			\begin{frame}{Daten sammeln}
+%				\begin{itemize}
+%					\item Notizen machen, während man daußen ist \textleftarrow\ beste Option!
+%					\item Abzeichnen von Luftbildern (\enquote{armchair mapping})
+%					\item Fotos, Zeitungsartikel, Lagepläne, amtliche Bekanntmachungen, etc.
+%				\end{itemize}
+%			\end{frame}
 			
-			\begin{frame}{Using external sources}
-				For example:
+			\begin{frame}{Externe Quellen nutzen}
+				Beispiel:
 				\begin{itemize}
-					\item imagery (e.g. ESRI World Imagery)
-					\item official data (e.g. ALKIS\footnote{Amtliches Liegenschaftskatasterinformationssystem})
-					\item photos, websites, etc.
+					\item Luftbilder (z.B. ESRI World Imagery)
+					\item amtliche Daten (z.B. ALKIS\footnote{Amtliches Liegenschaftskatasterinformationssystem})
+					\item Fotos, Zeitungsartikel, Lagepläne, amtliche Bekanntmachungen, etc.
 				\end{itemize}
 				\pause
 				\vspace{0.25cm}
 				{
 					\setbeamercolor{block title}{bg=orange!65, fg=black}
 					\setbeamercolor{block body}{bg=orange!25}
-					\begin{block}{Important!}
-						Licenses \textbf{must} always be \href{https://wiki.openstreetmap.org/wiki/Import/ODbL_Compatibility}{compatible with the ODbL}! Contact owner if needed!
+					\begin{block}{Wichtig!}
+						Lizenzen \textbf{müssen} immer \href{https://wiki.openstreetmap.org/wiki/Import/ODbL_Compatibility}{kompatibel mit OSM sein}! Ggf. Urheber kontaktieren und Genehmigung einholen!
 					\end{block}
 				}
 			\end{frame}
 			
-			\begin{frame}{Upload changeset}
-				Process for iD and JOSM:
+			\begin{frame}{Änderungen hochladen}
+				Ablauf in iD und JOSM:
 				\begin{enumerate}
-					\item review your changes\pause
-					\item click the upload/save button\pause
-					\item fill in form fields:
+					\item eigene Änderungen reviewen\pause
+					\item den \enquote{Hochladen}/\enquote{Speichern} Button klicken\pause
+					\item Textfelder ausfüllen:
 					\begin{itemize}
-						\item changeset comment: short description of changes
-						\item source: source/origin of data (see \href{https://wiki.openstreetmap.org/wiki/Key:source}{wiki} for conventions)
+						\item Kommentar/comment: Kurze Beschreibung der Änderungen
+						\item Quellen/source: Ursprung der Daten (siehe \href{https://wiki.openstreetmap.org/wiki/Key:source}{Wiki} für Infos dazu)
 					\end{itemize}\pause
-					\item click the upload button
+					\item auf \enquote{Hochladen} klicken
 				\end{enumerate}
+				\pause
+				\vspace{0.25cm}
+				{
+					\setbeamercolor{block title}{bg=orange!65, fg=black}
+					\setbeamercolor{block body}{bg=orange!25}
+					\begin{block}{Wichtig!}
+						Daten sind \textbf{sofort} live in der Produktivdatenbank, daher sorgfältig arbeiten!
+					\end{block}
+				}
 			\end{frame}
 			
-			\begin{frame}{Other ways to contribute}
+			\begin{frame}{Andere Möglichkeiten beizutragen}
 				\begin{itemize}
-					\item report errors/missing/outdated data
+					\item fehlerhafte/unvollständige/fehlende Daten melden
 					\begin{enumerate}
-						\item go to osm.org
-						\item right click on map \textrightarrow\ \enquote{Add a note here}
-						\item enter useful information and save
-						\item important: you need an account to write comments
+						\item auf osm.org gehen
+						\item Rechtsklick auf Karte \textrightarrow\ \enquote{Add a note here}
+						\item nützliche Infos ergänzen (so viele Infos wie möglich)
+						\item wichtig: Man brauchen einen Account zum Antworten auf Rückfragen
 					\end{enumerate}\pause
-					\item deal with companies/agencies to obtain permission to use their data\pause
-					\item organize events\pause
-					\item spread the word
+					\item mit Unternehmen/Ämtern sprechen um Genehmigungen zu bekommen\pause
+					\item Events organisieren\pause
+					\item allgemein Werbung machen (spread the word)
 				\end{itemize}
 			\end{frame}
-	
-	\section{Using the data}
-	
-		\begin{frame}
-			\tableofcontents[currentsection]
-		\end{frame}
-		
-		\begin{frame}{The terms of usage}
-			Feel free to:
-			\begin{itemize}
-				\item download the data
-				\item use the data (also commercially)
-				\item share the data or derivative works (e.g. a printed map)
-			\end{itemize}
-			Under the following conditions:
-			\begin{itemize}
-				\item add proper attribution!
-				\item keep the data/work under ODbL
-				\item do not restrict shared data
-			\end{itemize}
-		\end{frame}
-		
-		\begin{frame}{Access the data}
-			\begin{itemize}
-				\item small areas
-				\begin{itemize}
-					\item osm.org \textrightarrow\ \enquote{Export} \textrightarrow\ select area \textrightarrow\ \enquote{Export}
-					\item API: \href{https://www.openstreetmap.org/api/0.6/map?bbox=9.93116,53.59846,9.93572,53.60052}{\texttt{osm.org/api/0.6/map?bbox=...}}
-					\item \href{https://overpass-turbo.eu/}{Overpass API} (filtering and download in various formats)
-				\end{itemize}\pause
-				\item large areas
-				\begin{itemize}
-					\item \href{https://download.geofabrik.de/}{Geofabrik GmbH}
-					\item everything (\texttt{planet.osm} dump; weekly updated; >70GB OSM-PBF file)
-				\end{itemize}
-			\end{itemize}
-			\pause
-			\vspace{0.25cm}
-			More in the wiki \textrightarrow\ \href{https://wiki.openstreetmap.org/wiki/Downloading\_data}{Downloading data}.
-		\end{frame}
-		
-		\begin{frame}{Process the data}
-			Libraries:
-			\begin{itemize}
-				\item GDAL, GeoTools: swiss army knifes of geodata processing
-				\item libosmium: special OSM-centric library (python \& node bindings)
-				\item Leaflet/OpenLayers/MapLibre: display maps/geodata
-			\end{itemize}
-			\pause
-			CLI tools:
-			\begin{itemize}
-				\item ogr2ogr: part of GDAL to convert formats
-				\item osmium: multi-purpose OSM processing CLI tool
-				\item osmosis: also powerful but slowly running out of use
-				\item osm2pgsql: Import OSM data into a PostGIS database
-			\end{itemize}
-			\pause
-			Desktop applications:
-			\begin{itemize}
-				\item QGIS: number one open source GIS tool
-				\item JOSM: OSM editor, useful for general geodata processing
-			\end{itemize}
-		\end{frame}
 \end{document}
 
 
