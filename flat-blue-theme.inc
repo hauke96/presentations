@@ -1,7 +1,5 @@
 \mode<presentation>
 
-\usepackage{lastpage}
-
 %Für [Seite]/[Anzahl-Seiten] in der unteren rechten ecke
 \newcommand*\oldmacro{}%
 \let\oldmacro\insertshorttitle%
@@ -9,7 +7,7 @@
 {%
 	% To not count \pause as new frame. And also to make the package "appendixnumberbeamer" work.
 	% \makebox[0.94\textwidth]{\oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber}
-	\makebox[0.94\textwidth]{\oldmacro\hfill\thepage\,/\,\pageref{LastPage}}
+	\makebox[0.94\textwidth]{\oldmacro\hfill\thepage\,/\,insertpresentationendpage}
 }
 \makeatletter
 \newcommand*{\currentname}{\TR@currentTitle}
