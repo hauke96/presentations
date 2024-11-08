@@ -5,9 +5,11 @@
 \let\oldmacro\insertshorttitle%
 \renewcommand*\insertshorttitle
 {%
-	% To not count \pause as new frame. And also to make the package "appendixnumberbeamer" work.
+	% Use this to not count \pause as new frame. And also to make the package "appendixnumberbeamer" work.
 	% \makebox[0.94\textwidth]{\oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber}
-	\makebox[0.94\textwidth]{\oldmacro\hfill\thepage\,/\,insertpresentationendpage}
+
+	% Use this to show the total number of PDF pages
+	\makebox[0.94\textwidth]{\oldmacro\hfill\thepage\,/\,\insertpresentationendpage}
 }
 \makeatletter
 \newcommand*{\currentname}{\TR@currentTitle}
