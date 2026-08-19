@@ -1,0 +1,6 @@
+*.geojson
+*.osm
+*.geojson
+*.gpkg
+*.gpkg-shm
+*.gpkg-wal

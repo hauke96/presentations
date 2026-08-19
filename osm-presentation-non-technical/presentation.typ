@@ -122,10 +122,10 @@ Konkret:
   #diagram(
     //debug: 2,
 
-    only("1", node((0cm,0cm), [#image("images/wikipedia.svg", width: 3cm)], name: <osm>)),
+    only("1", node((0cm,0cm), [#image("images/wikipedia.svg", width: 3cm) #v(-1em) Artikel], name: <osm>)),
     pause,
 
-    only("2", node((0cm,0cm), [#image("images/wikipedia.svg", width: 3cm)], name: <osm>)),
+    only("2", node((0cm,0cm), [#image("images/wikipedia.svg", width: 3cm) #v(-1em) Artikel], name: <osm>)),
     node((-7cm,2.5cm), [#image("images/person.png", width: 1.5cm)], name: <personIn>),
     node((-9cm,0cm), [#image("images/group.png", width: 2.5cm)], name: <groupIn>),
     node((-7cm,-2.5cm), [#image("images/company.png", width: 1.5cm)], name: <companyIn>),
@@ -134,15 +134,15 @@ Konkret:
     edge(<companyIn>, <osm>, "-stealth", bend: -12deg),
     pause,
 
-    only("3", node((0cm,0cm), [#image("images/wikipedia.svg", width: 3cm)], name: <osm>)),
+    only("3", node((0cm,0cm), [#image("images/wikipedia.svg", width: 3cm) #v(-1em) Artikel], name: <osm>)),
     node((6cm,0cm), [#image("images/earth.png", height: 2cm)], name: <earth>),
     edge(<osm>, <earth>, "-stealth"),
     pause,
 
-    only("4", node((0cm,0cm), [#image("osm-logo.svg", width: 3cm)], name: <osm>)),
+    only("4", node((0cm,0cm), [#image("osm-logo.svg", width: 3cm) #v(-1em) Geodaten], name: <osm>)),
     pause,
 
-    only("5", node((0cm,0cm), [#image("osm-logo.svg", width: 3cm)], name: <osm>)),
+    only("5", node((0cm,0cm), [#image("osm-logo.svg", width: 3cm) #v(-1em) Geodaten], name: <osm>)),
     node((7.5cm,4.5cm), [#image("images/osmand.png", width: 1.15cm)], name: <appA>),
     node((9cm,2cm), [#image("images/bikemap.png", height: 1.5cm)], name: <appB>),
     node((9cm,0cm), [#image("images/person.png", width: 1cm)], name: <personOut>),
@@ -150,3 +150,32 @@ Konkret:
     node((8cm,-3cm), [#image("images/company.png", width: 1cm)], name: <companyOut>),
   )
 ]
+
+== Und was sind "Geodaten" genau?
+
+*Kurzum:* Alles mit einer Koordinate.
+
+#v(2cm)
+
+#pause
+
+Verschiedene Arten von Geometrien sind möglich:
+
+- Punkte (Bäume, Ampeln, Geschäfte, ...)
+- Linien (Straßen, Wanderwege, Flüsse, ...)
+- Flächen (Gebäude, Seen, Wälder, Wohngebiete, ...)
+- Relationen (Busrouten, komplexe Geometrien)
+
+== Und warum ist OSM jetzt so toll?
+
+#only(1, image("karte/layout_roads.jpg", width: 100%))
+#only(2, image("karte/layout_paths.jpg", width: 100%))
+#only(3, image("karte/layout_bus-routes.jpg", width: 100%))
+#only(4, image("karte/layout_crossings.jpg", width: 100%))
+#only(5, image("karte/layout_railway-signals.jpg", width: 100%))
+#only(6, image("karte/layout_green-areas.jpg", width: 100%))
+#only(7, image("karte/layout_wheel.jpg", width: 100%))
+
+= Wie nutze ich OSM?
+
+= Wie kann ich selbst beitragen?
