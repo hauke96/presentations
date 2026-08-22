@@ -20,9 +20,17 @@
 // THE SOFTWARE.
 //
 // Based on: https://github.com/touying-typ/touying/blob/main/themes/metropolis.typ
+// Adjustments: Colors (e.g. of focus slide or links),
 
 // #import "../src/exports.typ": *
 #import "@preview/touying:0.7.4": *
+
+/// Adds gray text in parentheses.
+#let side-note(
+    body
+) = {
+    text(fill: luma(100))[(#body)]
+}
 
 /// Default slide function for the presentation.
 ///

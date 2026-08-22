@@ -1,4 +1,3 @@
-#import "@preview/touying:0.7.4": *
 #import "theme.typ": *
 #import "@preview/fletcher:0.5.8" as fletcher: *
 
@@ -176,6 +175,57 @@ Verschiedene Arten von Geometrien sind möglich:
 #only(6, align(center)[#image("karte/layout_green-areas.jpg", height: 100% - 2em) Grünflächen])
 #only(7, align(center)[#image("karte/layout_wheel.jpg", height: 100% - 2em) Barrierefreie Geschäfte/Angebote])
 
-= Wie nutze ich OSM?
+= Wie kann ich OSM nutzen?
+
+== Wir nutzen das alle ganz automatisch
+
+Wahrscheinlich nutzt du OSM bereits:
+
+- HVV
+- Deutsche Bahn
+- DHL
+- Facebook
+- Amazon
+- Wikipedia / Wikimedia
+- Diverse (die meisten?) Webseiten und Apps
+- Indirekte Nutzungen
+
+== Aktiv OSM nutzen
+
+App Beispiele:
+
+- OsmAnd #side-note[alles mögliche)]
+- OrganicMaps / CoMaps #side-note[POIs und Routing)]
+- Komoot #side-note[Outdoor-Aktivitäten)]
+- uvm.
+
+#pagebreak()
+
+Website Beispiele:
+
+- openstreetmap.org
+- osmapp.org #side-note[POIs]
+- maps.openrouteservice.org #side-note[Routing]
+- wheelmap.org #side-note[Barrierefreiheit]
+- uvm.
+
+#pagebreak()
+
+#align(center)[Katalog diverser Apps und Webseiten:\ #link("https://osm-apps.org")[osm-apps.org]]
+
+// TODO switch to osm website
+
+== Rohdaten verarbeiten
+
+Wie kann ich die Rohdaten herunterladen?
+
+- planet.openstreetmap.org #side-note[sämtliche Daten]
+- openstreetmap.org #side-note[kleinere Gebiete]
+- Geofabrik #side-note[große Datenbank Dumps]
+- Overpass #side-note[Abfragen]
+
+// TODO Tools
 
 = Wie kann ich selbst beitragen?
+
+TODO
