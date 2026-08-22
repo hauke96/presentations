@@ -168,13 +168,13 @@ Verschiedene Arten von Geometrien sind möglich:
 
 == Und warum ist OSM jetzt so toll?
 
-#only(1, image("karte/layout_roads.jpg", width: 100%))
-#only(2, image("karte/layout_paths.jpg", width: 100%))
-#only(3, image("karte/layout_bus-routes.jpg", width: 100%))
-#only(4, image("karte/layout_crossings.jpg", width: 100%))
-#only(5, image("karte/layout_railway-signals.jpg", width: 100%))
-#only(6, image("karte/layout_green-areas.jpg", width: 100%))
-#only(7, image("karte/layout_wheel.jpg", width: 100%))
+#only(1, align(center)[#image("karte/layout_roads.jpg", height: 100% - 2em) Straßen])
+#only(2, align(center)[#image("karte/layout_paths.jpg", height: 100% - 2em) Fuß- und Radwege])
+#only(3, align(center)[#image("karte/layout_bus-routes.jpg", height: 100% - 2em) Buslinien])
+#only(4, align(center)[#image("karte/layout_crossings.jpg", height: 100% - 2em) Querungsmöglichkeiten für Fußgänger])
+#only(5, align(center)[#image("karte/layout_railway-signals.jpg", height: 100% - 2em) Signale für Züge])
+#only(6, align(center)[#image("karte/layout_green-areas.jpg", height: 100% - 2em) Grünflächen])
+#only(7, align(center)[#image("karte/layout_wheel.jpg", height: 100% - 2em) Barrierefreie Geschäfte/Angebote])
 
 = Wie nutze ich OSM?
 
