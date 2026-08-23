@@ -1,4 +1,4 @@
-Daten für die Karte runterladen:
+# Daten für die Karte runterladen
 
 1. Auf osm.org gehen
 2. Zu Bereich gehen, den man gerne für die Karte nutzen möchte
@@ -8,3 +8,8 @@ Daten für die Karte runterladen:
 6. Mit `ogr2ogr data.gpkg data.geojson` in eine GeoPackage-Datei umwandeln
 
 Nun kann man QGIS öffnen und alle Layer rendern den heruntergeladenen Ausschnitt.
+
+# Bilder rendern
+
+Das Script `export-all` ausführen oder über QGIS manuell das Layout öffnen und exportieren.
+

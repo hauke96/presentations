@@ -152,28 +152,41 @@ Konkret:
 
 == Und was sind "Geodaten" genau?
 
-*Kurzum:* Alles mit einer Koordinate.
+*Kurzum:* Alles mit Koordinaten.
 
 #v(2cm)
 
 #pause
 
-Verschiedene Arten von Geometrien sind möglich:
+Vier Objektarten reichen dafür aus:
 
-- Punkte (Bäume, Ampeln, Geschäfte, ...)
-- Linien (Straßen, Wanderwege, Flüsse, ...)
-- Flächen (Gebäude, Seen, Wälder, Wohngebiete, ...)
-- Relationen (Busrouten, komplexe Geometrien)
+- Bäume, Ampeln, Geschäfte, ... → Punkte
+- Straßen, Wanderwege, Flüsse, ... → Linien
+- Gebäude, Seen, Wälder, Wohngebiete, ... → Flächen
+- Busrouten, komplexe Geometrien, ... → Relationen
 
 == Und warum ist OSM jetzt so toll?
 
-#only(1, align(center)[#image("karte/layout_roads.jpg", height: 100% - 2em) Straßen])
-#only(2, align(center)[#image("karte/layout_paths.jpg", height: 100% - 2em) Fuß- und Radwege])
-#only(3, align(center)[#image("karte/layout_bus-routes.jpg", height: 100% - 2em) Buslinien])
-#only(4, align(center)[#image("karte/layout_crossings.jpg", height: 100% - 2em) Querungsmöglichkeiten für Fußgänger])
-#only(5, align(center)[#image("karte/layout_railway-signals.jpg", height: 100% - 2em) Signale für Züge])
-#only(6, align(center)[#image("karte/layout_green-areas.jpg", height: 100% - 2em) Grünflächen])
-#only(7, align(center)[#image("karte/layout_wheel.jpg", height: 100% - 2em) Barrierefreie Geschäfte/Angebote])
+#align(center)[#image("karte/layout_roads.jpg", height: 100% - 2em) Straßen]
+#pagebreak()
+
+#align(center)[#image("karte/layout_paths.jpg", height: 100% - 2em) Fuß- und Radwege]
+#pagebreak()
+
+#align(center)[#image("karte/layout_crossings.jpg", height: 100% - 2em) Querungsmöglichkeiten für Fußgänger]
+#pagebreak()
+
+#align(center)[#image("karte/layout_green-areas.jpg", height: 100% - 2em) Grünflächen / Parks]
+#pagebreak()
+
+#align(center)[#image("karte/layout_water-areas.jpg", height: 100% - 2em) Gewässer]
+#pagebreak()
+
+#align(center)[#image("karte/layout_drinking-water.jpg", height: 100% - 2em) Trinkwasserbrunnen / -spender]
+#pagebreak()
+
+#align(center)[#image("karte/layout_wheel.jpg", height: 100% - 2em) Barrierefreie Geschäfte/Angebote]
+#pagebreak()
 
 = Wie kann ich OSM nutzen?
 
@@ -211,20 +224,24 @@ Website Beispiele:
 
 #pagebreak()
 
-#align(center)[Katalog diverser Apps und Webseiten:\ #link("https://osm-apps.org")[osm-apps.org]]
-
-// TODO switch to osm website
+#align(center)[Katalog diverser Apps und Webseiten:\ \ #link("https://osm-apps.org")[osm-apps.org]]
 
 == Rohdaten verarbeiten
 
-Wie kann ich die Rohdaten herunterladen?
+Wo bekomme ich die Daten her?
 
 - planet.openstreetmap.org #side-note[sämtliche Daten]
 - openstreetmap.org #side-note[kleinere Gebiete]
 - Geofabrik #side-note[große Datenbank Dumps]
 - Overpass #side-note[Abfragen]
 
-// TODO Tools
+#pagebreak()
+
+TODO
+
+#pagebreak()
+
+#align(center)[Website mit vielen Infos und Anleitungen:\ \ #link("https://switch2osm.org/")[switch2osm.org]]
 
 = Wie kann ich selbst beitragen?
 
