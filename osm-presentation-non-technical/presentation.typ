@@ -29,7 +29,7 @@ Zu mir:
 - Hauke Stieler
 - Softwareentwickler
 - Seit 2019 bei OpenStreetMap
-  - 770443 Änderungen vorgenommen
+  - >770.000 Änderungen vorgenommen
 
 #pause
 
@@ -237,12 +237,46 @@ Wo bekomme ich die Daten her?
 
 #pagebreak()
 
-TODO
+Viele Tools und Frameworks können mit OSM-Daten umgehen:
 
-#pagebreak()
+- osm2pgsql #side-note[Import in eine PostGIS Datenbank]
+- Osmosis, Osmium, ogr2ogr #side-note[filtern, analysieren, umwandeln]
+- QGIS, GRASS GIS, Geoserver #side-note[GIS-Anwendungen und -Server]
+- Geotools, OpenLayers, MapLibre #side-note[Frameworks zur Verarbeitung und Darstellung]
 
-#align(center)[Website mit vielen Infos und Anleitungen:\ \ #link("https://switch2osm.org/")[switch2osm.org]]
+Weitere Infos und Tools auf #link("https://switch2osm.org/")[switch2osm.org]
 
 = Wie kann ich selbst beitragen?
 
-TODO
+Das geht sogar ohne Account:
+
+- Auf #link("https://osm.org/")[osm.org] gehen → Rechtsklick → "Einen Hinweis/Kartenfehler hier melden"\
+  - Wichtig: Möglichst viele Infos mit angeben.
+  - Antworten kann man nur mit eigenem Konto.
+
+#pagebreak()
+
+Besser geht es mit Account:
+
+- Auf #link("https://osm.org/")[osm.org] registrieren/anmelden
+- Editor/App der Wahl installieren
+- Los gehts
+
+*Hinweis:* Alle gespeicherten/hochgeladenen Änderungen sind sofort Live!
+
+#pagebreak()
+
+Aber welchen Editor/welche App soll ich nehmen?
+
+- StreetComplete #side-note[Gut für Einsteiger + made in Hamburg]
+- OsmAnd, Go Map!!, Every Door #side-note[benötigen etwas mehr Wissen zu OSM]
+- iD #side-note[Web-Editor, direkt auf osm.org nutzbar]
+- JOSM #side-note[Profi-Editor]
+
+Mehr Apps und Editoren auf #link("https://osm-apps.org")[osm-apps.org]
+
+#pagebreak()
+
+#align(center)[Weitere Infos, um tiefer einzusteigen:\ \ #link("https://learnosm.org/")[learnosm.org]]
+
+TODO Community und Ende
