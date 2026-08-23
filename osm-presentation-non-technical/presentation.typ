@@ -279,4 +279,26 @@ Mehr Apps und Editoren auf #link("https://osm-apps.org")[osm-apps.org]
 
 #align(center)[Weitere Infos, um tiefer einzusteigen:\ \ #link("https://learnosm.org/")[learnosm.org]]
 
-TODO Community und Ende
+#pagebreak()
+
+Forum:\
+#link("https://community.openstreetmap.org/")[community.openstreetmap.org]
+\
+\
+Wiki:\
+#link("https://wiki.openstreetmap.org/")[wiki.openstreetmap.org]
+\
+\
+Hamburger Community-Treffen:\
+Jeden 2. Dienstag im Monat um 19:00\
+#link("https://wiki.openstreetmap.org/wiki/Hamburger_Mappertreffen")[wiki.openstreetmap.org/wiki/Hamburger_Mappertreffen]
+
+#pagebreak()
+
+#image-slide(background: image("karte/overview.jpg"))[
+  #highlight(fill: white.transparentize(100%), radius: 2em, extent: 1em)[
+    #text(size: 2em)[
+      Viel Spaß mit OSM!
+    ]
+  ]
+]

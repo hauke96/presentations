@@ -32,6 +32,19 @@
     text(fill: luma(100))[(#body)]
 }
 
+/// Creates a slide with an image and no top/bottom bars/content
+#let image-slide(body, background: none) = touying-slide-wrapper(self => {
+  self = utils.merge-dicts(
+    self,
+    config-page(
+      background: background,
+      margin: 2em,
+    ),
+  )
+  set image(width: 100%, height: auto)
+  touying-slide(self: self, align(horizon + center, body))
+})
+
 /// Default slide function for the presentation.
 ///
 /// - title (string): The title of the slide. Default is `auto`.
