@@ -5,7 +5,7 @@
   aspect-ratio: "16-9",
   config-info(
     title: [OpenStreetMap],
-    subtitle: [Eine kleine Einführung],
+    subtitle: [Mehr Souveränität bei Karten und Geodaten],
     author: [Hauke Stieler],
     date: datetime.today(),
     contact: [OSM: #link("https://www.openstreetmap.org/user/hauke-stieler")[hauke-stieler]],
@@ -29,7 +29,6 @@ Zu mir:
 - Hauke Stieler
 - Softwareentwickler
 - Seit 2019 bei OpenStreetMap
-  - >770.000 Änderungen vorgenommen
 
 #pause
 
@@ -40,7 +39,7 @@ Zu mir:
 #focus-slide[
   *Mal angenommen*
 
-  wir würden kein Google Maps mehr nutzen ... was dann?
+  es gäbe kein Google Maps mehr ... was dann?
 ]
 
 == ÖPNV?
@@ -107,10 +106,10 @@ Zu mir:
 Konkret:
 
 - *Community-Projekt und Datenbank für Geodaten*
-- Frei zugänglich
 - 2004 gegründet
+- Dienste und Daten frei zugänglich
 - Community getrieben
-- Rein über Spenden finanziert
+- Spendenfinanziert
 - OpenStreetMap Foundation
   - Verwaltet Spenden
   - Übernimmt Hosting
@@ -149,21 +148,6 @@ Konkret:
     node((8cm,-3cm), [#image("images/company.png", width: 1cm)], name: <companyOut>),
   )
 ]
-
-== Und was sind "Geodaten" genau?
-
-*Kurzum:* Alles mit Koordinaten.
-
-#v(2cm)
-
-#pause
-
-Vier Objektarten reichen dafür aus:
-
-- Bäume, Ampeln, Geschäfte, ... → Punkte
-- Straßen, Wanderwege, Flüsse, ... → Linien
-- Gebäude, Seen, Wälder, Wohngebiete, ... → Flächen
-- Busrouten, komplexe Geometrien, ... → Relationen
 
 == Und warum ist OSM jetzt so toll?
 
@@ -207,9 +191,10 @@ Wahrscheinlich nutzt du OSM bereits:
 
 App Beispiele:
 
-- OsmAnd #side-note[alles mögliche)]
-- OrganicMaps / CoMaps #side-note[POIs und Routing)]
-- Komoot #side-note[Outdoor-Aktivitäten)]
+- OsmAnd #side-note[alles mögliche]
+- OrganicMaps / CoMaps #side-note[POIs und Routing]
+- Komoot #side-note[Outdoor-Aktivitäten]
+- Magic Earth #side-note[Navigation]
 - uvm.
 
 #pagebreak()
@@ -217,9 +202,10 @@ App Beispiele:
 Website Beispiele:
 
 - openstreetmap.org
-- osmapp.org #side-note[POIs]
+- osmapp.org / mapcarta.com #side-note[POIs]
 - maps.openrouteservice.org #side-note[Routing]
 - wheelmap.org #side-note[Barrierefreiheit]
+- waymarkedtrails.org #side-note[Outdoor-Aktivitäten]
 - uvm.
 
 #pagebreak()
@@ -230,56 +216,61 @@ Website Beispiele:
 
 Wo bekomme ich die Daten her?
 
-- planet.openstreetmap.org #side-note[sämtliche Daten]
-- openstreetmap.org #side-note[kleinere Gebiete]
-- Geofabrik #side-note[große Datenbank Dumps]
+- openstreetmap.org #side-note[kleinere Gebiete, z.B. ein Dorf]
+- Geofabrik #side-note[große Datenbank Dumps, z.B. ein Land]
+- planet.openstreetmap.org #side-note[sämtliche Daten und Metadaten]
 - Overpass #side-note[Abfragen]
 
 #pagebreak()
 
-Viele Tools und Frameworks können mit OSM-Daten umgehen:
+Tools und Frameworks in Hülle und Fülle (Auszug):
 
 - osm2pgsql #side-note[Import in eine PostGIS Datenbank]
 - Osmosis, Osmium, ogr2ogr #side-note[filtern, analysieren, umwandeln]
 - QGIS, GRASS GIS, Geoserver #side-note[GIS-Anwendungen und -Server]
 - Geotools, OpenLayers, MapLibre #side-note[Frameworks zur Verarbeitung und Darstellung]
+- tilemaker, Planetiler, tileserver-gl, Martin #side-note[Hosting]
+- Nominatim, Photon #side-note[Geocoding]
+- GraphHopper, OSRM, BRouter #side-note[Routing]
 
-Weitere Infos und Tools auf #link("https://switch2osm.org/")[switch2osm.org]
+#pagebreak()
+
+#align(center)[Weitere Infos und Tools:\ \ #link("https://switch2osm.org/")[switch2osm.org]]
 
 = Wie kann ich selbst beitragen?
 
+== Aller Anfang ist leicht
+
 Das geht sogar ohne Account:
 
-- Auf #link("https://osm.org/")[osm.org] gehen → Rechtsklick → "Einen Hinweis/Kartenfehler hier melden"\
-  - Wichtig: Möglichst viele Infos mit angeben.
-  - Antworten kann man nur mit eigenem Konto.
+#align(center)[#image("images/osm-org-hinweis.png", width: 100%)]
 
 #pagebreak()
 
-Besser geht es mit Account:
+#grid(
+  columns: (60%, 40%),
+  grid.cell(
+    text[
+      Besser geht es mit Account:
 
-- Auf #link("https://osm.org/")[osm.org] registrieren/anmelden
-- Editor/App der Wahl installieren
-- Los gehts
-
-*Hinweis:* Alle gespeicherten/hochgeladenen Änderungen sind sofort Live!
-
-#pagebreak()
-
-Aber welchen Editor/welche App soll ich nehmen?
-
-- StreetComplete #side-note[Gut für Einsteiger + made in Hamburg]
-- OsmAnd, Go Map!!, Every Door #side-note[benötigen etwas mehr Wissen zu OSM]
-- iD #side-note[Web-Editor, direkt auf osm.org nutzbar]
-- JOSM #side-note[Profi-Editor]
-
-Mehr Apps und Editoren auf #link("https://osm-apps.org")[osm-apps.org]
-
-#pagebreak()
-
-#align(center)[Weitere Infos, um tiefer einzusteigen:\ \ #link("https://learnosm.org/")[learnosm.org]]
+      - Auf #link("https://osm.org/")[osm.org] registrieren/anmelden
+      - App der Wahl installieren (z.B. StreetComplete)
+      - Los gehts
+    ]
+  ),
+  grid.cell(
+    figure(
+      align(center)[#image("images/streetcomplete.png", height: 80%)],
+      caption: [StreetComplete],
+    )
+  )
+)
 
 #pagebreak()
+
+#align(center)[Wer tiefer einsteigen möchte:\ \ #link("https://learnosm.org/")[learnosm.org]]
+
+= Sonst noch was?
 
 Forum:\
 #link("https://community.openstreetmap.org/")[community.openstreetmap.org]
@@ -302,3 +293,27 @@ Jeden 2. Dienstag im Monat um 19:00\
     ]
   ]
 ]
+
+== Was sind eigentlich "Geodaten"?
+
+*Kurzum:* Alles mit Koordinaten.
+
+#v(2cm)
+
+Vier Objektarten reichen dafür aus:
+
+- Bäume, Ampeln, Geschäfte, ... → Punkte
+- Straßen, Wanderwege, Flüsse, ... → Linien
+- Gebäude, Seen, Wälder, Wohngebiete, ... → Flächen
+- Busrouten, komplexe Geometrien, ... → Relationen
+
+== Beitragen -- was muss man beachten?
+
+- Alle gespeicherten/hochgeladenen Änderungen sind sofort Live
+- Seid umsichtig und reagiert auf Feedback/Nachrichten
+- Nicht einfach so aus anderen Karten/Quellen kopieren
+
+== Daten nutzen -- was muss man beachten?
+
+- Wenn ihr OSM nutzt: Gebt es als Quelle an (Attribution)
+- Weitergabe und Verarbeitung gemäß der ODbL 1.0

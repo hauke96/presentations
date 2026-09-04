@@ -45,5 +45,17 @@ for theme_name in themes:
   print(f"Theme '{theme_name}' - export")
   exporter.exportToImage(output_file, export_settings)
 
+# Overview
+print("Export 'overview' layout")
+
+layout = layout_manager.layoutByName("overview")
+
+output_file = f"./overview.jpg"
+export_settings = QgsLayoutExporter.ImageExportSettings()
+export_settings.dpi = 300
+
+exporter = QgsLayoutExporter(layout)
+exporter.exportToImage(output_file, export_settings)
+
 print("All themes exported successfully!")
 qgs.exitQgis()
