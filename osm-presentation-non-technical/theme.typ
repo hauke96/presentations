@@ -186,16 +186,18 @@
       {
         components.left-and-right(
           {
-            text(size: 1.3em, weight: "medium", info.title)
+            text(size: 2em, weight: "medium", info.title)
             if info.subtitle != none {
               linebreak()
               v(0em)
-              text(size: 0.9em, info.subtitle)
+              text(size: 1.1em, info.subtitle)
             }
+            v(0.5em)
           },
-          text(2em, utils.call-or-display(self, info.logo)),
+          info.logo,
         )
         line(length: 100%, stroke: self.store.line-thickness + self.colors.primary)
+        v(1em)
         set text(size: .8em)
         if info.author != none {
           block(spacing: 1em, info.author)
@@ -203,7 +205,6 @@
         if info.date != none {
           block(spacing: 1em, utils.display-info-date(self))
         }
-        set text(size: .8em)
         if info.institution != none {
           block(spacing: 1em, info.institution)
         }

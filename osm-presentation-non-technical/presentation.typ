@@ -12,11 +12,12 @@
     title: [OpenStreetMap],
     subtitle: [Mehr Souveränität bei Karten und Geodaten],
     author: [Hauke Stieler],
-    date: datetime.today(),
-    contact: [OSM: #link("https://www.openstreetmap.org/user/hauke-stieler")[hauke-stieler]],
-    logo: image("osm-logo.svg", height: 1.25em),
+    contact: [OSM Nutzername: #link("https://www.openstreetmap.org/user/hauke-stieler")[hauke-stieler]],
+    logo: image("osm-logo.svg", height: 4em),
   ),
   footer-right: none,
+  footer-progress: false,
+  header-right: image("osm-logo.svg", height: 1.25em)
 )
 
 #set figure(numbering: none)
