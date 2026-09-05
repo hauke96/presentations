@@ -189,6 +189,7 @@
             text(size: 1.3em, weight: "medium", info.title)
             if info.subtitle != none {
               linebreak()
+              v(0em)
               text(size: 0.9em, info.subtitle)
             }
           },

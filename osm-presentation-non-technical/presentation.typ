@@ -1,8 +1,13 @@
 #import "theme.typ": *
 #import "@preview/fletcher:0.5.8" as fletcher: *
 
+#set text(lang: "de")
+
 #show: metropolis-theme.with(
   aspect-ratio: "16-9",
+  config-common(
+    datetime-format: "[day].[month].[year]",
+  ),
   config-info(
     title: [OpenStreetMap],
     subtitle: [Mehr Souveränität bei Karten und Geodaten],
@@ -22,7 +27,7 @@
 
 #title-slide()
 
-== Kurz vorneweg ...
+== Kurz vorweg ...
 
 Zu mir:
 
@@ -86,7 +91,7 @@ Zu mir:
 #focus-slide[
   *Momentchen mal*
 
-  wenn wir kein Google Maps nutzen, wo kommen die Karten her?
+  wenn nicht von Google, wo kommen dann die Karten her?
 ]
 
 == OpenStreetMap
@@ -182,9 +187,10 @@ Wahrscheinlich nutzt du OSM bereits:
 - Deutsche Bahn
 - DHL
 - Facebook
-- Amazon
+- Amazon #pause
+- Rettungsdienste
 - Wikipedia / Wikimedia
-- Diverse (die meisten?) Webseiten und Apps
+- Diverse (die meisten?) Webseiten und Apps #pause
 - Indirekte Nutzungen
 
 == Aktiv OSM nutzen
