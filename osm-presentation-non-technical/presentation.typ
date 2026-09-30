@@ -113,7 +113,7 @@ Konkret:
 
 - *Community-Projekt und Datenbank für Geodaten*
 - 2004 gegründet
-- Dienste und Daten frei zugänglich
+- Dienste, Daten und Code frei zugänglich
 - Community getrieben
 - Spendenfinanziert
 - OpenStreetMap Foundation
