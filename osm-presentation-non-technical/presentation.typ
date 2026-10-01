@@ -301,6 +301,13 @@ Jeden 2. Dienstag im Monat um 19:00\
   ]
 ]
 
+== Foliensatz
+
+#align(center)[
+  #image("images/qr-code.svg", width: 10em)
+  #link("https://hauke-stieler.de/public/didays-osm.pdf", `https://hauke-stieler.de/public/didays-osm.pdf`)
+]
+
 == Was sind eigentlich "Geodaten"?
 
 *Kurzum:* Alles mit Koordinaten.
