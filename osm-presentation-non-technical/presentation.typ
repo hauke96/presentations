@@ -178,21 +178,45 @@ Konkret:
 #align(center)[#image("karte/layout_wheel.jpg", height: 100% - 2em) Barrierefreie Geschäfte/Angebote]
 #pagebreak()
 
+== Ist wirklichg _alles_ mögliche in OSM?
+
+Was OSM nicht enthält:
+
+- Echtzeitdaten
+- Privates (Hausnummern ja; Namen nein)
+- Subjektive Eigenschaften
+
 = Wie kann ich OSM nutzen?
 
 == Wir nutzen das alle ganz automatisch
 
-Wahrscheinlich nutzt du OSM bereits:
 
-- HVV
-- Deutsche Bahn
-- DHL
-- Facebook
-- Amazon #pause
-- Rettungsdienste
-- Wikipedia / Wikimedia
-- Diverse (die meisten?) Webseiten und Apps #pause
-- Indirekte Nutzungen
+#grid(
+  columns: (60%, 40%),
+  grid.cell(
+    text[
+      Wahrscheinlich nutzt du OSM bereits:
+
+      - HVV
+      - Deutsche Bahn
+      - DHL
+      - Facebook
+      - Amazon #pause
+      - Wikipedia / Wikimedia
+      - Diverse (die meisten?) Webseiten und Apps #pause
+      - Indirekte Nutzungen (z.B. Rettungsdienste)
+    ]
+  ),
+  grid.cell(
+    only(
+      "1-",
+      figure(
+        align(center)[#image("images/hvv-switch.png", height: 80%)],
+        caption: [HVV Switch App],
+      )
+    )
+  )
+)
 
 == Aktiv OSM nutzen
 
