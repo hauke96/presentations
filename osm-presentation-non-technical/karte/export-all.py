@@ -57,5 +57,17 @@ export_settings.dpi = 300
 exporter = QgsLayoutExporter(layout)
 exporter.exportToImage(output_file, export_settings)
 
+# Overview two-sided
+print("Export 'overview-two-sided' layout")
+
+layout = layout_manager.layoutByName("overview-two-sided")
+
+output_file = f"./overview-two-sided.jpg"
+export_settings = QgsLayoutExporter.ImageExportSettings()
+export_settings.dpi = 300
+
+exporter = QgsLayoutExporter(layout)
+exporter.exportToImage(output_file, export_settings)
+
 print("All themes exported successfully!")
 qgs.exitQgis()

@@ -217,6 +217,10 @@ Was OSM nicht enthält:
   )
 )
 
+#pagebreak()
+
+#align(center)[#image("karte/overview-two-sided.jpg", height: 100% - 2em) OpenStreetMap Standardkarte]
+
 == Aktiv OSM nutzen
 
 App Beispiele:
