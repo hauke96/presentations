@@ -38,7 +38,10 @@ Zu mir:
 
 #pause
 
-*Hinweis:* Erwähnungen von Apps / Anwendungen / Websites sind rein beispielhaft und keine Werbung oder Empfehlung.
+Hinweise:
+
+- Erwähnungen von Apps / Anwendungen / Websites sind rein beispielhaft und keine Werbung oder Empfehlung.
+- Link zu den Folien am Ende
 
 == Mal angenommen ...
 
@@ -113,12 +116,10 @@ Konkret:
 
 - *Community-Projekt und Datenbank für Geodaten*
 - 2004 gegründet
-- Dienste, Daten und Code frei zugänglich
-- Community getrieben
+- Dienste, Daten und Code frei zugänglich #pause
+- \~99% ehrenamtlich
 - Spendenfinanziert
-- OpenStreetMap Foundation
-  - Verwaltet Spenden
-  - Übernimmt Hosting
+- OpenStreetMap Foundation (Spenden, Hosting, rechliches)
 
 == Wie Wikipedia, nur für Karten
 
@@ -189,7 +190,6 @@ Was OSM nicht enthält:
 = Wie kann ich OSM nutzen?
 
 == Wir nutzen das alle ganz automatisch
-
 
 #grid(
   columns: (60%, 40%),
