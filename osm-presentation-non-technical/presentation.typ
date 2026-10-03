@@ -197,13 +197,12 @@ Was OSM nicht enthält:
     text[
       Wahrscheinlich nutzt du OSM bereits:
 
-      - HVV
-      - Deutsche Bahn
-      - DHL
-      - Facebook
-      - Amazon #pause
+      - HVV, BVG, Deutsche Bahn
+      - DHL, Amazon
+      - Facebook #pause
       - Wikipedia / Wikimedia
-      - Diverse (die meisten?) Webseiten und Apps #pause
+      - Diverse (die meisten?) Webseiten #pause
+      - Behörden, Ämter (z.B. BKG, BVM, LGV) #pause
       - Indirekte Nutzungen (z.B. Rettungsdienste)
     ]
   ),
