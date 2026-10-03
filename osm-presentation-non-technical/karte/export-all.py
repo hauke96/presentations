@@ -52,7 +52,7 @@ layout = layout_manager.layoutByName("overview")
 
 output_file = f"./overview.jpg"
 export_settings = QgsLayoutExporter.ImageExportSettings()
-export_settings.dpi = 300
+export_settings.dpi = 150
 
 exporter = QgsLayoutExporter(layout)
 exporter.exportToImage(output_file, export_settings)
